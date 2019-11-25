@@ -7,6 +7,7 @@
 	<title>Dodawanie treningu klasycznego</title>
 	<link rel="Stylesheet" href="../style.css">
 	<link rel="Stylesheet" href="../fontello/css/fontello.css">
+	<script defer src="../js/dodaj_uczestnika.js"></script>
 	<style>
 		.content
 		{
@@ -79,29 +80,32 @@
 					</header>
 					<article>
 						<div class="page">
-							<form action="dodaj_trening_klasyczny.php" method="post">
-							<div class="settings">
-								<fieldset>
-									<legend> Trening </legend>
-									<label> Data treningu <input type="date" name="date"></label><br />
-									<label> Godzina treningu <input type="time" name="time" step="1"></label><br />
-									<label for="grupa"> Dla jakiej grupy chcesz stworzyć trening? </label>
-									<select id="grupa" name="grupa">
-										<option value="1">Grupa 1</option>
-										<option value="2">Grupa 2</option>
-										<option value="3">Grupa 3</option>
-									</select><br />
-									<label for="trener"> Kto będzie prowadził trening? </label>
-									<select id="trener" name="trener">
-										<option value="1">Trener 1</option>
-										<option value="2">Trener 2</option>
-										<option value="3">Trener 3</option>
-									</select>
-								</fieldset>
-							</div>
-							<div class="settings">
-								<input type="submit" value="Dodaj">
-							</div>
+							<form action="dodaj_trening_klasyczny.php" id="form" method="post">
+								<div class="settings">
+									<fieldset>
+										<legend> Trening </legend>
+										<label> Data treningu <input type="date" id="data" class="form"></label><br />
+										<div id="errorMessage1" class="errorMessage"></div>
+										<label> Godzina treningu <input type="time" id="godzina" class="form" step="1"></label><br />
+										<div id="errorMessage2" class="errorMessage"></div>
+										<label for="grupa"> Dla jakiej grupy chcesz stworzyć trening? </label>
+										<select id="grupa" name="grupa">
+											<option value="1">Grupa 1</option>
+											<option value="2">Grupa 2</option>
+											<option value="3">Grupa 3</option>
+										</select><br />
+										<label for="trener"> Kto będzie prowadził trening? </label>
+										<select id="trener" name="trener">
+											<option value="1">Trener 1</option>
+											<option value="2">Trener 2</option>
+											<option value="3">Trener 3</option>
+										</select>
+									</fieldset>
+								</div>
+								<div class="settings">
+									<input type="submit" value="Dodaj">
+								</div>
+								<div id ="errorSummary"></div>
 							</form>
 						</div>
 					</article>

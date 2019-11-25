@@ -80,17 +80,19 @@
 					<article>
 						<div class="page">
 							<form action="dodaj_trening_internetowy.php" method="post">
-							<div class="settings">
-								<fieldset>
-									<legend> Trening internetowy</legend>
-									<input type="text" name="text" placeholder="Wpisz id treningu" required><br />
-									<label> Początek treningu <input type="date" name="startDate"></label><br />
-									<label> Koniec treningu <input type="date" name="finishDate"></label><br />
-								</fieldset>
-							</div>
-							<div class="settings">
-								<input type="submit" value="Dodaj">
-							</div>
+								<div class="settings">
+									<fieldset>
+										<legend> Trening internetowy</legend>
+										<label>Początek treningu <input type="date" id="startDate" class="form"></label><br />
+										<div id="errorMessage1" class="errorMessage"></div>
+										<label> Koniec treningu <input type="date" id="finishDate" class="form"></label><br />
+										<div id="errorMessage2" class="errorMessage"></div>
+									</fieldset>
+								</div>
+								<div class="settings">
+									<input type="submit" value="Dodaj">
+								</div>
+								<div id ="errorSummary"></div>
 							</form>
 						</div>
 					</article>
