@@ -7,6 +7,7 @@
 	<title>Dodawanie uczestnika</title>
 	<link rel="Stylesheet" href="../style.css">
 	<link rel="Stylesheet" href="../fontello/css/fontello.css">
+	<script defer src="../js/dodaj_uczestnika.js"></script>
 	<style>
 		.content
 		{
@@ -79,18 +80,22 @@
 					</header>
 					<article>
 						<div class="page">
-							<form action="dodaj_uczestnika.php" method="post">
-							<div class="settings">
-								<fieldset>
-									<legend> Nowy uczestnik </legend>
-									<input type="text" name="text" placeholder="Wpisz login uczestnika" required><br />
-									<input type="password" name="haslo" placeholder="Wpisz hasło uczestnika" required><br />
-									<input type="password" name="haslo1" placeholder="Powtórz hasło" required>
-								</fieldset>
-							</div>
-							<div class="settings">
-								<input type="submit" value="Dodaj">
-							</div>
+							<form action="dodaj_uczestnika.php" id="form" method="post">
+								<div class="settings">
+									<fieldset>
+										<legend> Nowy uczestnik </legend>
+										<input type="text" id="nazwa" class="form" placeholder="Wpisz login uczestnika"><br />
+										<div id="errorMessage1" class="errorMessage"></div>
+										<input type="password" id="haslo" class="form" placeholder="Wpisz hasło uczestnika"><br />
+										<div id="errorMessage2" class="errorMessage"></div>
+										<input type="password" id="haslo2" class="form" placeholder="Powtórz hasło">
+										<div id="errorMessage3" class="errorMessage"></div>
+									</fieldset>
+								</div>
+								<div class="settings">
+									<input type="submit" value="Dodaj">
+								</div>
+								<div id ="errorSummary"></div>
 							</form>
 						</div>
 					</article>

@@ -7,6 +7,7 @@
 	<title>Dodawanie grupy</title>
 	<link rel="Stylesheet" href="../style.css">
 	<link rel="Stylesheet" href="../fontello/css/fontello.css">
+	<script defer src="../js/dodaj_grupe.js"></script>
 	<style>
 		.content
 		{
@@ -79,16 +80,18 @@
 					</header>
 					<article>
 						<div class="page">
-							<form action="dodaj_grupe.php" method="post">
-							<div class="settings">
-								<fieldset>
-									<legend> Nowa grupa </legend>
-									<input type="text" name="text" placeholder="Wpisz nazwę grupy" required><br />
-								</fieldset>
-							</div>
-							<div class="settings">
-								<input type="submit" value="Dodaj">
-							</div>
+							<form action="dodaj_grupe.php" id="form" method="post">
+								<div class="settings">
+									<fieldset>
+										<legend> Nowa grupa </legend>
+										<input type="text" id="nazwa" class="form" placeholder="Wpisz nazwę grupy"><br />
+										<div id="errorMessage" class="errorMessage"></div>
+									</fieldset>
+								</div>
+								<div class="settings">
+									<input type="submit" value="Dodaj">
+								</div>
+								<div id ="errorSummary"></div>
 							</form>
 						</div>
 					</article>

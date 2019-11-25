@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6169ae36-a867-49e2-a7d1-580232f46233" name="Default Changelist" comment="" />
+    <list default="true" id="6169ae36-a867-49e2-a7d1-580232f46233" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/js/dodaj_grupe.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/dodaj_trening.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/dodaj_uczestnika.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/administrator/a_dodaj_grupe.html" beforeDir="false" afterPath="$PROJECT_DIR$/administrator/a_dodaj_grupe.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/administrator/a_dodaj_uczestnika.html" beforeDir="false" afterPath="$PROJECT_DIR$/administrator/a_dodaj_uczestnika.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/debug.log" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +28,9 @@
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="ProjectId" id="1U6h5rQ3JPIZsNYeOJLvICwLq9Z" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="C:/Program Files/Git/bin/git.exe" />
@@ -49,6 +59,7 @@
       <option name="presentableId" value="Default" />
       <updated>1574682771418</updated>
       <workItem from="1574682773927" duration="5119000" />
+      <workItem from="1574691283389" duration="1966000" />
     </task>
     <servers />
   </component>
@@ -60,7 +71,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
