@@ -13,15 +13,29 @@ form.addEventListener("submit", (e) =>
 		number1.className = "iloscError";
 		messages.push("-Nie możesz wpisać ujemnej liczby!");
 	}
+	else
+	{
+		number1.className = "ilosc";
+	}
+
 	if(number2.value < 0)
 	{
 		number2.className = "iloscError";
 		messages.push("-Nie możesz wpisać ujemnej liczby!");
 	}
+	else
+	{
+		number2.className = "ilosc";
+	}
+
 	if(number3.value < 0)
 	{
 		number3.className = "iloscError";
 		messages.push("-Nie możesz wpisać ujemnej liczby!");
+	}
+	else
+	{
+		number3.className = "ilosc";
 	}
 	
 	if(messages.length > 0)

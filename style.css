@@ -314,8 +314,8 @@ h6
 	color: #000000;
 	overflow-y: scroll;
 	overflow-x: hidden;
-	margin-top: 30px;
-	margin-bottom: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 ol
@@ -423,7 +423,8 @@ input[type=password].form,
 input[type=email].form,
 input[type=tel].form,
 input[type=date].form,
-input[type=time].form
+input[type=time].form,
+input[type=number].form
 {
 	width: 300px;
 	background-color: #efefef;
@@ -433,8 +434,8 @@ input[type=time].form
 	font-size: 20px;
 	padding: 10px;
 	outline: none;
-	margin-top: 15px;
-	margin-bottom: 15px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 input[type=text].form:focus,
@@ -442,7 +443,8 @@ input[type=password].form:focus,
 input[type=email].form:focus,
 input[type=tel].form:focus,
 input[type=date].form:focus,
-input[type=time].form:focus
+input[type=time].form:focus,
+input[type=number].form:focus
 {
 	border: 2px dotted #d17c40;
 	background-color: #f7dfa6;
@@ -559,8 +561,8 @@ input[type=number].ilosc:focus
 	font-size: 20px;
 	padding: 10px;
 	outline: none;
-	margin-top: 15px;
-	margin-bottom: 15px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 #cwiczenie:focus, #grupa:focus, #trener:focus, #trening:focus

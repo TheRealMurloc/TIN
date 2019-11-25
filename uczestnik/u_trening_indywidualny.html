@@ -7,6 +7,7 @@
 	<title>Trening indywidualny</title>
 	<link rel="Stylesheet" href="../style.css">
 	<link rel="Stylesheet" href="../fontello/css/fontello.css">
+	<script defer src="../js/trening_aktualizacja.js"></script>
 	<style>
 		.content
 		{
@@ -83,7 +84,7 @@
 					</header>
 					<article>
 						<div class="page">
-							<form action="trening_grupowy.php" method="post">
+							<form action="trening_grupowy.php" id="form" method="post">
 								<div class="table">
 									<table>
 										<tr>
@@ -100,7 +101,7 @@
 											<td>100</td>
 											<td>20</td>
 											<td>40</td>
-											<td><input class="ilosc" type="number" name="number1" placeholder="Ilość"></td>
+											<td><input class="ilosc" type="number" id="number1" placeholder="Ilość"></td>
 											<td>40% <meter min="0" max="100" title="procent" value="40" low="30" high="70" optimum="100"></meter></td>
 											<td><span style="color:#bb0;">Średni</span></td>
 										</tr>
@@ -109,15 +110,25 @@
 											<td>100</td>
 											<td>20</td>
 											<td>20</td>
-											<td><input class="ilosc" type="number" name="number1" placeholder="Ilość"></td>
+											<td><input class="ilosc" type="number" id="number2" placeholder="Ilość"></td>
 											<td>20% <meter min="0" max="100" title="procent" value="20" low="30" high="70" optimum="100"></meter></td>
 											<td><span style="color:#d00;">Niski</span></td>
+										</tr>
+										<tr>
+											<td>Deska(min)</td>
+											<td>10</td>
+											<td>2</td>
+											<td>8</td>
+											<td><input class="ilosc" type="number" id="number3" placeholder="Ilość"></td>
+											<td>80% <meter min="0" max="100" title="procent" value="80" low="30" high="70" optimum="100"></meter></td>
+											<td><span style="color:#0d0;">Wysoki</span></td>
 										</tr>
 									</table>
 								</div>
 								<div class="settings">
 									<input type="submit" value="Zaktualizuj">
 								</div>
+								<div id ="errorSummary"></div>
 							</form>
 						</div>
 					</article>

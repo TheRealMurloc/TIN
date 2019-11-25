@@ -7,6 +7,7 @@
 	<title>Feedback</title>
 	<link rel="Stylesheet" href="../style.css">
 	<link rel="Stylesheet" href="../fontello/css/fontello.css">
+	<script defer src="../js/feedback.js"></script>
 	<style>
 		.content
 		{
@@ -35,13 +36,13 @@
 								<li><a href="t_ranking_grupowy.html">Grupowy</a></li>
 							</ul>
 						</li>
-						<li><a href="t_nowe_cwiczenie.html">Dodaj ćwiczenie</a></li>
-						<li><a href="#">Dodaj trening</a>
+						<li><a href="t_nowe_cwiczenie.html">Nowe ćwiczenie</a></li>
+						<li><a href="#">Dodaj ćwiczenie</a>
 							<ul>
-								<li><a href="t_trening_grupa.html">Grupowy</a></li>
+								<li><a href="t_dodaj_cwiczenie_grupa.html">Grupowe</a></li>
 							</ul>
 							<ul>
-								<li><a href="t_trening_indywidualny.html">Indywidualny</a></li>
+								<li><a href="t_dodaj_cwiczenie_indywidualne.html">Indywidualne</a></li>
 							</ul>
 						</li>
 						<li><a href="t_lista_obecnosci.html">Lista obecności</a></li>
@@ -75,16 +76,18 @@
 					</header>
 					<article>
 						<div class="page">
-							<form action="feedback.php" method="post">
-							<div class="settings">
-								<fieldset>
-									<legend> Feedback </legend>
-									<textarea name="feedback" id="komentarz" rows="5" cols="80" maxlength="255" placeholder="Wpisz tutaj swój feedback :D"></textarea>
-								</fieldset>
-							</div>
-							<div class="settings">
-								<input type="submit" value="Wyślij">
-							</div>
+							<form action="feedback.php" id="form" method="post">
+								<div class="settings">
+									<fieldset>
+										<legend> Feedback </legend>
+										<textarea name="feedback" id="komentarz" rows="5" cols="80" maxlength="255" placeholder="Wpisz tutaj swój feedback :D"></textarea>
+										<div id="errorMessage" class="errorMessage"></div>
+									</fieldset>
+								</div>
+								<div class="settings">
+									<input type="submit" value="Wyślij">
+								</div>
+								<div id ="errorSummary"></div>
 							</form>
 						</div>
 					</article>
