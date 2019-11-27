@@ -7,16 +7,7 @@
 	<title>Edytowanie treningu grupowego</title>
 	<link rel="Stylesheet" href="../style.css">
 	<link rel="Stylesheet" href="../fontello/css/fontello.css">
-	<style>
-		.content
-		{
-			width: 938px;
-		}
-		.page
-		{
-			width: 880px;
-		}
-	</style>
+	<script defer src="../js/edytuj_trening.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -79,7 +70,8 @@
 					</header>
 					<article>
 						<div class="page">
-							<form action="a_edytowanie_treningu_grupowego.php" method="post">
+							<form action="a_edytowanie_treningu_grupowego.php" id="form" method="post">
+								<div id ="errorSummary"></div>
 								<div class="settings">
 									<input type="submit" value="Zaktualizuj">
 								</div>
@@ -96,19 +88,19 @@
 										</tr>
 										<tr>
 											<td>Pompki</td>
-											<td><input class="ilosc" type="number" name="number1" placeholder="3"></td>
-											<td><input class="ilosc" type="number" name="number2" placeholder="20"></td>
+											<td><input class="ilosc" type="number" id="number1" placeholder="3"></td>
+											<td><input class="ilosc" type="number" id="number2" placeholder="20"></td>
 											<td><input type="button" value="Usuń" onClick="location.href='a_usuwanie_treningu_indywidualnego.php';" /></td>
 										</tr>
 										<tr>
 											<td>Brzuszki</td>
-											<td><input class="ilosc" type="number" name="number3" placeholder="3"></td>
-											<td><input class="ilosc" type="number" name="number4" placeholder="30"></td>
+											<td><input class="ilosc" type="number" id="number3" placeholder="3"></td>
+											<td><input class="ilosc" type="number" id="number4" placeholder="30"></td>
 											<td><input type="button" value="Usuń" onClick="location.href='a_usuwanie_treningu_indywidualnego.php';" /></td>
 										</tr>
 									</table>
 								</div>
-									<div class="table">
+								<div class="table">
 									<table>
 										<tr>
 											<th colspan="6">Grupa 2</th>
@@ -121,19 +113,19 @@
 										</tr>
 										<tr>
 											<td>Pompki</td>
-											<td><input class="ilosc" type="number" name="number1" placeholder="3"></td>
-											<td><input class="ilosc" type="number" name="number2" placeholder="20"></td>
+											<td><input class="ilosc" type="number" id="number5" placeholder="3"></td>
+											<td><input class="ilosc" type="number" id="number6" placeholder="20"></td>
 											<td><input type="button" value="Usuń" onClick="location.href='a_usuwanie_treningu_indywidualnego.php';" /></td>
 										</tr>
 										<tr>
 											<td>Brzuszki</td>
-											<td><input class="ilosc" type="number" name="number3" placeholder="3"></td>
-											<td><input class="ilosc" type="number" name="number4" placeholder="30"></td>
+											<td><input class="ilosc" type="number" id="number7" placeholder="3"></td>
+											<td><input class="ilosc" type="number" id="number8" placeholder="30"></td>
 											<td><input type="button" value="Usuń" onClick="location.href='a_usuwanie_treningu_indywidualnego.php';" /></td>
 										</tr>
 									</table>
-								</form>
-							</div>
+								</div>
+							</form>
 						</div>
 					</article>
 				</div>

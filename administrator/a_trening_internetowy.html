@@ -7,16 +7,7 @@
 	<title>Dodawanie treningu internetowego</title>
 	<link rel="Stylesheet" href="../style.css">
 	<link rel="Stylesheet" href="../fontello/css/fontello.css">
-	<style>
-		.content
-		{
-			width: 938px;
-		}
-		.page
-		{
-			width: 880px;
-		}
-	</style>
+	<script defer src="../js/dodaj_trening_internetowy.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -79,7 +70,7 @@
 					</header>
 					<article>
 						<div class="page">
-							<form action="dodaj_trening_internetowy.php" method="post">
+							<form action="dodaj_trening_internetowy.php" id="form" method="post">
 								<div class="settings">
 									<fieldset>
 										<legend> Trening internetowy</legend>
@@ -89,10 +80,10 @@
 										<div id="errorMessage2" class="errorMessage"></div>
 									</fieldset>
 								</div>
+								<div id ="errorSummary"></div>
 								<div class="settings">
 									<input type="submit" value="Dodaj">
 								</div>
-								<div id ="errorSummary"></div>
 							</form>
 						</div>
 					</article>

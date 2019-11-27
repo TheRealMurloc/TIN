@@ -7,17 +7,7 @@
 	<title>Dodawanie treningu klasycznego</title>
 	<link rel="Stylesheet" href="../style.css">
 	<link rel="Stylesheet" href="../fontello/css/fontello.css">
-	<script defer src="../js/dodaj_uczestnika.js"></script>
-	<style>
-		.content
-		{
-			width: 938px;
-		}
-		.page
-		{
-			width: 880px;
-		}
-	</style>
+	<script defer src="../js/dodaj_trening_klasyczny.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -86,7 +76,7 @@
 										<legend> Trening </legend>
 										<label> Data treningu <input type="date" id="data" class="form"></label><br />
 										<div id="errorMessage1" class="errorMessage"></div>
-										<label> Godzina treningu <input type="time" id="godzina" class="form" step="1"></label><br />
+										<label> Godzina treningu <input type="time" id="godzina" class="form" step="60"></label><br />
 										<div id="errorMessage2" class="errorMessage"></div>
 										<label for="grupa"> Dla jakiej grupy chcesz stworzyć trening? </label>
 										<select id="grupa" name="grupa">
@@ -102,10 +92,10 @@
 										</select>
 									</fieldset>
 								</div>
+								<div id ="errorSummary"></div>
 								<div class="settings">
 									<input type="submit" value="Dodaj">
 								</div>
-								<div id ="errorSummary"></div>
 							</form>
 						</div>
 					</article>

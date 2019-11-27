@@ -1,6 +1,3 @@
-
-//NIE DZIALA!!!!
-
 const data = document.getElementById("data");
 const godzina = document.getElementById("godzina");
 const form = document.getElementById("form");
@@ -10,17 +7,34 @@ const errorMessage2 = document.getElementById("errorMessage2");
 
 form.addEventListener("submit", (e) =>
 {
+    let dzis = "";
+    let d = new Date();
+    dzis = dzis + d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
     let messages = [];
-    var dzis = new Date();
-    dzis = dzis.getDate();
-    var time = dzis.getTime();
 
 
-    if(data.value < dzis.value)
+    if(data.value <= dzis || data.value === null)
     {
         data.className = "error";
-        errorMessage1.innerText = "Nie możesz wybrać przeszłej daty!";
-        messages.push("-Nie możesz wybrać przeszłej daty!");
+        errorMessage1.innerText = "Data musi być co najmniej jutrzejsza!";
+        messages.push("-Data musi być co najmniej jutrzejsza!");
+    }
+    else
+    {
+        data.className = "form";
+        errorMessage1.innerText = "";
+    }
+
+    if(godzina.value < "06:00" || godzina.value > "23:00" || godzina.value === null)
+    {
+        godzina.className = "error";
+        errorMessage2.innerText = "Podano złą godzinę!";
+        messages.push("-Podano złą godzinę!");
+    }
+    else
+    {
+        godzina.className = "form";
+        errorMessage2.innerText = "";
     }
 
     if(messages.length > 0)

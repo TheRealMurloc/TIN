@@ -7,16 +7,7 @@
 	<title>Edytowanie treningu indywidualnego</title>
 	<link rel="Stylesheet" href="../style.css">
 	<link rel="Stylesheet" href="../fontello/css/fontello.css">
-	<style>
-		.content
-		{
-			width: 938px;
-		}
-		.page
-		{
-			width: 880px;
-		}
-	</style>
+	<script defer src="../js/edytuj_trening.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -79,7 +70,8 @@
 					</header>
 					<article>
 						<div class="page">
-							<form action="a_edytowanie_treningu_indywidualnego.php" method="post">
+							<form action="a_edytowanie_treningu_indywidualnego.php" id="form" method="post">
+								<div id ="errorSummary"></div>
 								<div class="settings">
 									<input type="submit" value="Zaktualizuj">
 								</div>
@@ -96,19 +88,19 @@
 										</tr>
 										<tr>
 											<td>Bieg(min)</td>
-											<td><input class="ilosc" type="number" name="number1" placeholder="3"></td>
-											<td><input class="ilosc" type="number" name="number2" placeholder="20"></td>
+											<td><input id="number1" class="ilosc" type="number" placeholder="3"></td>
+											<td><input id="number2" class="ilosc" type="number" placeholder="20"></td>
 											<td><input type="button" value="Usuń" onClick="location.href='a_usuwanie_treningu_indywidualnego.php';" /></td>
 										</tr>
 										<tr>
 											<td>Skrętoskłony</td>
-											<td><input class="ilosc" type="number" name="number3" placeholder="3"></td>
-											<td><input class="ilosc" type="number" name="number4" placeholder="30"></td>
+											<td><input id="number3" class="ilosc" type="number" placeholder="3"></td>
+											<td><input id="number4" class="ilosc" type="number" placeholder="30"></td>
 											<td><input type="button" value="Usuń" onClick="location.href='a_usuwanie_treningu_indywidualnego.php';" /></td>
 										</tr>
 									</table>
 								</div>
-									<div class="table">
+								<div class="table">
 									<table>
 										<tr>
 											<th colspan="6">Osoba 2</th>
@@ -121,19 +113,19 @@
 										</tr>
 										<tr>
 											<td>Bieg(min)</td>
-											<td><input class="ilosc" type="number" name="number1" placeholder="3"></td>
-											<td><input class="ilosc" type="number" name="number2" placeholder="20"></td>
+											<td><input id="number5" class="ilosc" type="number" placeholder="3"></td>
+											<td><input id="number6" class="ilosc" type="number" placeholder="20"></td>
 											<td><input type="button" value="Usuń" onClick="location.href='a_usuwanie_treningu_indywidualnego.php';" /></td>
 										</tr>
 										<tr>
 											<td>Skłony</td>
-											<td><input class="ilosc" type="number" name="number3" placeholder="3"></td>
-											<td><input class="ilosc" type="number" name="number4" placeholder="30"></td>
+											<td><input id="number7" class="ilosc" type="number" placeholder="3"></td>
+											<td><input id="number8" class="ilosc" type="number" placeholder="30"></td>
 											<td><input type="button" value="Usuń" onClick="location.href='a_usuwanie_treningu_indywidualnego.php';" /></td>
 										</tr>
 									</table>
-								</form>
-							</div>
+								</div>
+							</form>
 						</div>
 					</article>
 				</div>
