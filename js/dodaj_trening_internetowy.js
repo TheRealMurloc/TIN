@@ -9,7 +9,11 @@ form.addEventListener("submit", (e) =>
 {
     let dzis = "";
     let d = new Date();
-    dzis = dzis + d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
+    dzis = dzis + d.getFullYear() + "-" + (d.getMonth()+1) + "-";
+    if(d.getDate.value < "10")
+        dzis = dzis + d.getDate();
+    else
+        dzis = dzis + "0" + d.getDate();
     let messages = [];
 
     if(startDate.value > finishDate.value)
@@ -24,44 +28,46 @@ form.addEventListener("submit", (e) =>
         errorMessage1.innerText = "";
     }
 
-    if(startDate.value === finishDate.value)
+    if(messages.length === 0)
     {
-        startDate.className = "error";
-        finishDate.className = "error";
-        errorMessage1.innerText = "Początek i koniec treningu nie mogą być w tym samym dniu!";
-        errorMessage2.innerText = "Początek i koniec treningu nie mogą być w tym samym dniu!";
-        messages.push("-Początek i koniec treningu nie mogą być w tym samym dniu!");
-    }
-    else
-    {
-        startDate.className = "form";
-        finishDate.className = "form";
-        errorMessage1.innerText = "";
-        errorMessage2.innerText = "";
-    }
-
-    if(startDate.value < dzis)
-    {
-        startDate.className = "error";
-        errorMessage1.innerText = "Nie możesz wybrać przeszłej daty!";
-        messages.push("-Nie możesz wybrać przeszłej daty!");
-    }
-    else
-    {
-        startDate.className = "form";
-        errorMessage1.innerText = "";
+        if (startDate.value === finishDate.value)
+        {
+            startDate.className = "error";
+            finishDate.className = "error";
+            errorMessage1.innerText = "Początek i koniec treningu nie mogą być w tym samym dniu!";
+            errorMessage2.innerText = "Początek i koniec treningu nie mogą być w tym samym dniu!";
+            messages.push("-Początek i koniec treningu nie mogą być w tym samym dniu!");
+        }
+        else
+        {
+            startDate.className = "form";
+            finishDate.className = "form";
+            errorMessage1.innerText = "";
+            errorMessage2.innerText = "";
+        }
     }
 
-    if(finishDate.value < dzis)
+    if(messages.length === 0)
     {
-        finishDate.className = "error";
-        errorMessage2.innerText = "Nie możesz wybrać przeszłej daty!";
-        messages.push("-Nie możesz wybrać przeszłej daty!");
+        if (startDate.value.toString < dzis) {
+            startDate.className = "error";
+            errorMessage1.innerText = "Nie możesz wybrać przeszłej daty!";
+            messages.push("-Nie możesz wybrać przeszłej daty!");
+        } else {
+            startDate.className = "form";
+            errorMessage1.innerText = "";
+        }
     }
-    else
-    {
-        finishDate.className = "form";
-        errorMessage2.innerText = "";
+
+    if(messages.length === 0) {
+        if (finishDate.value.toString < dzis) {
+            finishDate.className = "error";
+            errorMessage2.innerText = "Nie możesz wybrać przeszłej daty!";
+            messages.push("-Nie możesz wybrać przeszłej daty!");
+        } else {
+            finishDate.className = "form";
+            errorMessage2.innerText = "";
+        }
     }
 
 

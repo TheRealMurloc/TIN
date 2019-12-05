@@ -26,6 +26,13 @@ form.addEventListener("submit", (e) =>
 			errorMessage1.innerText = "Hasło nie może dłuższe niż 24 znaki!";
 			messages.push("-Hasło nie może dłuższe niż 24 znaki!");
 		}
+		
+		if(!haslo.value.match("^[a-zA-Z!-&0-9?-@]"))
+	{
+		haslo.className = "error";
+		errorMessage1.innerText = "Podałeś zły format tekstu!(litery od a do z oraz od A do Z";
+		messages.push("-Podałeś zły format tekstu!(litery od a do z oraz od A do Z");
+	}
 	}
 	else
 	{

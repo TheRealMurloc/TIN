@@ -6,7 +6,6 @@ const errorMessage1 = document.getElementById("errorMessage1");
 form.addEventListener("submit", (e) => 
 {
 	let messages = [];
-
 	if(ksywka.value.length < 3)
 	{
 		ksywka.className = "error";
@@ -19,6 +18,13 @@ form.addEventListener("submit", (e) =>
 		ksywka.className = "error";
 		errorMessage1.innerText = "-Ksywka nie może mieć więcej niz 24 znaki!";
 		messages.push("-Ksywka nie może mieć więcej niz 24 znaki!");
+	}
+	
+	if(!ksywka.value.match("^[a-zA-Z]"))
+	{
+		ksywka.className = "error";
+		errorMessage1.innerText = "Podałeś zły format tekstu!(litery od a do z oraz od A do Z";
+		messages.push("-Podałeś zły format tekstu!(litery od a do z oraz od A do Z");
 	}
 	
 	if(messages.length > 0)
