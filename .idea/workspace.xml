@@ -2,10 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6169ae36-a867-49e2-a7d1-580232f46233" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Routes/api/grupa.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Routes/api/osoba.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Table/Grupa.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Table/Osoba.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/fontello/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/fontello/README.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/fontello/config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/fontello/css/animation.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/fontello/css/fontello-codes.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/fontello/css/fontello-embedded.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/fontello/css/fontello-ie7-codes.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/fontello/css/fontello-ie7.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/fontello/css/fontello.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/fontello/demo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/fontello/font/fontello.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/fontello/font/fontello.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/fontello/font/fontello.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/fontello/font/fontello.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/fontello/font/fontello.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/a_lista_osob.handlebars" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/layouts/main.handlebars" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,10 +60,22 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="javascript.nodejs.core.library.configured.version" value="12.13.1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/css" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ppatryk27\Documents\GitHub\TIN\public\css" />
+      <recent name="C:\Users\Ppatryk27\Documents\GitHub\TIN\views\css" />
+      <recent name="C:\Users\Ppatryk27\Documents\GitHub\TIN\views\layouts" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ppatryk27\Documents\GitHub\TIN\Table" />
+    </key>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -72,7 +107,7 @@
       <workItem from="1575544249010" duration="1714000" />
       <workItem from="1578518316125" duration="120000" />
       <workItem from="1578518443047" duration="2815000" />
-      <workItem from="1578548240636" duration="578000" />
+      <workItem from="1578548240636" duration="15662000" />
     </task>
     <servers />
   </component>
@@ -100,6 +135,10 @@
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
     <state x="465" y="88" key="CommitChangelistDialog2/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1578518421331" />
+    <state x="620" y="259" key="FileChooserDialogImpl" timestamp="1578549410894">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="620" y="259" key="FileChooserDialogImpl/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1578549410894" />
     <state x="341" y="147" key="SettingsEditor" timestamp="1578518432521">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
@@ -108,5 +147,13 @@
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
     <state x="536" y="328" key="com.intellij.ide.util.TipDialog/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1578548246856" />
+    <state x="503" y="217" width="672" height="678" key="search.everywhere.popup" timestamp="1578602619592">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="503" y="217" width="672" height="678" key="search.everywhere.popup/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1578602619592" />
+    <state x="562" y="416" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1578579482007">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="562" y="416" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1578579482007" />
   </component>
 </project>

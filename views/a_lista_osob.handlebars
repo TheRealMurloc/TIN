@@ -1,0 +1,144 @@
+
+<div class="container">
+    <header>
+        <h1 class="logo">System do treningów indywidualnych</h1>
+        <h2 class="header">{{who}}</h2>
+        <nav>
+            <div class="nav">
+                <ol>
+                    <li><a href="../a_strona_glowna.html">Strona główna</a></li>
+                    <li><a href="#">Ranking</a>
+                        <ul>
+                            <li><a href="a_ranking_ogolny.html">Ogólny</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="a_ranking_grupowy.html">Grupowy</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Dodaj trening</a>
+                        <ul>
+                            <li><a href="a_trening_klasyczny.html">Klasyczny</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="a_trening_internetowy.html">Internetowy</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Dodaj inne</a>
+                        <ul>
+                            <li><a href="a_dodaj_uczestnika.html">Uczestnika</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="a_dodaj_grupe.html">Grupę</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="a_przydziel_grupy.html">Przydziel grupy</a></li>
+                    <li><a href="#">Lista</a>
+                        <ul>
+                            <li><a href="a_lista_osob.html">Osób</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="a_lista_grup.html">Grup</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="a_lista_obecnosci.html">Obecności</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="a_lista_cwiczen.html">Ćwiczeń</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="a_lista_treningow.html">Treningów int.</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="a_lista_treningow_klas.html">Treningów klas.</a></li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+    </header>
+    <div class="middle">
+        <nav>
+            <div class="menu">
+                <header>
+                    <div class="optionsTitle">
+                        <i class="icon-cog-alt"></i>
+                    </div>
+                </header>
+                <a href="a_zmiana_hasla.html"><div class="option">Zmiana hasła</div><br /></a>
+                <a href="../index.html"><div class="option">Wyloguj</div></a>
+            </div>
+        </nav>
+        <main>
+            <div class="content">
+                <header>
+                    <div class="contentTitle">
+                        <h3>Lista osób</h3>
+                    </div>
+                </header>
+                <article>
+                    <div class="page">
+                        <div class="table">
+                            <table>
+                                <tr>
+                                    <td>Id Osoby</td>
+                                    <td>Id Grupy</td>
+                                    <td>Ksywka</td>
+                                    <td>Email</td>
+                                    <td>Telefon</td>
+                                    <td>Uczestnik</td>
+                                    <td>Trener</td>
+                                    <td>Modyfikuj</td>
+                                    <td>Usuń</td>
+                                </tr>
+                                <div>
+                                    <form action="/api/osoba" method="POST">
+                                        <div>
+                                            <label for="login">Name</label>
+                                            <input type="text" name="login">
+                                        </div>
+                                        <div>
+                                            <label for="telefon">Tel</label>
+                                            <input type="text" name="telefon">
+                                        </div>
+                                        <input type="submit" value="dodaj">
+                                    </form>
+                                    {{#each osoba}}
+                                        <tr>
+                                            <td>{{this.login}}</td>
+                                            <td>{{this.haslo}}</td>
+                                        </tr>
+                                    {{/each}}
+
+                                    <a href="/api/osoba">API</a>
+                                </div>
+
+                            </table>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </main>
+        <div style="clear: both;"></div>
+
+    </div>
+    <footer>
+        <div class="footer">
+            <div class="icons">
+                <a href="https://www.youtube.com/?hl=pl&gl=PL" target="_blank">
+                    <div class="yt"><i class="icon-youtube"></i></div>
+                </a>
+                <a href="https://www.facebook.com/" target="_blank">
+                    <div class="fb"><i class="icon-facebook"></i></div>
+                </a>
+                <a href="https://www.google.pl/" target="_blank">
+                    <div class="gmail"><i class="icon-gmail"></i></div>
+                </a>
+                <a href="https://www.google.pl/" target="_blank">
+                    <div class="website"><i class="icon-network"></i></div>
+                </a>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+    </footer>
+</div>
+
