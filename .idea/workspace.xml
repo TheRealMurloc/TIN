@@ -2,39 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6169ae36-a867-49e2-a7d1-580232f46233" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/administrator/a_lista_cwiczen.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/administrator/a_lista_grup.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/administrator/a_lista_osob.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a_strona_glowna.html" beforeDir="false" afterPath="$PROJECT_DIR$/a_strona_glowna.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/administrator/a_dodaj_grupe.html" beforeDir="false" afterPath="$PROJECT_DIR$/administrator/a_dodaj_grupe.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/administrator/a_dodaj_uczestnika.html" beforeDir="false" afterPath="$PROJECT_DIR$/administrator/a_dodaj_uczestnika.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/administrator/a_edytowanie_treningu_grupowego.html" beforeDir="false" afterPath="$PROJECT_DIR$/administrator/a_edytowanie_treningu_grupowego.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/administrator/a_edytowanie_treningu_indywidualnego.html" beforeDir="false" afterPath="$PROJECT_DIR$/administrator/a_edytowanie_treningu_indywidualnego.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/administrator/a_edytowanie_treningu_indywidualnego_wybor.html" beforeDir="false" afterPath="$PROJECT_DIR$/administrator/a_edytowanie_treningu_indywidualnego_wybor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/administrator/a_lista_obecnosci.html" beforeDir="false" afterPath="$PROJECT_DIR$/administrator/a_lista_obecnosci.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/administrator/a_lista_treningow.html" beforeDir="false" afterPath="$PROJECT_DIR$/administrator/a_lista_treningow.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/administrator/a_przydziel_grupy.html" beforeDir="false" afterPath="$PROJECT_DIR$/administrator/a_przydziel_grupy.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/administrator/a_ranking_grupowy.html" beforeDir="false" afterPath="$PROJECT_DIR$/administrator/a_ranking_grupowy.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/administrator/a_ranking_ogolny.html" beforeDir="false" afterPath="$PROJECT_DIR$/administrator/a_ranking_ogolny.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/administrator/a_trening_internetowy.html" beforeDir="false" afterPath="$PROJECT_DIR$/administrator/a_trening_internetowy.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/administrator/a_trening_klasyczny.html" beforeDir="false" afterPath="$PROJECT_DIR$/administrator/a_trening_klasyczny.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/administrator/a_zmiana_daty_treningu.html" beforeDir="false" afterPath="$PROJECT_DIR$/administrator/a_zmiana_daty_treningu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/administrator/a_zmiana_hasla.html" beforeDir="false" afterPath="$PROJECT_DIR$/administrator/a_zmiana_hasla.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/t_strona_glowna.html" beforeDir="false" afterPath="$PROJECT_DIR$/t_strona_glowna.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trener/t_dodaj_cwiczenie_grupa.html" beforeDir="false" afterPath="$PROJECT_DIR$/trener/t_zlec_cwiczenie_grupa.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trener/t_dodaj_cwiczenie_indywidualne.html" beforeDir="false" afterPath="$PROJECT_DIR$/trener/t_zlec_cwiczenie_indywidualne.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trener/t_edytowanie_cwiczenia.html" beforeDir="false" afterPath="$PROJECT_DIR$/trener/t_edytowanie_cwiczenia.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trener/t_feedback.html" beforeDir="false" afterPath="$PROJECT_DIR$/trener/t_feedback.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trener/t_lista_cwiczen.html" beforeDir="false" afterPath="$PROJECT_DIR$/trener/t_lista_cwiczen.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trener/t_lista_obecnosci.html" beforeDir="false" afterPath="$PROJECT_DIR$/trener/t_lista_obecnosci.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trener/t_nowe_cwiczenie.html" beforeDir="false" afterPath="$PROJECT_DIR$/trener/t_nowe_cwiczenie.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trener/t_ranking_grupowy.html" beforeDir="false" afterPath="$PROJECT_DIR$/trener/t_ranking_grupowy.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trener/t_ranking_ogolny.html" beforeDir="false" afterPath="$PROJECT_DIR$/trener/t_ranking_ogolny.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trener/t_zmiana_email.html" beforeDir="false" afterPath="$PROJECT_DIR$/trener/t_zmiana_email.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trener/t_zmiana_hasla.html" beforeDir="false" afterPath="$PROJECT_DIR$/trener/t_zmiana_hasla.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trener/t_zmiana_ksywki.html" beforeDir="false" afterPath="$PROJECT_DIR$/trener/t_zmiana_ksywki.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trener/t_zmiana_tel.html" beforeDir="false" afterPath="$PROJECT_DIR$/trener/t_zmiana_tel.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,8 +15,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -63,10 +34,12 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="ServiceViewManager">
@@ -98,7 +71,8 @@
       <workItem from="1574870672065" duration="101000" />
       <workItem from="1575544249010" duration="1714000" />
       <workItem from="1578518316125" duration="120000" />
-      <workItem from="1578518443047" duration="2674000" />
+      <workItem from="1578518443047" duration="2815000" />
+      <workItem from="1578548240636" duration="578000" />
     </task>
     <servers />
   </component>
@@ -118,6 +92,9 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="465" y="88" key="CommitChangelistDialog2" timestamp="1578518421331">
       <screen x="0" y="0" width="1680" height="1010" />
@@ -127,9 +104,9 @@
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
     <state x="341" y="147" key="SettingsEditor/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1578518432521" />
-    <state x="536" y="328" key="com.intellij.ide.util.TipDialog" timestamp="1578518443470">
+    <state x="536" y="328" key="com.intellij.ide.util.TipDialog" timestamp="1578548246856">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state x="536" y="328" key="com.intellij.ide.util.TipDialog/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1578518443470" />
+    <state x="536" y="328" key="com.intellij.ide.util.TipDialog/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1578548246856" />
   </component>
 </project>
