@@ -25,20 +25,20 @@ router.post('/', (req, res) => {
     const newOsoba = {
         id_osoby: nextId++,
         login: req.body.login,
-        haslo: 'zaq12wsx',
+        haslo: req.body.haslo,
         ksywka: 'aaa',
-        email: 'email',
-        telefon: req.body.telefon
+        email: '',
+        telefon: ''
     }
 
-    if(!newOsoba.login || !newOsoba.telefon) {
-        res.status(400).json({ msg: 'Wpisz login oraz telefon'});
+    if(!newOsoba.login) {
+        res.status(400).json({ msg: 'Wpisz login'});
         nextId--;
     } else {
         osoba.push(newOsoba);
     }
     //res.json(osoba);
-    res.redirect('/');
+    res.redirect('/administrator/dodaj_uczestnika');
 });
 
 // Update

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <title>Dodawanie uczestnika</title>
+    <link rel="Stylesheet" href="../css/style.css">
+    <link rel="Stylesheet" href="../css/fontello/css/fontello.css">
+    <script defer src="../js/dodaj_uczestnika.js"></script>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1 class="logo">System do treningów indywidualnych</h1>
+        <h2 class="header">Zalogowany jako: {{who}} </h2>
+        <nav>
+            <div class="nav">
+                <ol>
+                    <li><a href="../a_strona_glowna.html">Strona główna</a></li>
+                    <li><a href="#">Ranking</a>
+                        <ul>
+                            <li><a href="a_ranking_ogolny.html">Ogólny</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="a_ranking_grupowy.html">Grupowy</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Dodaj trening</a>
+                        <ul>
+                            <li><a href="a_trening_klasyczny.html">Klasyczny</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="a_trening_internetowy.html">Internetowy</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><h6>Dodaj inne</h6></a>
+                        <ul>
+                            <li><a href="a_dodaj_uczestnika.html"><h6>Uczestnika</h6></a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="a_dodaj_grupe.html">Grupę</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="a_przydziel_grupy.html">Przydziel grupy</a></li>
+                    <li><a href="#">Lista</a>
+                        <ul>
+                            <li><a href="a_lista_osob.html">Osób</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="a_lista_grup.html">Grup</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="a_lista_obecnosci.html">Obecności</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="a_lista_cwiczen.html">Ćwiczeń</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="a_lista_treningow.html">Treningów int.</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="a_lista_treningow_klas.html">Treningów klas.</a></li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+    </header>
+    <div class="middle">
+        <nav>
+            <div class="menu">
+                <header>
+                    <div class="optionsTitle">
+                        <i class="icon-cog-alt"></i>
+                    </div>
+                </header>
+                <a href="a_zmiana_hasla.html"><div class="option">Zmiana hasła</div><br /></a>
+                <a href="../index.html"><div class="option">Wyloguj</div></a>
+            </div>
+        </nav>
+        <main>
+            <div class="content">
+                <header>
+                    <div class="contentTitle">
+                        <h3>Dodawanie uczestnika</h3>
+                    </div>
+                </header>
+                <article>
+                    <div class="page">
+                        <form action="/api/osoba" id="form" method="POST">
+                            <div class="settings">
+                                <fieldset>
+                                    <legend> Nowy uczestnik </legend>
+                                    <input type="text" id="nazwa" name="login" class="form" placeholder="Wpisz login uczestnika"><br />
+                                    <div id="errorMessage1" class="errorMessage"></div>
+                                    <input type="password" id="haslo" name="haslo" class="form" placeholder="Wpisz hasło uczestnika"><br />
+                                    <div id="errorMessage2" class="errorMessage"></div>
+                                    <input type="password" id="haslo2" class="form" placeholder="Powtórz hasło">
+                                    <div id="errorMessage3" class="errorMessage"></div>
+                                </fieldset>
+                            </div>
+                            <div id ="errorSummary"></div>
+                            <div class="settings">
+                                <input type="submit" value="Dodaj">
+                            </div>
+                        </form>
+                    </div>
+                </article>
+            </div>
+        </main>
+        <div style="clear: both;"></div>
+
+    </div>
+    <footer>
+        <div class="footer">
+            <div class="icons">
+                <a href="https://www.youtube.com/?hl=pl&gl=PL" target="_blank">
+                    <div class="yt"><i class="icon-youtube"></i></div>
+                </a>
+                <a href="https://www.facebook.com/" target="_blank">
+                    <div class="fb"><i class="icon-facebook"></i></div>
+                </a>
+                <a href="https://www.google.pl/" target="_blank">
+                    <div class="gmail"><i class="icon-gmail"></i></div>
+                </a>
+                <a href="https://www.google.pl/" target="_blank">
+                    <div class="website"><i class="icon-network"></i></div>
+                </a>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

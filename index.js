@@ -14,10 +14,15 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 //Homepage Route
-app.get('/', (req, res) => res.render('a_lista_osob',
+app.get('/administrator/lista_osob', (req, res) => res.render('administrator/a_lista_osob',
     {
         who: 'Zalogowany jako: Administrator',
         osoba: osoba
+    }));
+
+app.get('/administrator/dodaj_uczestnika', (req, res) => res.render('administrator/a_dodaj_uczestnika',
+    {
+        who: 'Administrator',
     }));
 
 // Api routes
