@@ -26,9 +26,9 @@ router.post('/', (req, res) => {
         id_osoby: nextId++,
         login: req.body.login,
         haslo: req.body.haslo,
-        ksywka: 'aaa',
-        email: '',
-        telefon: ''
+        ksywka: 'ksywka',
+        email: 'email',
+        telefon: '123456789'
     }
 
     if(!newOsoba.login) {
@@ -38,7 +38,7 @@ router.post('/', (req, res) => {
         osoba.push(newOsoba);
     }
     //res.json(osoba);
-    res.redirect('/administrator/dodaj_uczestnika');
+    res.redirect('/administrator/a_dodaj_uczestnika.html');
 });
 
 // Update

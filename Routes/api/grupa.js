@@ -32,7 +32,8 @@ router.post('/', (req, res) => {
     } else {
         grupa.push(newGrupa);
     }
-    res.json(grupa);
+    //res.json(grupa);
+    res.redirect('/administrator/a_dodaj_grupe.html');
 });
 
 // Update

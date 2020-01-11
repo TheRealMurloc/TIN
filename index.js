@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const osoba = require('./Table/Osoba')
+const grupa = require('./Table/Grupa')
 
 const app = express();
 
@@ -13,16 +14,16 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
-//Homepage Route
-app.get('/administrator/lista_osob', (req, res) => res.render('administrator/a_lista_osob',
-    {
-        who: 'Zalogowany jako: Administrator',
-        osoba: osoba
-    }));
-
-app.get('/administrator/dodaj_uczestnika', (req, res) => res.render('administrator/a_dodaj_uczestnika',
+//Routes
+app.get('/administrator/a_lista_osob', (req, res) => res.render('administrator/a_lista_osob',
     {
         who: 'Administrator',
+        osoba: osoba
+    }));
+app.get('/administrator/a_lista_grup', (req, res) => res.render('administrator/a_lista_grup',
+    {
+        who: 'Administrator',
+        grupa: grupa
     }));
 
 // Api routes
