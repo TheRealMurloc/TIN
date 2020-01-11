@@ -2,22 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6169ae36-a867-49e2-a7d1-580232f46233" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/administrator/a_dodaj_uczestnika.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/administrator/a_lista_grup.handlebars" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Routes/api/cwiczenia.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Table/Cwiczenia.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Table/Obecnosc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Table/Trener.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Table/Trening_internetowy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Table/Trening_klasyczny.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Table/Uczestnik.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Table/Zlecone_cwiczenie.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/administrator/a_zmiana_grupy.handlebars" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Routes/api/grupa.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/api/grupa.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Routes/api/osoba.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/api/osoba.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/administrator/a_dodaj_grupe.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/administrator/a_dodaj_grupe.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/administrator/a_dodaj_uczestnika.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/administrator/a_lista_grup.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/administrator/a_lista_osob.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/administrator/a_zmiana_hasla.html" beforeDir="false" afterPath="$PROJECT_DIR$/administrator/a_zmiana_hasla.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Table/Grupa.js" beforeDir="false" afterPath="$PROJECT_DIR$/Table/Grupa.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Table/Osoba.js" beforeDir="false" afterPath="$PROJECT_DIR$/Table/Osoba.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/dodaj_grupe.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/dodaj_grupe.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/dodaj_uczestnika.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/dodaj_uczestnika.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/a_lista_osob.handlebars" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/administrator/a_dodaj_uczestnika.handlebars" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/administrator/a_lista_osob.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_lista_osob.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/administrator/a_lista_grup.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_lista_grup.handlebars" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,17 +56,17 @@
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ppatryk27\Documents\GitHub\TIN\administrator" />
+      <recent name="C:\Users\Patryk\Documents\GitHub\TIN\views\administrator" />
+      <recent name="C:\Users\Ppatryk27\Documents\GitHub\TIN\Table" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Ppatryk27\Documents\GitHub\TIN\public\administrator" />
       <recent name="C:\Users\Ppatryk27\Documents\GitHub\TIN\public\js" />
       <recent name="C:\Users\Ppatryk27\Documents\GitHub\TIN\public\css" />
       <recent name="C:\Users\Ppatryk27\Documents\GitHub\TIN\views\css" />
       <recent name="C:\Users\Ppatryk27\Documents\GitHub\TIN\views\layouts" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Ppatryk27\Documents\GitHub\TIN\administrator" />
-      <recent name="C:\Users\Patryk\Documents\GitHub\TIN\views\administrator" />
-      <recent name="C:\Users\Ppatryk27\Documents\GitHub\TIN\Table" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -105,6 +104,7 @@
       <workItem from="1578684709126" duration="342000" />
       <workItem from="1578685067174" duration="1592000" />
       <workItem from="1578700235094" duration="7046000" />
+      <workItem from="1578756124948" duration="9106000" />
     </task>
     <servers />
   </component>
@@ -144,18 +144,18 @@
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
     <state x="341" y="147" key="SettingsEditor/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1578518432521" />
-    <state x="536" y="328" key="com.intellij.ide.util.TipDialog" timestamp="1578700240042">
+    <state x="536" y="328" key="com.intellij.ide.util.TipDialog" timestamp="1578756140765">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state x="536" y="328" key="com.intellij.ide.util.TipDialog/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1578700240042" />
+    <state x="536" y="328" key="com.intellij.ide.util.TipDialog/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1578756140765" />
     <state x="1696" y="244" width="1261" height="830" maximized="true" key="dock-window-1" timestamp="1578703555643">
       <screen x="1680" y="255" width="1440" height="860" />
     </state>
     <state x="1696" y="244" width="1261" height="830" maximized="true" key="dock-window-1/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1578703555643" />
-    <state x="503" y="217" width="672" height="678" key="search.everywhere.popup" timestamp="1578602619592">
+    <state x="503" y="217" width="672" height="678" key="search.everywhere.popup" timestamp="1578760871910">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state x="503" y="217" width="672" height="678" key="search.everywhere.popup/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1578602619592" />
+    <state x="503" y="217" width="672" height="678" key="search.everywhere.popup/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1578760871910" />
     <state x="562" y="416" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1578579482007">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>

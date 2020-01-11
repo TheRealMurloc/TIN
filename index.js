@@ -26,9 +26,19 @@ app.get('/administrator/a_lista_grup', (req, res) => res.render('administrator/a
         grupa: grupa
     }));
 
+
+app.get('/administrator/a_zmiana_grupy/:id', (req, res) => res.render('administrator/a_zmiana_grupy',
+    {
+        who: 'Administrator',
+        grupa: grupa,
+        tmpElement: grupa.getGrupaById(req.params.id)
+    }));
+
+
 // Api routes
 app.use('/api/osoba', require('./routes/api/osoba'));
 app.use('/api/grupa', require('./routes/api/grupa'));
+app.use('/api/cwiczenia', require('./routes/api/cwiczenia'));
 
 
 //Set static folder

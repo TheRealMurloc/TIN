@@ -50,7 +50,7 @@ router.put('/:id', (req, res) => {
             }
         });
     } else {
-        res.status(400).json({ msg: `Nie ma grupy o id ${req.params.id_osoby}` })
+        res.status(400).json({ msg: `Nie ma grupy o id ${req.params.id}` })
     }
 });
 
