@@ -41,19 +41,19 @@
                     </li>
                     <li><a href="#">Dodaj inne</a>
                         <ul>
-                            <li><a href="a_dodaj_uczestnika.html">Uczestnika</a></li>
+                            <li><a href="../../../administrator/a_dodaj_uczestnika.html">Uczestnika</a></li>
                         </ul>
                         <ul>
-                            <li><a href="a_dodaj_grupe.html">Grupę</a></li>
+                            <li><a href="../../../administrator/a_dodaj_grupe.html">Grupę</a></li>
                         </ul>
                     </li>
                     <li><a href="a_przydziel_grupy.html">Przydziel grupy</a></li>
                     <li><a href="#">Lista</a>
                         <ul>
-                            <li><a href="a_lista_osob">Osób</a></li>
+                            <li><a href="../osoba/a_lista_osob">Osób</a></li>
                         </ul>
                         <ul>
-                            <li><a href="a_lista_grup">Grup</a></li>
+                            <li><a href="../grupa/a_lista_grup">Grup</a></li>
                         </ul>
                         <ul>
                             <li><a href="a_lista_obecnosci.html">Obecności</a></li>
@@ -105,7 +105,7 @@
                                     <tr>
                                         <td>{{this.id_grupy}}</td>
                                         <td>{{this.nazwa}}</td>
-                                        <td><input type="button" value="Modyfikuj" onClick="location.href=`a_zmiana_grupy/:{{this.id_grupy}}`;" /></td>
+                                        <td><input type="button" value="Modyfikuj" onClick="location.href=`a_zmiana_grupy/{{this.id_grupy}}`;" /></td>
                                         <td><input type="button" value="Usuń" onClick="location.href='#';" /></td>
                                     </tr>
                                 {{/each}}

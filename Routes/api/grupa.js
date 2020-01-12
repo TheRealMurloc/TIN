@@ -1,33 +1,26 @@
 const express = require('express');
 const router = express.Router();
 
-let nextId = 3;
+
 
 const grupa = [
     {
         id_grupy: 1,
-        nazwa: "grupa pierwsza"
+        nazwa: "Grupa pierwsza"
     },
     {
         id_grupy: 2,
-        nazwa: "grupa druga"
+        nazwa: "Grupa druga"
     }
 ];
 
+let nextId = 3;
+
 function getGrupaById(id) {
-    for( let i=0; i<=grupa.length; i++)
-    {
-        if(grupa.id_grupy === id)
-            return grupa.indexOf(i);
-    }
-    // grupa.forEach(element => {
-    //     if(element.id_grupy === id){
-    //         return element;
-    //     }
-    // });
+    return grupa.find(element => element.id_grupy == id);
 }
 
-router.get('/a_lista_grup', (req, res) => res.render('../views/administrator/a_lista_grup',
+router.get('/a_lista_grup', (req, res) => res.render('administrator/a_lista_grup',
     {
         who: 'Administrator',
         grupa: grupa
@@ -48,9 +41,13 @@ router.get('/', (req, res) => {
 
 // Get single
 router.get('/:id', (req, res) => {
-    let id = parseInt(req.params.id);
-    tmpElement = this.getGrupaById(id);
-    res.json(tmpElement);
+    const found = grupa.some(grupa => grupa.id_grupy === parseInt(req.params.id));
+
+    if(found){
+        res.json(grupa.filter(grupa => grupa.id_grupy === parseInt(req.params.id)));
+    } else {
+        res.status(400).json({ msg: `No member with the id of ${req.params.id}` })
+    }
 });
 
 // Create
@@ -66,25 +63,19 @@ router.post('/', (req, res) => {
         grupa.push(newGrupa);
     }
     //res.json(grupa);
-    res.redirect('/administrator/a_dodaj_grupe.html');
+    res.redirect('../views/administrator/a_zmiana_grupy');
 });
 
 // Update
-router.put('/:id', (req, res) => {
-    const found = grupa.some(grupa => grupa.id_grupy === parseInt(req.params.id));
-
-    if(found){
-        const updateGrupa = req.body;
-        grupa.forEach(grupa => {
-            if(grupa.id_grupy === parseInt(req.params.id)){
-                grupa.nazwa = updateGrupa.nazwa ? updateGrupa.nazwa : grupa.nazwa;
-
-                res.json({ msg: 'Grupa zaktualizowana', grupa});
-            }
-        });
-    } else {
-        res.status(400).json({ msg: `Nie ma grupy o id ${req.params.id}` })
+router.post('/update/:id', (req, res) => {
+    for( let i=0; i<grupa.length; i++)
+    {
+        if(grupa[i].id_grupy === parseInt(req.params.id))
+        {
+            grupa[i].nazwa = req.body.nazwa;
+        }
     }
+    res.redirect('/administrator/a_dodaj_grupe.html');
 });
 
 // Delete

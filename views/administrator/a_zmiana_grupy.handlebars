@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="pl-PL">
 <head>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
     <title>Dodawanie grupy</title>
-    <link rel="Stylesheet" href="../../css/style.css">
-    <link rel="Stylesheet" href="../../css/fontello/css/fontello.css">
+    <link rel="Stylesheet" href="../../../css/style.css">
+    <link rel="Stylesheet" href="../../../css/fontello/css/fontello.css">
     <script defer src="../js/dodaj_grupe.js"></script>
 </head>
 <body>
@@ -36,19 +35,19 @@
                     </li>
                     <li><a href="#">Dodaj inne</a>
                         <ul>
-                            <li><a href="a_dodaj_uczestnika.html">Uczestnika</a></li>
+                            <li><a href="../../../administrator/a_dodaj_uczestnika.html">Uczestnika</a></li>
                         </ul>
                         <ul>
-                            <li><a href="a_dodaj_grupe.html">Grupę</a></li>
+                            <li><a href="../../../administrator/a_dodaj_grupe.html">Grupę</a></li>
                         </ul>
                     </li>
                     <li><a href="a_przydziel_grupy.html">Przydziel grupy</a></li>
                     <li><a href="#">Lista</a>
                         <ul>
-                            <li><a href="../a_lista_osob">Osób</a></li>
+                            <li><a href="../osoba/a_lista_osob">Osób</a></li>
                         </ul>
                         <ul>
-                            <li><a href="../a_lista_grup">Grup</a></li>
+                            <li><a href="../../grupa/a_lista_grup">Grup</a></li>
                         </ul>
                         <ul>
                             <li><a href="a_lista_obecnosci.html">Obecności</a></li>
@@ -88,12 +87,11 @@
                 </header>
                 <article>
                     <div class="page">
-                        <form action="/api/grupa/:1" id="form" method="PUT">
+                        <form action="/api/grupa/update/{{tmpElement.id_grupy}}" id="form" method="POST">
                             <div class="settings">
                                 <fieldset>
                                     <legend>Zmiana grupy</legend>
-
-                                    <input type="text" id="nazwa" name="nazwa" class="form" placeholder={{id}}><br />
+                                    <input type="text" id="nazwa" name="nazwa" class="form" placeholder="{{tmpElement.nazwa}}"><br />
                                     <div id="errorMessage" class="errorMessage"></div>
                                 </fieldset>
                             </div>

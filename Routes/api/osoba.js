@@ -1,8 +1,32 @@
 const express = require('express');
 const router = express.Router();
-const osoba = require('../../Table/Osoba');
+
+const osoba = [
+    {
+        id_osoby: 1,
+        login: 'Murloc',
+        haslo: 'qwerty',
+        ksywka: 'Peli',
+        email: 'aaa@gmail.com',
+        telefon: 123456789
+    },
+    {
+        id_osoby: 2,
+        login: 'Basix',
+        haslo: 'qwerty123',
+        ksywka: 'Basiozaur',
+        email: 'bbb@gmail.com',
+        telefon: 987654321
+    }
+];
 
 let nextId = 3;
+
+router.get('/a_lista_osob', (req, res) => res.render('administrator/a_lista_osob',
+    {
+        who: 'Administrator',
+        osoba: osoba
+    }));
 
 // Gets All
 router.get('/', (req, res) => {
