@@ -1,8 +1,9 @@
 const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
-const osoba = require('./Table/Osoba')
-const grupa = require('./Table/Grupa')
+const osoba = require('./Table/Osoba');
+const grupa = require('./Routes/api/grupa');
+
 
 const app = express();
 
@@ -20,19 +21,10 @@ app.get('/administrator/a_lista_osob', (req, res) => res.render('administrator/a
         who: 'Administrator',
         osoba: osoba
     }));
-app.get('/administrator/a_lista_grup', (req, res) => res.render('administrator/a_lista_grup',
-    {
-        who: 'Administrator',
-        grupa: grupa
-    }));
 
 
-app.get('/administrator/a_zmiana_grupy/:id', (req, res) => res.render('administrator/a_zmiana_grupy',
-    {
-        who: 'Administrator',
-        grupa: grupa,
-        tmpElement: grupa.getGrupaById(req.params.id)
-    }));
+
+
 
 
 // Api routes

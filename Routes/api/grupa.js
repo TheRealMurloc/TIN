@@ -1,8 +1,45 @@
 const express = require('express');
 const router = express.Router();
-const grupa = require('../../Table/Grupa');
 
 let nextId = 3;
+
+const grupa = [
+    {
+        id_grupy: 1,
+        nazwa: "grupa pierwsza"
+    },
+    {
+        id_grupy: 2,
+        nazwa: "grupa druga"
+    }
+];
+
+function getGrupaById(id) {
+    for( let i=0; i<=grupa.length; i++)
+    {
+        if(grupa.id_grupy === id)
+            return grupa.indexOf(i);
+    }
+    // grupa.forEach(element => {
+    //     if(element.id_grupy === id){
+    //         return element;
+    //     }
+    // });
+}
+
+router.get('/a_lista_grup', (req, res) => res.render('../views/administrator/a_lista_grup',
+    {
+        who: 'Administrator',
+        grupa: grupa
+    }));
+
+router.get('/a_zmiana_grupy/:id', (req, res) => res.render('../views/administrator/a_zmiana_grupy',
+    {
+        who: 'Administrator',
+        grupa: grupa,
+        tmpElement: getGrupaById(parseInt(req.params.id))
+    }));
+
 
 // Gets All
 router.get('/', (req, res) => {
@@ -11,13 +48,9 @@ router.get('/', (req, res) => {
 
 // Get single
 router.get('/:id', (req, res) => {
-    const found = grupa.some(grupa => grupa.id_grupy === parseInt(req.params.id));
-
-    if(found){
-        res.json(grupa.filter(grupa => grupa.id_grupy === parseInt(req.params.id)));
-    } else {
-        res.status(400).json({ msg: `Nie ma grupy o id ${req.params.id}` })
-    }
+    let id = parseInt(req.params.id);
+    tmpElement = this.getGrupaById(id);
+    res.json(tmpElement);
 });
 
 // Create
