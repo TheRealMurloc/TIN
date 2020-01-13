@@ -1,18 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-
-
-const grupa = [
-    {
-        id_grupy: 1,
-        nazwa: "Grupa pierwsza"
-    },
-    {
-        id_grupy: 2,
-        nazwa: "Grupa druga"
-    }
-];
+const grupa = require('../../Table/Grupa')
 
 let nextId = 3;
 
@@ -63,7 +52,7 @@ router.post('/', (req, res) => {
         grupa.push(newGrupa);
     }
     //res.json(grupa);
-    res.redirect('../views/administrator/a_zmiana_grupy');
+    res.redirect('../api/grupa/a_lista_grup');
 });
 
 // Update
@@ -75,19 +64,19 @@ router.post('/update/:id', (req, res) => {
             grupa[i].nazwa = req.body.nazwa;
         }
     }
-    res.redirect('/administrator/a_dodaj_grupe.html');
+    res.redirect('../../grupa/a_lista_grup');
 });
 
 // Delete
-router.delete('/:id', (req, res) => {
-    const found = grupa.some(grupa => grupa.id_grupy === parseInt(req.params.id));
-
-    if(found) {
-        res.json({ msg: 'Grupa usunięta', Grupy: grupa.filter(grupa => grupa.id_grupy !== parseInt(req.params.id))});
-    } else {
-        res.status(400).json({ msg: `Nie znaleziono grupy o id ${req.params.id}` })
+router.post('/delete/:id', (req, res) => {
+    for( let i=0; i<grupa.length; i++)
+    {
+        if(grupa[i].id_grupy === parseInt(req.params.id))
+        {
+           grupa.splice(i, 1);
+        }
     }
+    res.redirect('../../grupa/a_lista_grup');
 });
-
 
 module.exports = router;

@@ -1,32 +1,36 @@
 const express = require('express');
 const router = express.Router();
 
-const osoba = [
-    {
-        id_osoby: 1,
-        login: 'Murloc',
-        haslo: 'qwerty',
-        ksywka: 'Peli',
-        email: 'aaa@gmail.com',
-        telefon: 123456789
-    },
-    {
-        id_osoby: 2,
-        login: 'Basix',
-        haslo: 'qwerty123',
-        ksywka: 'Basiozaur',
-        email: 'bbb@gmail.com',
-        telefon: 987654321
-    }
-];
+const osoba = require('../../Table/Osoba')
+const grupa = require('../../Table/Grupa')
 
 let nextId = 3;
+
+function getOsobaById(id) {
+    return osoba.find(element => element.id_osoby == id);
+}
 
 router.get('/a_lista_osob', (req, res) => res.render('administrator/a_lista_osob',
     {
         who: 'Administrator',
         osoba: osoba
     }));
+
+router.get('/a_zmiana_osoby/:id', (req, res) => res.render('administrator/a_zmiana_osoby',
+    {
+        who: 'Administrator',
+        osoba: osoba,
+        tmpElement: getOsobaById(parseInt(req.params.id))
+    }));
+
+router.get('/a_przydziel_grupy', (req, res) => res.render('administrator/a_przydziel_grupy',
+    {
+        who: 'Administrator',
+        osoba: osoba,
+        grupa: grupa
+    }));
+
+
 
 // Gets All
 router.get('/', (req, res) => {
@@ -50,9 +54,9 @@ router.post('/', (req, res) => {
         id_osoby: nextId++,
         login: req.body.login,
         haslo: req.body.haslo,
-        ksywka: 'ksywka',
-        email: 'email',
-        telefon: '123456789'
+        ksywka: req.body.ksywka,
+        email: req.body.email,
+        telefon: req.body.telefon
     }
 
     if(!newOsoba.login) {
@@ -61,41 +65,35 @@ router.post('/', (req, res) => {
     } else {
         osoba.push(newOsoba);
     }
-    //res.json(osoba);
     res.redirect('/administrator/a_dodaj_uczestnika.html');
 });
 
 // Update
-router.put('/:id', (req, res) => {
-    const found = osoba.some(osoba => osoba.id_osoby === parseInt(req.params.id));
-
-    if(found){
-        const updateOsoba = req.body;
-        osoba.forEach(osoba => {
-            if(osoba.id_osoby === parseInt(req.params.id)){
-                osoba.login = updateOsoba.login ? updateOsoba.login : osoba.login;
-                osoba.haslo = updateOsoba.haslo ? updateOsoba.haslo : osoba.haslo;
-                osoba.ksywka = updateOsoba.ksywka ? updateOsoba.ksywka : osoba.ksywka;
-                osoba.email = updateOsoba.email ? updateOsoba.email : osoba.email;
-                osoba.telefon = updateOsoba.telefon ? updateOsoba.telefon : osoba.telefon;
-
-                res.json({ msg: 'Osoba zaktualizowana', osoba});
-            }
-        });
-    } else {
-        res.status(400).json({ msg: `Nie ma osoby o id ${req.params.id_osoby}` })
+router.post('/update/:id', (req, res) => {
+    for( let i=0; i<osoba.length; i++)
+    {
+        if(osoba[i].id_osoby === parseInt(req.params.id))
+        {
+            osoba[i].login = req.body.login ? req.body.login : osoba[i].login;
+            osoba[i].haslo = req.body.haslo ? req.body.haslo : osoba[i].haslo;
+            osoba[i].ksywka = req.body.ksywka ? req.body.ksywka : osoba[i].ksywka;
+            osoba[i].email = req.body.email ? req.body.email :  osoba[i].email;
+            osoba[i].telefon = req.body.telefon ? req.body.telefon : osoba[i].telefon;
+        }
     }
+    res.redirect('../../osoba/a_lista_osob');
 });
 
 // Delete
-router.delete('/:id', (req, res) => {
-    const found = osoba.some(osoba => osoba.id_osoby === parseInt(req.params.id));
-
-    if(found) {
-        res.json({ msg: 'Osoba usunięta', Osoby: osoba.filter(osoba => osoba.id_osoby !== parseInt(req.params.id))});
-    } else {
-        res.status(400).json({ msg: `Nie znaleziono osoby o id ${req.params.id}` })
+router.post('/delete/:id', (req, res) => {
+    for( let i=0; i<osoba.length; i++)
+    {
+        if(osoba[i].id_osoby === parseInt(req.params.id))
+        {
+            osoba.splice(i, 1);
+        }
     }
+    res.redirect('../../osoba/a_lista_osob');
 });
 
 

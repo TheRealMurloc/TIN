@@ -5,7 +5,6 @@ const trening_klasyczny = [
         id_grupa: 1,
         data: '01-01-2020',
         godzina: '20:00'
-
     }
 ];
 

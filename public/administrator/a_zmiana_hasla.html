@@ -4,30 +4,16 @@
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
-    <title>Lista grup</title>
+    <title>Zmiana hasła</title>
     <link rel="Stylesheet" href="/css/style.css">
     <link rel="Stylesheet" href="/css/fontello/css/fontello.css">
-    <style>
-        input[type=button]
-        {
-            width: 120px;
-        }
-        input[type=submit]
-        {
-            width: 120px;
-            background-color: #1035dd;
-            font-size: 14px;
-            padding: 2px;
-            margin: 5px;
-            letter-spacing: 1px;
-        }
-    </style>
+    <script defer src="../js/zmiana_hasla.js"></script>
 </head>
 <body>
 <div class="container">
     <header>
         <h1 class="logo">System do treningów indywidualnych</h1>
-        <h2 class="header">Zalogowany jako: {{who}}</h2>
+        <h2 class="header">Zalogowany jako: Administrator</h2>
         <nav>
             <div class="nav">
                 <ol>
@@ -42,42 +28,39 @@
                     </li>
                     <li><a href="#">Dodaj trening</a>
                         <ul>
-                            <li><a href="/../api/trening_klasyczny/a_trening_klasyczny">Klasyczny</a></li>
+                            <li><a href="a_trening_klasyczny.html">Klasyczny</a></li>
                         </ul>
                         <ul>
-                            <li><a href="/administrator/a_trening_internetowy.html">Internetowy</a></li>
+                            <li><a href="a_trening_internetowy.html">Internetowy</a></li>
                         </ul>
                     </li>
                     <li><a href="#">Dodaj inne</a>
                         <ul>
-                            <li><a href="/administrator/a_dodaj_uczestnika.html">Uczestnika</a></li>
+                            <li><a href="a_dodaj_uczestnika.html">Uczestnika</a></li>
                         </ul>
                         <ul>
-                            <li><a href="/administrator/a_dodaj_grupe.html">Grupę</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="/administrator/a_dodaj_cwiczenie.html">Ćwiczenie</a></li>
+                            <li><a href="a_dodaj_grupe.html">Grupę</a></li>
                         </ul>
                     </li>
                     <li><a href="a_przydziel_grupy.html">Przydziel grupy</a></li>
                     <li><a href="#">Lista</a>
                         <ul>
-                            <li><a href="/../api/osoba/a_lista_osob">Osób</a></li>
+                            <li><a href="a_lista_osob.html">Osób</a></li>
                         </ul>
                         <ul>
-                            <li><a href="/../api/grupa/a_lista_grup">Grup</a></li>
+                            <li><a href="a_lista_grup.html">Grup</a></li>
                         </ul>
                         <ul>
                             <li><a href="a_lista_obecnosci.html">Obecności</a></li>
                         </ul>
                         <ul>
-                            <li><a href="/../api/cwiczenia/a_lista_cwiczen">Ćwiczeń</a></li>
+                            <li><a href="a_lista_cwiczen.html">Ćwiczeń</a></li>
                         </ul>
                         <ul>
-                            <li><a href="/../api/trening_internetowy/a_lista_treningow_internetowych">Treningów int.</a></li>
+                            <li><a href="a_lista_treningow.html">Treningów int.</a></li>
                         </ul>
                         <ul>
-                            <li><a href="/../api/trening_klasyczny/a_lista_treningow_klasycznych">Treningów klas.</a></li>
+                            <li><a href="a_lista_treningow_klas.html">Treningów klas.</a></li>
                         </ul>
                     </li>
                 </ol>
@@ -92,7 +75,7 @@
                         <i class="icon-cog-alt"></i>
                     </div>
                 </header>
-                <a href="a_zmiana_hasla.html"><div class="option">Zmiana hasła</div><br /></a>
+                <a href="a_zmiana_hasla.html"><div class="option"><h6>Zmiana hasła</h6></div><br /></a>
                 <a href="../index.html"><div class="option">Wyloguj</div></a>
             </div>
         </nav>
@@ -100,29 +83,26 @@
             <div class="content">
                 <header>
                     <div class="contentTitle">
-                        <h3>Lista grup</h3>
+                        <h3>Zmiana hasła</h3>
                     </div>
                 </header>
                 <article>
                     <div class="page">
-                        <div class="table">
-                            <table>
-                                <tr>
-                                    <td>Id Grupy</td>
-                                    <td>Nazwa</td>
-                                    <td>Modyfikuj</td>
-                                    <td>Usuń</td>
-                                </tr>
-                                {{#each grupa}}
-                                    <tr>
-                                        <td>{{this.id_grupy}}</td>
-                                        <td>{{this.nazwa}}</td>
-                                        <td><input type="button" value="Modyfikuj" onClick="location.href=`a_zmiana_grupy/{{this.id_grupy}}`;" /></td>
-                                        <td><form action="/api/grupa/delete/{{this.id_grupy}}" method="POST"><input type="submit" value="Usuń" /></form></td>
-                                    </tr>
-                                {{/each}}
-                            </table>
-                        </div>
+                        <form action="#" id="form" method="POST">
+                            <div class="settings">
+                                <fieldset>
+                                    <legend> Hasło </legend>
+                                    <input type="password" id="haslo" class="form" placeholder="Wpisz swoje nowe hasło"><br />
+                                    <div id="errorMessage1" class="errorMessage"></div>
+                                    <input type="password" id="haslo2" class="form" placeholder="Powtórz swoje nowe hasło">
+                                    <div id="errorMessage2" class="errorMessage"></div>
+                                </fieldset>
+                            </div>
+                            <div id ="errorSummary"></div>
+                            <div class="settings">
+                                <input type="submit" value="Zmień hasło">
+                            </div>
+                        </form>
                     </div>
                 </article>
             </div>

@@ -4,12 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
     <title>Lista osób</title>
-    <link rel="Stylesheet" href="../../css/style.css">
-    <link rel="Stylesheet" href="../../css/fontello/css/fontello.css">
+    <link rel="Stylesheet" href="/css/style.css">
+    <link rel="Stylesheet" href="/css/fontello/css/fontello.css">
     <style>
         input[type=button]
         {
             width: 80px;
+        }
+        input[type=submit]
+        {
+            width: 80px;
+            background-color: #1035dd;
+            font-size: 14px;
+            padding: 2px;
+            margin: 5px;
+            letter-spacing: 1px;
         }
     </style>
 </head>
@@ -33,39 +42,42 @@
                     </li>
                     <li><a href="#">Dodaj trening</a>
                         <ul>
-                            <li><a href="a_trening_klasyczny.html">Klasyczny</a></li>
+                            <li><a href="/administrator/a_trening_klasyczny.html">Klasyczny</a></li>
                         </ul>
                         <ul>
-                            <li><a href="a_trening_internetowy.html">Internetowy</a></li>
+                            <li><a href="/administrator/a_trening_internetowy.html">Internetowy</a></li>
                         </ul>
                     </li>
                     <li><a href="#">Dodaj inne</a>
                         <ul>
-                            <li><a href="../../../administrator/a_dodaj_uczestnika.html">Uczestnika</a></li>
+                            <li><a href="/administrator/a_dodaj_uczestnika.html">Uczestnika</a></li>
                         </ul>
                         <ul>
-                            <li><a href="../../../administrator/a_dodaj_grupe.html">Grupę</a></li>
+                            <li><a href="/administrator/a_dodaj_grupe.html">Grupę</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="/administrator/a_dodaj_cwiczenie.html">Ćwiczenie</a></li>
                         </ul>
                     </li>
-                    <li><a href="a_przydziel_grupy.html">Przydziel grupy</a></li>
+                    <li><a href="/../api/osoba/a_przydziel_grupy">Przydziel grupy</a></li>
                     <li><a href="#">Lista</a>
                         <ul>
-                            <li><a href="../osoba/a_lista_osob">Osób</a></li>
+                            <li><a href="/../api/osoba/a_lista_osob">Osób</a></li>
                         </ul>
                         <ul>
-                            <li><a href="../grupa/a_lista_grup">Grup</a></li>
+                            <li><a href="/../api/grupa/a_lista_grup">Grup</a></li>
                         </ul>
                         <ul>
-                            <li><a href="a_lista_obecnosci.html">Obecności</a></li>
+                            <li><a href="#">Obecności</a></li>
                         </ul>
                         <ul>
-                            <li><a href="a_lista_cwiczen.html">Ćwiczeń</a></li>
+                            <li><a href="/../api/cwiczenia/a_lista_cwiczen">Ćwiczeń</a></li>
                         </ul>
                         <ul>
-                            <li><a href="a_lista_treningow.html">Treningów int.</a></li>
+                            <li><a href="/../api/trening_internetowy/a_lista_treningow_internetowych">Treningów int.</a></li>
                         </ul>
                         <ul>
-                            <li><a href="a_lista_treningow_klas.html">Treningów klas.</a></li>
+                            <li><a href="/../api/trening_klasyczny/a_lista_treningow_klasycznych">Treningów klas.</a></li>
                         </ul>
                     </li>
                 </ol>
@@ -98,6 +110,8 @@
                                 <tr>
                                     <td>Id Osoby</td>
                                     <td>Id Grupy</td>
+                                    <td>Login</td>
+                                    <td>Hasło</td>
                                     <td>Ksywka</td>
                                     <td>Email</td>
                                     <td>Telefon</td>
@@ -110,13 +124,15 @@
                                     <tr>
                                         <td>{{this.id_osoby}}</td>
                                         <td>{{this.id_grupy}}</td>
+                                        <td>{{this.login}}</td>
+                                        <td>{{this.haslo}}</td>
                                         <td>{{this.ksywka}}</td>
                                         <td>{{this.email}}</td>
                                         <td>{{this.telefon}}</td>
                                         <td></td>
                                         <td></td>
-                                        <td><input type="button" value="Modyfikuj" onClick="location.href='a_zmiana_osoby.html';" /></td>
-                                        <td><input type="button" value="Usuń" onClick="location.href='#';" /></td>
+                                        <td><input type="button" value="Modyfikuj" onClick="location.href='a_zmiana_osoby/{{this.id_osoby}}';" /></td>
+                                        <td><form action="/api/osoba/delete/{{this.id_osoby}}" method="POST"><input type="submit" value="Usuń" /></form></td>
                                     </tr>
                                 {{/each}}
                             </table>
