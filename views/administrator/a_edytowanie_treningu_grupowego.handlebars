@@ -4,20 +4,10 @@
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
-    <title>Strona główna</title>
-    <link rel="Stylesheet" href="/css/style.css">
-    <link rel="Stylesheet" href="/css/fontello/css/fontello.css">
-    <style>
-        .content
-        {
-            width: 748px;
-        }
-        .page
-        {
-            width: 710px;
-        }
-    </style>
-
+    <title>Edytowanie treningu grupowego</title>
+    <link rel="Stylesheet" href="../style.css">
+    <link rel="Stylesheet" href="../fontello/css/fontello.css">
+    <script defer src="../js/edytuj_trening.js"></script>
 </head>
 <body>
 <div class="container">
@@ -27,7 +17,7 @@
         <nav>
             <div class="nav">
                 <ol>
-                    <li><a href="/../api/osoba/a_strona_glowna"><h6>Strona główna</h6></a></li>
+                    <li><a href="/../api/osoba/a_strona_glowna">Strona główna</a></li>
                     <li><a href="#">Ranking</a>
                         <ul>
                             <li><a href="a_ranking_ogolny.html">Ogólny</a></li>
@@ -44,7 +34,7 @@
                             <li><a href="/../api/trening_internetowy/a_trening_internetowy">Internetowy</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Dodaj inne</a>
+                    <li><a href="#"><h6>Dodaj inne</h6></a>
                         <ul>
                             <li><a href="/../api/osoba/a_dodaj_uczestnika">Uczestnika</a></li>
                         </ul>
@@ -52,7 +42,7 @@
                             <li><a href="/../api/grupa/a_dodaj_grupe">Grupę</a></li>
                         </ul>
                         <ul>
-                            <li><a href="/../api/cwiczenia/a_dodaj_cwiczenie">Ćwiczenie</a></li>
+                            <li><a href="/../api/cwiczenia/a_dodaj_cwiczenie"><h6>Ćwiczenie</h6></a></li>
                         </ul>
                     </li>
                     <li><a href="#">Lista</a>
@@ -95,30 +85,71 @@
             <div class="content">
                 <header>
                     <div class="contentTitle">
-                        <h3>Content główny</h3>
+                        <h3>Edytowanie treningu</h3>
                     </div>
                 </header>
                 <article>
                     <div class="page">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porta lectus sit amet justo dapibus, quis fringilla odio posuere. Nam ligula augue, gravida ut eros a, ultricies feugiat nulla. Praesent sodales, purus nec semper finibus, leo tellus ornare nisl, sit amet pharetra lectus ante in dolor. Nunc non ultricies risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut aliquam feugiat tincidunt. Integer pulvinar dignissim enim id finibus. Cras blandit, felis ut fringilla facilisis, turpis mauris aliquet nibh, a porttitor magna purus a sapien. Pellentesque volutpat fermentum lectus, eleifend lobortis justo vestibulum id. Nullam scelerisque maximus pharetra. Morbi eu risus id turpis feugiat iaculis sit amet nec justo.</p>
-
-                        <p>Maecenas sollicitudin, justo et interdum suscipit, est nisl iaculis arcu, vel maximus eros eros vel nisi. Etiam viverra risus nec erat consequat auctor. Pellentesque vulputate erat at dolor porta convallis. Quisque ante nibh, tristique nec ante et, condimentum tincidunt nisi. Pellentesque ante purus, tincidunt sit amet luctus quis, lacinia eget magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin at nisi consequat, mollis diam finibus, convallis risus. In hac habitasse platea dictumst. Sed vel elementum eros. Sed varius rutrum est non malesuada. Sed lacinia ex fermentum, molestie odio id, luctus neque. Etiam id massa ut nisi viverra consequat id sit amet eros.</p>
+                        <form action="a_edytowanie_treningu_grupowego.php" id="form" method="post">
+                            <div id ="errorSummary"></div>
+                            <div class="settings">
+                                <input type="submit" value="Zaktualizuj">
+                            </div>
+                            <div class="table">
+                                <table>
+                                    <tr>
+                                        <th colspan="6">Grupa 1</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Nazwa ćwiczenia</td>
+                                        <td>Ilość serii</td>
+                                        <td>Ilość zaplanowana w serii</td>
+                                        <td>Usuwanie</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pompki</td>
+                                        <td><input class="ilosc" type="number" id="number1" placeholder="3"></td>
+                                        <td><input class="ilosc" type="number" id="number2" placeholder="20"></td>
+                                        <td><input type="button" value="Usuń" onClick="location.href='a_usuwanie_treningu_indywidualnego.php';" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Brzuszki</td>
+                                        <td><input class="ilosc" type="number" id="number3" placeholder="3"></td>
+                                        <td><input class="ilosc" type="number" id="number4" placeholder="30"></td>
+                                        <td><input type="button" value="Usuń" onClick="location.href='a_usuwanie_treningu_indywidualnego.php';" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="table">
+                                <table>
+                                    <tr>
+                                        <th colspan="6">Grupa 2</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Nazwa ćwiczenia</td>
+                                        <td>Ilość serii</td>
+                                        <td>Ilość zaplanowana w serii</td>
+                                        <td>Usuwanie</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pompki</td>
+                                        <td><input class="ilosc" type="number" id="number5" placeholder="3"></td>
+                                        <td><input class="ilosc" type="number" id="number6" placeholder="20"></td>
+                                        <td><input type="button" value="Usuń" onClick="location.href='a_usuwanie_treningu_indywidualnego.php';" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Brzuszki</td>
+                                        <td><input class="ilosc" type="number" id="number7" placeholder="3"></td>
+                                        <td><input class="ilosc" type="number" id="number8" placeholder="30"></td>
+                                        <td><input type="button" value="Usuń" onClick="location.href='a_usuwanie_treningu_indywidualnego.php';" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </form>
                     </div>
                 </article>
             </div>
         </main>
-        <aside>
-            <div class="info">
-                <header>
-                    <div class="infoTitle">
-                        <i class="icon-info-circled"></i>
-                    </div>
-                </header>
-                <div class="infoPage">
-                    //wiadomosci
-                </div>
-            </div>
-        </aside>
         <div style="clear: both;"></div>
 
     </div>
