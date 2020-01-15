@@ -80,15 +80,15 @@
                                         <td>Wynik</td>
                                     </tr>
                                     {{#each zlecone_cwiczenie}}
-                                            <tr>
-                                                <td>{{this.nazwa}}</td>
-                                                <td>{{this.ilosc_ogolem}}</td>
-                                                <td>{{this.ilosc_zaplanowana}}</td>
-                                                <td>{{this.ilosc_zrobiona}}</td>
-                                                <td><input class="ilosc" type="number" name="ilosc" placeholder="Ilość"></td>
-                                                <td>{{procent this.ilosc_zrobiona this.ilosc_ogolem}}% <meter min="0" max="100" title="procent" value="{{procent this.ilosc_zrobiona this.ilosc_ogolem}}" low="30" high="70" optimum="100"></meter></td>
-                                                <td><div id="{{this.wynik}}" class="wynik">{{this.wynik}}</div></td>
-                                            </tr>
+                                        <tr>
+                                            <td>{{this.nazwa}}</td>
+                                            <td>{{this.ilosc_ogolem}}</td>
+                                            <td>{{this.ilosc_zaplanowana}}</td>
+                                            <td>{{this.ilosc_zrobiona}}</td>
+                                            <td><input class="ilosc" type="number" name="ilosc" placeholder="Ilość"></td>
+                                            <td>{{procent this.ilosc_zrobiona this.ilosc_ogolem}}% <meter min="0" max="100" title="procent" value="{{procent this.ilosc_zrobiona this.ilosc_ogolem}}" low="30" high="70" optimum="100"></meter></td>
+                                            <td><div id="{{this.wynik}}" class="wynik">{{this.wynik}}</div></td>
+                                        </tr>
                                     {{/each}}
                                 </table>
                             </div>
