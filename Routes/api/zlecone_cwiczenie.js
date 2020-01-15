@@ -26,14 +26,25 @@ router.get('/t_zlec_cwiczenie_grupa', (req, res) => res.render('trener/t_zlec_cw
         user: req.session.user
     }));
 
-router.get('/a_edytowanie_treningu_grupowego', (req, res) => res.render('administrator/a_edytowanie_treningu_grupowego',
+router.get('/a_edytowanie_treningu_grupowego', (req, res) =>
+{
+    let user = req.session.user;
+    let listaGrup = new Set();
+
+    for (let i = 0; i < zlecone_cwiczenie.length; i++)
+    {
+        listaGrup.add(zlecone_cwiczenie[i].id_grupy);
+    }
+
+    res.render('administrator/a_edytowanie_treningu_grupowego',
     {
         who: 'Administrator',
         cwiczenia: cwiczenia,
         grupa: grupa,
         trening_internetowy: trening_internetowy,
         user: req.session.user
-    }));
+    })
+});
 
 router.get('/u_trening_indywidualny', (req, res) =>
 {

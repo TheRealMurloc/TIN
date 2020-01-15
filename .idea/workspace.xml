@@ -2,28 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6169ae36-a867-49e2-a7d1-580232f46233" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/views/administrator/a_edytowanie_treningu_grupowego.handlebars" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Routes/api/zlecone_cwiczenie.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/api/zlecone_cwiczenie.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/administrator/a_edytowanie_treningu_grupowego.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fontello/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fontello/README.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fontello/config.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fontello/css/animation.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fontello/css/fontello-codes.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fontello/css/fontello-embedded.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fontello/css/fontello-ie7-codes.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fontello/css/fontello-ie7.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fontello/css/fontello.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fontello/demo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fontello/font/fontello.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fontello/font/fontello.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fontello/font/fontello.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fontello/font/fontello.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fontello/font/fontello.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/administrator/a_strona_glowna.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_strona_glowna.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/trener/t_strona_glowna.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/trener/t_strona_glowna.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/uczestnik/u_strona_glowna.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/uczestnik/u_strona_glowna.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Table/Zlecone_cwiczenie.js" beforeDir="false" afterPath="$PROJECT_DIR$/Table/Zlecone_cwiczenie.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baza.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/administrator/a_edytowanie_treningu_grupowego.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_edytowanie_treningu_grupowego.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/administrator/a_lista_treningow_internetowych.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_lista_treningow_internetowych.handlebars" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -119,7 +103,7 @@
       <workItem from="1578843728459" duration="9063000" />
       <workItem from="1578902546680" duration="30130000" />
       <workItem from="1578979000417" duration="42330000" />
-      <workItem from="1579073373662" duration="1537000" />
+      <workItem from="1579073373662" duration="4358000" />
     </task>
     <servers />
   </component>
