@@ -650,3 +650,18 @@ input[type=button]:hover
 	text-align: center;
 }
 
+#Niski.wynik
+{
+	color: #d00;
+}
+
+#Sredni.wynik
+{
+	color: #bb0;
+}
+
+#Wysoki.wynik
+{
+	color: #0d0;
+}
+

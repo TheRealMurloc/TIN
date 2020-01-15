@@ -14,32 +14,24 @@ function getTreningById(id) {
 router.get('/a_lista_treningow_internetowych', (req, res) => res.render('administrator/a_lista_treningow_internetowych',
     {
         who: 'Administrator',
-        trening_internetowy: trening_internetowy
+        trening_internetowy: trening_internetowy,
+        user: req.session.user
     }));
 
 router.get('/a_zmiana_daty_treningu_internetowego/:id', (req, res) => res.render('../views/administrator/a_zmiana_daty_treningu_internetowego',
     {
         who: 'Administrator',
         trening_internetowy: trening_internetowy,
-        tmpElement: getTreningById(parseInt(req.params.id))
+        tmpElement: getTreningById(parseInt(req.params.id)),
+        user: req.session.user
     }));
 
-
-// Gets All
-router.get('/', (req, res) => {
-    res.json(grupa);
-});
-
-// Get single
-router.get('/:id', (req, res) => {
-    const found = grupa.some(grupa => grupa.id_grupy === parseInt(req.params.id));
-
-    if(found){
-        res.json(grupa.filter(grupa => grupa.id_grupy === parseInt(req.params.id)));
-    } else {
-        res.status(400).json({ msg: `No member with the id of ${req.params.id}` })
-    }
-});
+router.get('/a_trening_internetowy', (req, res) => res.render('administrator/a_trening_internetowy',
+    {
+        who: 'Administrator',
+        trening_internetowy: trening_internetowy,
+        user: req.session.user
+    }));
 
 // Create
 router.post('/', (req, res) => {

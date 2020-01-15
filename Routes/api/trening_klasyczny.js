@@ -14,7 +14,8 @@ function getTreningById(id) {
 router.get('/a_lista_treningow_klasycznych', (req, res) => res.render('administrator/a_lista_treningow_klasycznych',
     {
         who: 'Administrator',
-        trening_klasyczny: trening_klasyczny
+        trening_klasyczny: trening_klasyczny,
+        user: req.session.user
     }));
 
 router.get('/a_zmiana_treningu_klasycznego/:id', (req, res) => res.render('../views/administrator/a_zmiana_treningu_klasycznego',
@@ -23,7 +24,8 @@ router.get('/a_zmiana_treningu_klasycznego/:id', (req, res) => res.render('../vi
         trening_klasyczny: trening_klasyczny,
         grupa: grupa,
         trener: trener,
-        tmpElement: getTreningById(parseInt(req.params.id))
+        tmpElement: getTreningById(parseInt(req.params.id)),
+        user: req.session.user
     }));
 
 router.get('/a_trening_klasyczny', (req, res) => res.render('administrator/a_trening_klasyczny',
@@ -31,7 +33,8 @@ router.get('/a_trening_klasyczny', (req, res) => res.render('administrator/a_tre
         who: 'Administrator',
         trening_klasyczny: trening_klasyczny,
         grupa: grupa,
-        trener: trener
+        trener: trener,
+        user: req.session.user
     }));
 
 

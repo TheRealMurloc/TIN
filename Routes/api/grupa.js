@@ -12,21 +12,24 @@ function getGrupaById(id) {
 router.get('/a_lista_grup', (req, res) => res.render('administrator/a_lista_grup',
     {
         who: 'Administrator',
-        grupa: grupa
+        grupa: grupa,
+        user: req.session.user
     }));
 
 router.get('/a_zmiana_grupy/:id', (req, res) => res.render('../views/administrator/a_zmiana_grupy',
     {
         who: 'Administrator',
         grupa: grupa,
-        tmpElement: getGrupaById(parseInt(req.params.id))
+        tmpElement: getGrupaById(parseInt(req.params.id)),
+        user: req.session.user
     }));
 
-
-// Gets All
-router.get('/', (req, res) => {
-    res.json(grupa);
-});
+router.get('/a_dodaj_grupe', (req, res) => res.render('../views/administrator/a_dodaj_grupe',
+    {
+        who: 'Administrator',
+        grupa: grupa,
+        user: req.session.user
+    }));
 
 // Get single
 router.get('/:id', (req, res) => {

@@ -13,14 +13,52 @@ function getCwiczenieById(id) {
 router.get('/a_lista_cwiczen', (req, res) => res.render('administrator/a_lista_cwiczen',
     {
         who: 'Administrator',
-        cwiczenia: cwiczenia
+        cwiczenia: cwiczenia,
+        user: req.session.user
+    }));
+
+router.get('/t_lista_cwiczen', (req, res) => res.render('trener/t_lista_cwiczen',
+    {
+        who: 'Trener',
+        cwiczenia: cwiczenia,
+        user: req.session.user
+    }));
+
+router.get('/u_lista_cwiczen', (req, res) => res.render('uczestnik/u_lista_cwiczen',
+    {
+        who: 'Uczestnik',
+        cwiczenia: cwiczenia,
+        user: req.session.user
     }));
 
 router.get('/a_zmiana_cwiczenia/:id', (req, res) => res.render('../views/administrator/a_zmiana_cwiczenia',
     {
         who: 'Administrator',
         cwiczenia: cwiczenia,
-        tmpElement: getCwiczenieById(parseInt(req.params.id))
+        tmpElement: getCwiczenieById(parseInt(req.params.id)),
+        user: req.session.user
+    }));
+
+router.get('/t_zmiana_cwiczenia/:id', (req, res) => res.render('../views/trener/t_zmiana_cwiczenia',
+    {
+        who: 'Trener',
+        cwiczenia: cwiczenia,
+        tmpElement: getCwiczenieById(parseInt(req.params.id)),
+        user: req.session.user
+    }));
+
+router.get('/a_dodaj_cwiczenie', (req, res) => res.render('administrator/a_dodaj_cwiczenie',
+    {
+        who: 'Administrator',
+        cwiczenia: cwiczenia,
+        user: req.session.user
+    }));
+
+router.get('/t_dodaj_cwiczenie', (req, res) => res.render('trener/t_dodaj_cwiczenie',
+    {
+        who: 'Trener',
+        cwiczenia: cwiczenia,
+        user: req.session.user
     }));
 
 // Gets All

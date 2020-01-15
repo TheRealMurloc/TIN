@@ -2,46 +2,94 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6169ae36-a867-49e2-a7d1-580232f46233" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Routes/api/trening_internetowy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Routes/api/trening_klasyczny.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Table/Grupa.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Table/Osoba.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/administrator/a_dodaj_cwiczenie.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/administrator/a_trening_internetowy.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/administrator/a_zmiana_hasla.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/administrator/a_lista_cwiczen.handlebars" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/administrator/a_lista_treningow_internetowych.handlebars" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/administrator/a_lista_treningow_klasycznych.handlebars" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/administrator/a_przydziel_grupy.handlebars" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/administrator/a_trening_klasyczny.handlebars" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/administrator/a_zmiana_cwiczenia.handlebars" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/administrator/a_zmiana_daty_treningu_internetowego.handlebars" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/administrator/a_zmiana_osoby.handlebars" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/administrator/a_zmiana_treningu_klasycznego.handlebars" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Routes/api/feedback.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Routes/api/zlecone_cwiczenie.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Table/Feedback.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/administrator/a_dodaj_cwiczenie.handlebars" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/administrator/a_dodaj_grupe.handlebars" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/administrator/a_dodaj_uczestnika.handlebars" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/administrator/a_strona_glowna.handlebars" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/administrator/a_trening_internetowy.handlebars" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/administrator/a_zmiana_hasla.handlebars" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/trener/t_dodaj_cwiczenie.handlebars" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/trener/t_feedback.handlebars" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/trener/t_lista_cwiczen.handlebars" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/trener/t_strona_glowna.handlebars" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/trener/t_zlec_cwiczenie_grupa.handlebars" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/trener/t_zlec_cwiczenie_indywidualne.handlebars" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/trener/t_zmiana_cwiczenia.handlebars" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/trener/t_zmiana_email.handlebars" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/trener/t_zmiana_hasla.handlebars" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/trener/t_zmiana_ksywki.handlebars" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/trener/t_zmiana_tel.handlebars" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/uczestnik/u_feedback.handlebars" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/uczestnik/u_lista_cwiczen.handlebars" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/uczestnik/u_strona_glowna.handlebars" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/uczestnik/u_trening_indywidualny.handlebars" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/uczestnik/u_zmiana_email.handlebars" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/uczestnik/u_zmiana_hasla.handlebars" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/uczestnik/u_zmiana_ksywki.handlebars" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/uczestnik/u_zmiana_tel.handlebars" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Routes/api/cwiczenia.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/api/cwiczenia.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Routes/api/grupa.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/api/grupa.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Routes/api/osoba.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/api/osoba.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Table/Cwiczenia.js" beforeDir="false" afterPath="$PROJECT_DIR$/Table/Cwiczenia.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Table/Trening_klasyczny.js" beforeDir="false" afterPath="$PROJECT_DIR$/Table/Trening_klasyczny.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/administrator/a_lista_cwiczen.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/administrator/a_lista_treningow.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/administrator/a_przydziel_grupy.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/administrator/a_trening_internetowy.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/administrator/a_trening_klasyczny.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/administrator/a_zmiana_daty_treningu.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/administrator/a_zmiana_hasla.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Routes/api/trening_internetowy.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/api/trening_internetowy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Routes/api/trening_klasyczny.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/api/trening_klasyczny.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Table/Osoba.js" beforeDir="false" afterPath="$PROJECT_DIR$/Table/Osoba.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Table/Zlecone_cwiczenie.js" beforeDir="false" afterPath="$PROJECT_DIR$/Table/Zlecone_cwiczenie.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a_strona_glowna.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/hexellence.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/hexellence.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/dodaj_trening_internetowy.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/dodaj_trening_internetowy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/dodaj_trening_klasyczny.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/dodaj_trening_klasyczny.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/nowe_cwiczenie.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/nowe_cwiczenie.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/administrator/a_dodaj_grupe.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/administrator/a_dodaj_grupe.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/administrator/a_dodaj_uczestnika.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/administrator/a_dodaj_uczestnika.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/dodaj_cwiczenie.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/dodaj_cwiczenie.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/feedback.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/feedback.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/zmiana_email.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/zmiana_email.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/zmiana_hasla.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/zmiana_hasla.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/zmiana_ksywki.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/zmiana_ksywki.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/zmiana_tel.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/zmiana_tel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logowanie.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/logowanie.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/administrator/a_dodaj_cwiczenie.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/administrator/a_dodaj_grupe.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/administrator/a_dodaj_uczestnika.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/administrator/a_trening_internetowy.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/administrator/a_zmiana_hasla.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/t_strona_glowna.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trener/t_edytowanie_cwiczenia.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trener/t_feedback.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trener/t_lista_cwiczen.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trener/t_nowe_cwiczenie.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trener/t_zlec_cwiczenie_grupa.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trener/t_zlec_cwiczenie_indywidualne.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trener/t_zmiana_email.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trener/t_zmiana_hasla.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trener/t_zmiana_ksywki.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trener/t_zmiana_tel.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/u_strona_glowna.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uczestnik/u_feedback.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uczestnik/u_kalendarz_trenerow.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uczestnik/u_lista_cwiczen.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uczestnik/u_trening_indywidualny.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uczestnik/u_zmiana_email.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uczestnik/u_zmiana_hasla.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uczestnik/u_zmiana_ksywki.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uczestnik/u_zmiana_tel.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/administrator/a_lista_cwiczen.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_lista_cwiczen.handlebars" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/administrator/a_lista_grup.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_lista_grup.handlebars" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/administrator/a_lista_osob.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_lista_osob.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/administrator/a_lista_treningow_internetowych.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_lista_treningow_internetowych.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/administrator/a_lista_treningow_klasycznych.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_lista_treningow_klasycznych.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/administrator/a_przydziel_grupy.handlebars" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/administrator/a_trening_klasyczny.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_trening_klasyczny.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/administrator/a_zmiana_cwiczenia.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_zmiana_cwiczenia.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/administrator/a_zmiana_daty_treningu_internetowego.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_zmiana_daty_treningu_internetowego.handlebars" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/administrator/a_zmiana_grupy.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_zmiana_grupy.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/administrator/a_zmiana_osoby.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_zmiana_osoby.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/administrator/a_zmiana_treningu_klasycznego.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_zmiana_treningu_klasycznego.handlebars" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,22 +124,24 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.13.1" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tin-examples-students/02.2 - Templates — auth" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Ppatryk27\Documents\GitHub\TIN\administrator" />
-      <recent name="C:\Users\Patryk\Documents\GitHub\TIN\views\administrator" />
-      <recent name="C:\Users\Ppatryk27\Documents\GitHub\TIN\Table" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Ppatryk27\Documents\GitHub\TIN\public\js" />
       <recent name="C:\Users\Ppatryk27\Documents\GitHub\TIN\js" />
       <recent name="C:\Users\Ppatryk27\Documents\GitHub\TIN\public\administrator" />
       <recent name="C:\Users\Ppatryk27\Documents\GitHub\TIN\public\css" />
       <recent name="C:\Users\Ppatryk27\Documents\GitHub\TIN\views\css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ppatryk27\Documents\GitHub\TIN\public\js" />
+      <recent name="C:\Users\Ppatryk27\Documents\GitHub\TIN\views\trener" />
+      <recent name="C:\Users\Ppatryk27\Documents\GitHub\TIN\public" />
+      <recent name="C:\Users\Ppatryk27\Documents\GitHub\TIN\public\css" />
+      <recent name="C:\Users\Ppatryk27\Documents\GitHub\TIN\administrator" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -133,6 +183,7 @@
       <workItem from="1578776273852" duration="7119000" />
       <workItem from="1578843728459" duration="9063000" />
       <workItem from="1578902546680" duration="30130000" />
+      <workItem from="1578979000417" duration="42330000" />
     </task>
     <servers />
   </component>
@@ -156,26 +207,26 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="574" y="307" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578923925727">
+    <state x="574" y="307" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1579034700083">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state x="574" y="307" key="#com.intellij.fileTypes.FileTypeChooser/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1578923925727" />
+    <state x="574" y="307" key="#com.intellij.fileTypes.FileTypeChooser/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1579034700083" />
     <state x="465" y="88" key="CommitChangelistDialog2" timestamp="1578518421331">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
     <state x="465" y="88" key="CommitChangelistDialog2/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1578518421331" />
-    <state x="620" y="259" key="FileChooserDialogImpl" timestamp="1578549410894">
+    <state x="620" y="259" key="FileChooserDialogImpl" timestamp="1579029908344">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state x="620" y="259" key="FileChooserDialogImpl/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1578549410894" />
+    <state x="620" y="259" key="FileChooserDialogImpl/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1579029908344" />
     <state x="341" y="147" key="SettingsEditor" timestamp="1578518432521">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
     <state x="341" y="147" key="SettingsEditor/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1578518432521" />
-    <state x="536" y="328" key="com.intellij.ide.util.TipDialog" timestamp="1578902547302">
+    <state x="536" y="328" key="com.intellij.ide.util.TipDialog" timestamp="1578979001705">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state x="536" y="328" key="com.intellij.ide.util.TipDialog/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1578902547302" />
+    <state x="536" y="328" key="com.intellij.ide.util.TipDialog/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1578979001705" />
     <state x="1733" y="244" width="1406" height="800" maximized="true" key="dock-window-1" timestamp="1578912504734">
       <screen x="1680" y="255" width="1440" height="860" />
     </state>

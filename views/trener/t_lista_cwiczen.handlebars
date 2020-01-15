@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <title>Lista ćwiczeń</title>
+    <link rel="Stylesheet" href="/css/style.css">
+    <link rel="Stylesheet" href="/css/fontello/css/fontello.css">
+    <style>
+        input[type=submit]
+        {
+            width: 80px;
+            background-color: #1035dd;
+            font-size: 14px;
+            padding: 2px;
+            margin: 5px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1 class="logo">System do treningów indywidualnych</h1>
+        <h2 class="header">Zalogowany jako: {{who}}</h2>
+        <nav>
+            <div class="nav">
+                <ol>
+                    <li><a href="/../api/osoba/u_strona_glowna"><h6>Strona główna</h6></a></li>
+                    <li><a href="#">Ranking</a>
+                        <ul>
+                            <li><a href="trener/t_ranking_ogolny.html">Ogólny</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="trener/t_ranking_grupowy.html">Grupowy</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/../api/cwiczenia/t_dodaj_cwiczenie">Dodaj ćwiczenie</a></li>
+                    <li><a href="#">Zleć ćwiczenie</a>
+                        <ul>
+                            <li><a href="/../api/zlecone_cwiczenie/t_zlec_cwiczenie_grupa">Grupowe</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="/../api/zlecone_cwiczenie/t_zlec_cwiczenie_indywidualne">Indywidualne</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="trener/t_lista_obecnosci.html">Lista obecności</a></li>
+                    <li><a href="/../api/cwiczenia/t_lista_cwiczen">Lista ćwiczeń</a></li>
+                    <li><a href="/../api/feedback/t_feedback">Feedback</a></li>
+                </ol>
+            </div>
+        </nav>
+    </header>
+    <div class="middle">
+        <nav>
+            <div class="menu">
+                <header>
+                    <div class="optionsTitle">
+                        <i class="icon-cog-alt"></i>
+                    </div>
+                </header>
+                <a href="/../api/osoba/t_zmiana_ksywki"><div class="option">Zmiana ksywki</div><br /></a>
+                <a href="/../api/osoba/t_zmiana_email"><div class="option">Zmiana email</div><br /></a>
+                <a href="/../api/osoba/t_zmiana_tel"><div class="option">Zmiana numeru tel</div><br /></a>
+                <a href="/../api/osoba/t_zmiana_hasla"><div class="option">Zmiana hasła</div><br /></a>
+                <a href="/../api/osoba/logout"><div class="option">Wyloguj</div></a>
+            </div>
+        </nav>
+        <main>
+            <div class="content">
+                <header>
+                    <div class="contentTitle">
+                        <h3>Lista ćwiczeń</h3>
+                    </div>
+                </header>
+                <article>
+                    <div class="page">
+                        <div class="table">
+                            <table>
+                                <tr>
+                                    <td>Nazwa ćwiczenia</td>
+                                    <td>Opis</td>
+                                    <td colspan="2">Inne</td>
+                                </tr>
+                                {{#each cwiczenia}}
+                                    <tr>
+                                        <td>{{this.nazwa}}</td>
+                                        <td>{{this.opis}}</td>
+                                        <td><input type="button" value="Modyfikuj" onClick="location.href=`t_zmiana_cwiczenia/{{this.id_cwiczenia}}`;" /></td>
+                                        <td><form action="/api/cwiczenia/delete/{{this.id_cwiczenia}}" method="POST"><input type="submit" value="Usuń" /></form></td>
+                                    </tr>
+                                {{/each}}
+
+                            </table>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </main>
+        <div style="clear: both;"></div>
+
+    </div>
+    <footer>
+        <div class="footer">
+            <div class="icons">
+                <a href="https://www.youtube.com/?hl=pl&gl=PL" target="_blank">
+                    <div class="yt"><i class="icon-youtube"></i></div>
+                </a>
+                <a href="https://www.facebook.com/" target="_blank">
+                    <div class="fb"><i class="icon-facebook"></i></div>
+                </a>
+                <a href="https://www.google.pl/" target="_blank">
+                    <div class="gmail"><i class="icon-gmail"></i></div>
+                </a>
+                <a href="https://www.google.pl/" target="_blank">
+                    <div class="website"><i class="icon-network"></i></div>
+                </a>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
