@@ -8,14 +8,25 @@ const zlecone_cwiczenie = require('../../Table/Zlecone_cwiczenie');
 const grupa = require('../../Table/Grupa');
 
 
-router.get('/t_zlec_cwiczenie_indywidualne', (req, res) => res.render('trener/t_zlec_cwiczenie_indywidualne',
+router.get('/t_zlec_cwiczenie_indywidualne', (req, res) => {
+    lista = [];
+    for(let i=0; i<osoba.length; i++)
     {
-        who: 'Trener',
-        cwiczenia: cwiczenia,
-        osoba: osoba,
-        trening_internetowy: trening_internetowy,
-        user: req.session.user
-    }));
+        if(osoba[i].czyUczestnik)
+        {
+            lista.push(osoba[i]);
+        }
+    }
+
+    res.render('trener/t_zlec_cwiczenie_indywidualne',
+        {
+            who: 'Trener',
+            cwiczenia: cwiczenia,
+            osoba: lista,
+            trening_internetowy: trening_internetowy,
+            user: req.session.user
+        })
+});
 
 router.get('/t_zlec_cwiczenie_grupa', (req, res) => res.render('trener/t_zlec_cwiczenie_grupa',
     {
@@ -52,15 +63,11 @@ router.get('/u_trening_indywidualny', (req, res) =>
     let lista = [];
     for (let i = 0; i < zlecone_cwiczenie.length; i++)
     {
-        console.log(zlecone_cwiczenie[i]);
-        console.log(zlecone_cwiczenie[i].id_osoba === user.id_osoby);
-        console.log(!zlecone_cwiczenie[i].cwiczenie_grupowe);
         if(zlecone_cwiczenie[i].id_osoba === user.id_osoby  && !zlecone_cwiczenie[i].cwiczenie_grupowe)
         {
             lista.push(zlecone_cwiczenie[i]);
         }
     }
-    console.log(lista);
     res.render('uczestnik/u_trening_indywidualny',
     {
         who: 'Uczestnik',
@@ -149,20 +156,98 @@ router.post('/grupa/', (req, res) => {
 });
 
 // Update
-router.post('/update/', (req, res) => {
+router.post('/update/ind/', (req, res) => {
     let user = req.session.user;
-    for( let i=0, j=0; i<zlecone_cwiczenie.length; i++)
+    let iloscCwiczen = 0;
+    for( let i=0; i<zlecone_cwiczenie.length; i++)
     {
-        if(zlecone_cwiczenie[i].id_osoba === user.id_osoby)
+        if(zlecone_cwiczenie[i].id_osoba === user.id_osoby && !zlecone_cwiczenie[i].cwiczenie_grupowe)
         {
-            let ilosc = 0;
-            if(req.body.ilosc[j] !== ''){
-                ilosc = parseInt(req.body.ilosc[j++]);
-            }
-            zlecone_cwiczenie[i].ilosc_zrobiona += ilosc;
+            iloscCwiczen++;
         }
     }
-    res.redirect('../../zlecone_cwiczenie/u_trening_indywidualny');
+
+    if(iloscCwiczen > 1)
+    {
+        for( let i=0, j=0; i<zlecone_cwiczenie.length; i++)
+        {
+            if(zlecone_cwiczenie[i].id_osoba === user.id_osoby && !zlecone_cwiczenie[i].cwiczenie_grupowe)
+            {
+                let ilosc = 0;
+                if(req.body.ilosc[j] !== ''){
+                    ilosc = parseInt(req.body.ilosc[j++]);
+                }
+                else{
+                    j++;
+                }
+                zlecone_cwiczenie[i].ilosc_zrobiona += ilosc;
+                console.log(zlecone_cwiczenie[i].ilosc_zrobiona);
+            }
+        }
+    }
+    else
+    {
+        for( let i=0; i<zlecone_cwiczenie.length; i++)
+        {
+            if(zlecone_cwiczenie[i].id_osoba === user.id_osoby && !zlecone_cwiczenie[i].cwiczenie_grupowe)
+            {
+                let ilosc = 0;
+                if(req.body.ilosc !== ''){
+                    ilosc = parseInt(req.body.ilosc);
+                }
+                zlecone_cwiczenie[i].ilosc_zrobiona += ilosc;
+            }
+        }
+    }
+
+    res.redirect('../../../zlecone_cwiczenie/u_trening_indywidualny');
+});
+
+// Update
+router.post('/update/grupa/', (req, res) => {
+    let user = req.session.user;
+    let iloscCwiczen = 0;
+    for( let i=0; i<zlecone_cwiczenie.length; i++)
+    {
+        if(zlecone_cwiczenie[i].id_osoba === user.id_osoby && zlecone_cwiczenie[i].cwiczenie_grupowe)
+        {
+            iloscCwiczen++;
+        }
+    }
+
+    if(iloscCwiczen > 1)
+    {
+        for( let i=0, j=0; i<zlecone_cwiczenie.length; i++)
+        {
+            if(zlecone_cwiczenie[i].id_osoba === user.id_osoby && zlecone_cwiczenie[i].cwiczenie_grupowe)
+            {
+                let ilosc = 0;
+                if(req.body.ilosc[j] !== ''){
+                    ilosc = parseInt(req.body.ilosc[j++]);
+                }
+                else{
+                    j++;
+                }
+                zlecone_cwiczenie[i].ilosc_zrobiona += ilosc;
+            }
+        }
+    }
+    else
+    {
+        for( let i=0; i<zlecone_cwiczenie.length; i++)
+        {
+            if(zlecone_cwiczenie[i].id_osoba === user.id_osoby && zlecone_cwiczenie[i].cwiczenie_grupowe)
+            {
+                let ilosc = 0;
+                if(req.body.ilosc !== ''){
+                    ilosc = parseInt(req.body.ilosc);
+                }
+                zlecone_cwiczenie[i].ilosc_zrobiona += ilosc;
+            }
+        }
+    }
+
+    res.redirect('../../../zlecone_cwiczenie/u_trening_grupowy');
 });
 
 // Delete

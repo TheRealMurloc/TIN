@@ -2,27 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6169ae36-a867-49e2-a7d1-580232f46233" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/views/uczestnik/u_trening_grupowy.handlebars" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/uczestnik/u_kalendarz_zajec.handlebars" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Routes/api/trening_klasyczny.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/api/trening_klasyczny.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Routes/api/zlecone_cwiczenie.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/api/zlecone_cwiczenie.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/administrator/a_dodaj_grupe.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_dodaj_grupe.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/administrator/a_dodaj_uczestnika.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_dodaj_uczestnika.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/administrator/a_edytowanie_treningu_grupowego.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_edytowanie_treningu_grupowego.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/administrator/a_lista_cwiczen.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_lista_cwiczen.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/administrator/a_lista_grup.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_lista_grup.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/administrator/a_lista_osob.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_lista_osob.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/administrator/a_lista_treningow_internetowych.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_lista_treningow_internetowych.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/administrator/a_lista_treningow_klasycznych.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_lista_treningow_klasycznych.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/administrator/a_strona_glowna.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_strona_glowna.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/administrator/a_trening_internetowy.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_trening_internetowy.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/administrator/a_trening_klasyczny.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_trening_klasyczny.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/administrator/a_zmiana_cwiczenia.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_zmiana_cwiczenia.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/administrator/a_zmiana_daty_treningu_internetowego.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_zmiana_daty_treningu_internetowego.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/administrator/a_zmiana_grupy.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_zmiana_grupy.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/administrator/a_zmiana_hasla.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_zmiana_hasla.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/administrator/a_zmiana_osoby.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_zmiana_osoby.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/administrator/a_zmiana_treningu_klasycznego.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_zmiana_treningu_klasycznego.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/trener/t_zlec_cwiczenie_grupa.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/trener/t_zlec_cwiczenie_grupa.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/uczestnik/u_strona_glowna.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/uczestnik/u_strona_glowna.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/uczestnik/u_trening_grupowy.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/uczestnik/u_trening_grupowy.handlebars" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/uczestnik/u_trening_indywidualny.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/uczestnik/u_trening_indywidualny.handlebars" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -121,6 +107,7 @@
       <workItem from="1578979000417" duration="42330000" />
       <workItem from="1579073373662" duration="4358000" />
       <workItem from="1579098302802" duration="4169000" />
+      <workItem from="1579258429024" duration="3979000" />
     </task>
     <servers />
   </component>

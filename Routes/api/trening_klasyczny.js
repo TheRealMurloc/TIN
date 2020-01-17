@@ -11,6 +11,26 @@ function getTreningById(id) {
     return trening_klasyczny.find(element => element.id_trening == id);
 }
 
+router.get('/u_kalendarz_zajec', (req, res) => {
+
+    lista = [];
+    for(let i=0; i<trening_klasyczny.length; i++)
+    {
+        if(trening_klasyczny[i].id_grupa === parseInt(req.session.user.id_grupa))
+        {
+            lista.push(trening_klasyczny[i]);
+        }
+    }
+
+
+    res.render('uczestnik/u_kalendarz_zajec',
+    {
+        who: 'Uczestnik',
+        trening_klasyczny: lista,
+        user: req.session.user
+    })
+});
+
 router.get('/a_lista_treningow_klasycznych', (req, res) => res.render('administrator/a_lista_treningow_klasycznych',
     {
         who: 'Administrator',

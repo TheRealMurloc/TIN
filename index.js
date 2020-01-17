@@ -19,7 +19,7 @@ const hbs = exphbs.create({
             return x / y;
         },
         procent: function (x, y) {
-            return x / y * 100;
+            return Math.floor((x / y * 100));
         }
     }
 });
