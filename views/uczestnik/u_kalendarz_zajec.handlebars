@@ -31,54 +31,27 @@
         <nav>
             <div class="nav">
                 <ol>
-                    <li><a href="/../api/osoba/a_strona_glowna">Strona główna</a></li>
+                    <li><a href="/../api/osoba/u_strona_glowna"><h6>Strona główna</h6></a></li>
                     <li><a href="#">Ranking</a>
                         <ul>
-                            <li><a href="a_ranking_ogolny.html">Ogólny</a></li>
+                            <li><a href="uczestnik/u_ranking_ogolny.html">Ogólny</a></li>
                         </ul>
                         <ul>
-                            <li><a href="a_ranking_grupowy.html">Grupowy</a></li>
+                            <li><a href="uczestnik/u_ranking_grupowy.html">Grupowy</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Dodaj trening</a>
+                    <li><a href="#">Trening</a>
                         <ul>
-                            <li><a href="/../api/trening_klasyczny/a_trening_klasyczny">Klasyczny</a></li>
+                            <li><a href="uczestnik/u_trening_grupowy.html">Grupowy</a></li>
                         </ul>
                         <ul>
-                            <li><a href="/../api/trening_internetowy/a_trening_internetowy">Internetowy</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Dodaj inne</a>
-                        <ul>
-                            <li><a href="/../api/osoba/a_dodaj_uczestnika">Uczestnika</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="/../api/grupa/a_dodaj_grupe">Grupę</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="/../api/cwiczenia/a_dodaj_cwiczenie">Ćwiczenie</a></li>
+                            <li><a href="/../api/zlecone_cwiczenie/u_trening_indywidualny">Indywidualny</a></li>
                         </ul>
                     </li>
-                    <li><a href="#"><h6>Lista</h6></a>
-                        <ul>
-                            <li><a href="/../api/osoba/a_lista_osob">Osób</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="/../api/grupa/a_lista_grup">Grup</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="#">Obecności</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="/../api/cwiczenia/a_lista_cwiczen">Ćwiczeń</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="/../api/trening_internetowy/a_lista_treningow_internetowych">Treningów int.</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="/../api/trening_klasyczny/a_lista_treningow_klasycznych"><h6>Treningów klas.</h6></a></li>
-                        </ul>
-                    </li>
+                    <li><a href="uczestnik/u_kalendarz_cwiczen.html">Kalendarz zajęć</a></li>
+                    <li><a href="uczestnik/u_lista_obecnosci.html">Lista obecności</a></li>
+                    <li><a href="/../api/cwiczenia/u_lista_cwiczen">Lista ćwiczeń</a></li>
+                    <li><a href="/../api/feedback/u_feedback">Feedback</a></li>
                 </ol>
             </div>
         </nav>
@@ -91,7 +64,10 @@
                         <i class="icon-cog-alt"></i>
                     </div>
                 </header>
-                <a href="/../api/osoba/a_zmiana_hasla"><div class="option">Zmiana hasła</div><br /></a>
+                <a href="/../api/osoba/u_zmiana_ksywki"><div class="option">Zmiana ksywki</div><br /></a>
+                <a href="/../api/osoba/u_zmiana_email"><div class="option">Zmiana email</div><br /></a>
+                <a href="/../api/osoba/u_zmiana_tel"><div class="option">Zmiana numeru tel</div><br /></a>
+                <a href="/../api/osoba/u_zmiana_hasla"><div class="option">Zmiana hasła</div><br /></a>
                 <a href="/../api/osoba/logout"><div class="option">Wyloguj</div></a>
             </div>
         </nav>
@@ -109,17 +85,17 @@
                                 <tr>
                                     <td>Trening</td>
                                     <td>Data</td>
-                                    <td>Godzina</td>
+                                    <td>Godzina Rozpoczęcia</td>
+                                    <td>Godzina Zakończenia</td>
                                     <td>Grupa</td>
                                     <td>Trener</td>
-                                    <td>Edycja</td>
-                                    <td>Usuń</td>
                                 </tr>
                                 {{#each trening_klasyczny}}
                                     <tr>
                                         <td>Trening {{this.id_trening}}</td>
                                         <td>{{this.data}}</td>
-                                        <td>{{this.godzina}}</td>
+                                        <td>{{this.godzina_rozpoczecia}}</td>
+                                        <td>{{this.godzina_zakonczenia}}</td>
                                         <td>{{this.id_grupa}}</td>
                                         <td>{{this.id_trener}}</td>
                                     </tr>

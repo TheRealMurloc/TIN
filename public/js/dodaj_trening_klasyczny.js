@@ -1,5 +1,5 @@
 const data = document.getElementById("data");
-const godzina = document.getElementById("godzina");
+const godzina_rozpoczecia = document.getElementById("godzina_rozpoczecia");
 const form = document.getElementById("form");
 const errorSummary = document.getElementById("errorSummary");
 const errorMessage1 = document.getElementById("errorMessage1");
@@ -25,15 +25,15 @@ form.addEventListener("submit", (e) =>
         errorMessage1.innerText = "";
     }
 
-    if(godzina.value < "06:00" || godzina.value > "23:00" || godzina.value === null)
+    if(godzina_rozpoczecia.value < "06:00" || godzina_rozpoczecia.value > "23:00" || godzina_rozpoczecia.value === null)
     {
-        godzina.className = "error";
+        godzina_rozpoczecia.className = "error";
         errorMessage2.innerText = "Podano złą godzinę!";
         messages.push("-Podano złą godzinę!");
     }
     else
     {
-        godzina.className = "form";
+        godzina_rozpoczecia.className = "form";
         errorMessage2.innerText = "";
     }
 

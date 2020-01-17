@@ -16,12 +16,11 @@ router.get('/u_kalendarz_zajec', (req, res) => {
     lista = [];
     for(let i=0; i<trening_klasyczny.length; i++)
     {
-        if(trening_klasyczny[i].id_grupa === parseInt(req.session.user.id_grupa))
+        if(trening_klasyczny[i].id_grupa === parseInt(req.session.user.id_grupy))
         {
             lista.push(trening_klasyczny[i]);
         }
     }
-
 
     res.render('uczestnik/u_kalendarz_zajec',
     {
@@ -78,7 +77,8 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
     const newTrening = {
         id_trening: nextId++,
-        godzina: req.body.godzina,
+        godzina_rozpoczecia: req.body.godzina_rozpoczecia,
+        godzina_zakonczenia: req.body.godzina_zakonczenia,
         data: req.body.data,
         id_grupa: req.body.grupa,
         id_trener: req.body.trener
