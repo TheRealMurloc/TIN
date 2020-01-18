@@ -49,6 +49,7 @@ app.use('/api/trening_internetowy', require('./routes/api/trening_internetowy'))
 app.use('/api/trening_klasyczny', require('./routes/api/trening_klasyczny'));
 app.use('/api/feedback', require('./routes/api/feedback'));
 app.use('/api/zlecone_cwiczenie', require('./routes/api/zlecone_cwiczenie'));
+app.use('/api/obecnosc', require('./routes/api/obecnosc'));
 
 //Static folder
 app.use(express.static(path.join(__dirname, 'public')));

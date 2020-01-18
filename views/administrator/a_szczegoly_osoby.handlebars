@@ -7,7 +7,6 @@
     <title>Dodawanie uczestnika</title>
     <link rel="Stylesheet" href="/css/style.css">
     <link rel="Stylesheet" href="/css/fontello/css/fontello.css">
-    <script defer src="/js/dodaj_uczestnika.js"></script>
 </head>
 <body>
 <div class="container">
@@ -34,9 +33,9 @@
                             <li><a href="/../api/trening_internetowy/a_trening_internetowy">Internetowy</a></li>
                         </ul>
                     </li>
-                    <li><a href="#"><h6>Dodaj inne</h6></a>
+                    <li><a href="#">Dodaj inne</a>
                         <ul>
-                            <li><a href="/../api/osoba/a_dodaj_uczestnika"><h6>Uczestnika</h6></a></li>
+                            <li><a href="/../api/osoba/a_dodaj_uczestnika">Uczestnika</a></li>
                         </ul>
                         <ul>
                             <li><a href="/../api/grupa/a_dodaj_grupe">Grupę</a></li>
@@ -45,9 +44,9 @@
                             <li><a href="/../api/cwiczenia/a_dodaj_cwiczenie">Ćwiczenie</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Lista</a>
+                    <li><a href="#"><h6>Lista</h6></a>
                         <ul>
-                            <li><a href="/../api/osoba/a_lista_osob">Osób</a></li>
+                            <li><a href="/../api/osoba/a_lista_osob"><h6>Osób</h6></a></li>
                         </ul>
                         <ul>
                             <li><a href="/../api/grupa/a_lista_grup">Grup</a></li>
@@ -85,41 +84,63 @@
             <div class="content">
                 <header>
                     <div class="contentTitle">
-                        <h3>Dodawanie uczestnika</h3>
+                        <h3>Szczegóły osoby</h3>
                     </div>
                 </header>
                 <article>
                     <div class="page">
-                        <form action="/api/osoba" id="form" method="POST">
-                            <div class="settings">
-                                <fieldset>
-                                    <legend> Nowy uczestnik </legend>
-                                    <input type="text" id="nazwa" name="login" class="form" placeholder="Wpisz login uczestnika"><br />
-                                    <div id="errorMessage1" class="errorMessage"></div>
-                                    <input type="password" id="haslo" name="haslo" class="form" placeholder="Wpisz hasło uczestnika"><br />
-                                    <div id="errorMessage2" class="errorMessage"></div>
-                                    <input type="password" id="haslo2" class="form" placeholder="Powtórz hasło">
-                                    <div id="errorMessage3" class="errorMessage"></div>
-                                    <input type="text" name="imie" class="form" placeholder="Wpisz imię uczestnika"><br />
-                                    <input type="text" name="nazwisko" class="form" placeholder="Wpisz nazwisko uczestnika"><br />
-                                    <input type="text" name="ksywka" class="form" placeholder="Wpisz ksywkę"><br />
-                                    <input type="text" name="email" class="form" placeholder="Wpisz email"><br />
-                                    <input type="text" name="telefon" class="form" placeholder="Wpisz telefon"><br />
-                                    <br />
-                                    Trener <input type="radio" name="rola" value="trener" onclick="document.getElementById('grupa').setAttribute('hidden', 'hidden')"><br /><br />
-                                    Uczestnik <input type="radio" name="rola" value="uczestnik" onclick="document.getElementById('grupa').removeAttribute('hidden')"><br /><br />
-                                    <select id="grupa" name="grupa" hidden>
-                                        {{#each grupa}}
-                                            <option name="grupa" value="{{this.id_grupy}}">Grupa {{this.id_grupy}}</option>
-                                        {{/each}}
-                                    </select>
-                                </fieldset>
-                            </div>
-                            <div id ="errorSummary"></div>
-                            <div class="settings">
-                                <input type="submit" value="Dodaj">
-                            </div>
-                        </form>
+                        <div class="table">
+                            <table>
+                                <tr>
+                                    <td><b>Id Osoby</b></td>
+                                    <td>{{tmpElement.id_osoby}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Id Grupy</b></td>
+                                    <td>{{tmpElement.id_grupy}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Login</b></td>
+                                    <td>{{tmpElement.login}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hasło</b></td>
+                                    <td>{{tmpElement.haslo}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Imie</b></td>
+                                    <td>{{tmpElement.imie}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Nazwisko</b></td>
+                                    <td>{{tmpElement.nazwisko}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ksywka</b></td>
+                                    <td>{{tmpElement.ksywka}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Email</b></td>
+                                    <td>{{tmpElement.email}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Telefon</b></td>
+                                    <td>{{tmpElement.telefon}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Uczestnik</b></td>
+                                    <td>{{tmpElement.czyUczestnik}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Trener</b></td>
+                                    <td>{{tmpElement.czyTrener}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Administrator</b></td>
+                                    <td>{{tmpElement.czyAdmin}}</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </article>
             </div>

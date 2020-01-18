@@ -109,7 +109,8 @@
                                 <tr>
                                     <td>Trening</td>
                                     <td>Data</td>
-                                    <td>Godzina</td>
+                                    <td>Godzina rozpoczęcia</td>
+                                    <td>Godzina zakończenia</td>
                                     <td>Grupa</td>
                                     <td>Trener</td>
                                     <td>Edycja</td>
@@ -119,7 +120,8 @@
                                     <tr>
                                         <td>Trening {{this.id_trening}}</td>
                                         <td>{{this.data}}</td>
-                                        <td>{{this.godzina}}</td>
+                                        <td>{{this.godzina_rozpoczecia}}</td>
+                                        <td>{{this.godzina_zakonczenia}}</td>
                                         <td>{{this.id_grupa}}</td>
                                         <td>{{this.id_trener}}</td>
                                         <td><input type="button" value="Zmiana" onClick="location.href='a_zmiana_treningu_klasycznego/{{this.id_trening}}';" /></td>

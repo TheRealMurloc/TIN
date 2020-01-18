@@ -85,7 +85,7 @@
             <div class="content">
                 <header>
                     <div class="contentTitle">
-                        <h3>Dodawanie osoby</h3>
+                        <h3>Modyfikacja osoby</h3>
                     </div>
                 </header>
                 <article>
@@ -94,15 +94,25 @@
                             <div class="settings">
                                 <fieldset>
                                     <legend> Modyfikacja osoby </legend>
-                                    <input type="text" id="nazwa" name="login" class="form" placeholder="{{tmpElement.login}}"><br />
+                                    <input type="text" id="nazwa" name="login" class="form" placeholder="Wpisz login" value="{{tmpElement.login}}"><br />
                                     <div id="errorMessage1" class="errorMessage"></div>
                                     <input type="password" id="haslo" name="haslo" class="form" placeholder="Wpisz hasło uczestnika"><br />
                                     <div id="errorMessage2" class="errorMessage"></div>
                                     <input type="password" id="haslo2" class="form" placeholder="Powtórz hasło">
                                     <div id="errorMessage3" class="errorMessage"></div>
-                                    <input type="text" name="ksywka" class="form" placeholder="{{tmpElement.ksywka}}"><br />
-                                    <input type="text" name="email" class="form" placeholder="{{tmpElement.email}}"><br />
-                                    <input type="text" name="telefon" class="form" placeholder="{{tmpElement.telefon}}"><br />
+                                    <input type="text" name="imie" class="form" placeholder="Wpisz imię uczestnika" value="{{tmpElement.imie}}"><br />
+                                    <input type="text" name="nazwisko" class="form" placeholder="Wpisz nazwisko uczestnika" value="{{tmpElement.nazwisko}}"><br />
+                                    <input type="text" name="ksywka" class="form" placeholder="Wpisz ksywkę" value="{{tmpElement.ksywka}}"><br />
+                                    <input type="text" name="email" class="form" placeholder="Wpisz adres email" value="{{tmpElement.email}}"><br />
+                                    <input type="text" name="telefon" class="form" placeholder="Wpisz numer telefonu" value="{{tmpElement.telefon}}"><br />
+                                    <select id="grupa" name="grupa">
+                                        {{#each grupa}}
+                                            <option name="grupa" value="{{this.id_grupy}}">Grupa {{this.id_grupy}}</option>
+                                        {{/each}}
+                                    </select>
+                                    <br /><br />
+                                    Uczestnik <input type="radio" name="rola" value="uczestnik" checked><br /><br />
+                                    Trener <input type="radio" name="rola" value="trener"><br /><br />
                                 </fieldset>
                             </div>
                             <div id ="errorSummary"></div>

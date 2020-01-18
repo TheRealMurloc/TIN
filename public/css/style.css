@@ -82,7 +82,7 @@ h6
 				-1px 0 1px #000,
 				0 1px 4px #000,
 				0 -1px 1px #000;
-	 
+
 }
 
 .middle
@@ -372,7 +372,7 @@ ol > li:hover > ul
 	display: block;
 }
 
-ol > li > ul > li 
+ol > li > ul > li
 {
 	background-color: #cf6969;
 	position: relative;

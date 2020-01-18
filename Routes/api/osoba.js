@@ -41,6 +41,16 @@ router.get('/a_zmiana_osoby/:id', (req, res) => res.render('administrator/a_zmia
     {
         who: 'Administrator',
         osoba: osoba,
+        grupa: grupa,
+        tmpElement: getOsobaById(parseInt(req.params.id)),
+        user: req.session.user
+    }));
+
+router.get('/a_szczegoly_osoby/:id', (req, res) => res.render('administrator/a_szczegoly_osoby',
+    {
+        who: 'Administrator',
+        osoba: osoba,
+        grupa: grupa,
         tmpElement: getOsobaById(parseInt(req.params.id)),
         user: req.session.user
     }));
@@ -181,35 +191,40 @@ router.get('/:id', (req, res) => {
 
 // Create
 router.post('/', (req, res) => {
-    let czyTrener;
-    let czyUczestnik;
-    if(req.body.trener)
+    let newOsoba;
+    if(req.body.rola == "trener")
     {
-        czyTrener = true;
+        newOsoba = {
+            id_osoby: nextId++,
+            id_grupy: null,
+            login: req.body.login,
+            haslo: req.body.haslo,
+            imie: req.body.imie,
+            nazwisko: req.body.nazwisko,
+            ksywka: req.body.ksywka,
+            email: req.body.email,
+            telefon: req.body.telefon,
+            czyUczestnik: false,
+            czyTrener: true,
+            czyAdmin: false
+        }
     }
-    else
+    if(req.body.rola == "uczestnik")
     {
-        czyTrener = false;
-    }
-    if(req.body.uczestnik)
-    {
-        czyUczestnik = true;
-    }
-    else
-    {
-        czyUczestnik = false;
-    }
-    const newOsoba = {
-        id_osoby: nextId++,
-        id_grupy: req.body.grupa,
-        login: req.body.login,
-        haslo: req.body.haslo,
-        ksywka: req.body.ksywka,
-        email: req.body.email,
-        telefon: req.body.telefon,
-        czyUczestnik: czyUczestnik,
-        czyTrener: czyTrener,
-        czyAdmin: false
+        newOsoba = {
+            id_osoby: nextId++,
+            id_grupy: parseInt(req.body.grupa),
+            login: req.body.login,
+            haslo: req.body.haslo,
+            imie: req.body.imie,
+            nazwisko: req.body.nazwisko,
+            ksywka: req.body.ksywka,
+            email: req.body.email,
+            telefon: req.body.telefon,
+            czyUczestnik: true,
+            czyTrener: false,
+            czyAdmin: false
+        }
     }
 
     if(!newOsoba.login) {
@@ -241,11 +256,34 @@ router.post('/update/:id', (req, res) => {
     {
         if(osoba[i].id_osoby === parseInt(req.params.id))
         {
+            let trener;
+            let uczestnik;
+            if(req.body.rola === "trener")
+            {
+                trener = true;
+            }
+            else
+            {
+                trener = false;
+            }
+            if(req.body.rola === "uczestnik")
+            {
+                uczestnik = true;
+            }
+            else
+            {
+                uczestnik = false;
+            }
             osoba[i].login = req.body.login ? req.body.login : osoba[i].login;
             osoba[i].haslo = req.body.haslo ? req.body.haslo : osoba[i].haslo;
+            osoba[i].imie = req.body.imie ? req.body.imie : osoba[i].imie;
+            osoba[i].nazwisko = req.body.nazwisko ? req.body.nazwisko : osoba[i].nazwisko;
             osoba[i].ksywka = req.body.ksywka ? req.body.ksywka : osoba[i].ksywka;
             osoba[i].email = req.body.email ? req.body.email :  osoba[i].email;
             osoba[i].telefon = req.body.telefon ? req.body.telefon : osoba[i].telefon;
+            osoba[i].id_grupy = parseInt(req.body.grupa) ? parseInt(req.body.grupa) : osoba[i].id_grupy;
+            osoba[i].czyTrener = trener;
+            osoba[i].czyUczestnik = uczestnik;
         }
     }
     if(req.session.user.czyUczestnik)
@@ -253,7 +291,7 @@ router.post('/update/:id', (req, res) => {
     if(req.session.user.czyTrener)
         res.redirect('/api/osoba/t_strona_glowna');
     if(req.session.user.czyAdmin)
-        res.redirect('/api/osoba/a_strona_glowna');
+        res.redirect('/api/osoba/a_lista_osob');
 });
 
 // Delete
@@ -265,6 +303,7 @@ router.post('/delete/:id', (req, res) => {
             osoba.splice(i, 1);
         }
     }
+    nextId--;
     res.redirect('../../osoba/a_lista_osob');
 });
 

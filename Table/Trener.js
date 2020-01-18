@@ -1,6 +1,6 @@
 const trener = [
     {
-        id_trener: 1
+        id_trener: 3
     }
 ];
 
