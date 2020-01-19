@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="pl-PL">
 <head>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
-    <title>Dodawanie ćwiczenia</title>
+    <title>Modyfikacja ćwiczenia</title>
     <link rel="Stylesheet" href="/css/style.css">
     <link rel="Stylesheet" href="/css/fontello/css/fontello.css">
-    <script defer src="../js/nowe_cwiczenie.js"></script>
+    <script defer src="/js/nowe_cwiczenie.js"></script>
 </head>
 <body>
 <div class="container">
@@ -17,7 +16,7 @@
         <nav>
             <div class="nav">
                 <ol>
-                    <li><a href="/../api/osoba/t_strona_glowna"><h6>Strona główna</h6></a></li>
+                    <li><a href="/../api/osoba/t_strona_glowna">Strona główna</a></li>
                     <li><a href="#">Treningi</a>
                         <ul>
                             <li><a href="/../api/zlecone_cwiczenie/t_ranking_grupowy">Grupowe</a></li>
@@ -36,7 +35,7 @@
                         </ul>
                     </li>
                     <li><a href="/../api/trening_klasyczny/t_lista_obecnosci_wybor">Lista obecności</a></li>
-                    <li><a href="/../api/cwiczenia/t_lista_cwiczen">Lista ćwiczeń</a></li>
+                    <li><a href="/../api/cwiczenia/t_lista_cwiczen"><h6>Lista ćwiczeń</h6></a></li>
                     <li><a href="/../api/feedback/t_feedback">Feedback</a></li>
                 </ol>
             </div>
@@ -61,7 +60,7 @@
             <div class="content">
                 <header>
                     <div class="contentTitle">
-                        <h3>Nowe ćwiczenie</h3>
+                        <h3>Modyfikowanie ćwiczenia</h3>
                     </div>
                 </header>
                 <article>
@@ -69,7 +68,7 @@
                         <form action="/api/cwiczenia/update" id="form" method="POST">
                             <div class="settings">
                                 <fieldset>
-                                    <legend> Nowe ćwiczenie </legend>
+                                    <legend> Zmiana ćwiczenia </legend>
                                     <input type="text" class="form" id="nazwa" name="nazwa" placeholder="{{tmpElement.nazwa}}">
                                     <div id="errorMessage1" class="errorMessage"></div>
                                     <textarea name="opis" id="opis" rows="6" cols="80" maxlength="512" placeholder="{{tmpElement.opis}}"></textarea>
@@ -77,7 +76,7 @@
                             </div>
                             <div id ="errorSummary"></div>
                             <div class="settings">
-                                <input type="submit" value="Dodaj">
+                                <input type="submit" value="Zmień">
                             </div>
                         </form>
                     </div>
@@ -85,7 +84,6 @@
             </div>
         </main>
         <div style="clear: both;"></div>
-
     </div>
     <footer>
         <div class="footer">

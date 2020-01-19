@@ -47,7 +47,7 @@ form.addEventListener("submit", (e) =>
         errorMessage2.innerText = "";
     }
 
-    if(godzina_rozpoczecia.value > godzina_zakonczenia || godzina_zakonczenia.value === null)
+    if(godzina_rozpoczecia.value > godzina_zakonczenia.value || godzina_zakonczenia.value === null)
     {
         godzina_zakonczenia.className = "error";
         errorMessage3.innerText = "Podano złą godzinę!";

@@ -35,7 +35,6 @@ router.get('/a_lista_zlecen_indywidualnych/:id', (req, res) =>
         })
 });
 
-//tutaj !
 router.get('/a_lista_zlecen_grupowych/:id', (req, res) =>
 {
     let user = req.session.user;

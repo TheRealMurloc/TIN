@@ -171,24 +171,6 @@ router.get('/logout', (req, res) =>
     })
 });
 
-
-
-// Gets All
-router.get('/', (req, res) => {
-    res.json(osoba);
-});
-
-// Get single
-router.get('/:id', (req, res) => {
-    const found = osoba.some(osoba => osoba.id_osoby === parseInt(req.params.id));
-
-    if(found){
-        res.json(osoba.filter(osoba => osoba.id_osoby === parseInt(req.params.id)));
-    } else {
-        res.status(400).json({ msg: `No member with the id of ${req.params.id}` })
-    }
-});
-
 // Create
 router.post('/', (req, res) => {
     let newOsoba;

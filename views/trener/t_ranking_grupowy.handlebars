@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="pl-PL">
 <head>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
-    <title>Trening indywidualny</title>
+    <title>Treningi grupowe</title>
     <link rel="Stylesheet" href="/css/style.css">
     <link rel="Stylesheet" href="/css/fontello/css/fontello.css">
-    <script defer src="../js/trening_aktualizacja.js"></script>
-
 </head>
 <body>
 <div class="container">
@@ -18,10 +15,10 @@
         <nav>
             <div class="nav">
                 <ol>
-                    <li><a href="/../api/osoba/t_strona_glowna"><h6>Strona główna</h6></a></li>
-                    <li><a href="#">Treningi</a>
+                    <li><a href="/../api/osoba/t_strona_glowna">Strona główna</a></li>
+                    <li><a href="#"><h6>Treningi</h6></a>
                         <ul>
-                            <li><a href="/../api/zlecone_cwiczenie/t_ranking_grupowy">Grupowe</a></li>
+                            <li><a href="/../api/zlecone_cwiczenie/t_ranking_grupowy"><h6>Grupowe</h6></a></li>
                         </ul>
                         <ul>
                             <li><a href="/../api/zlecone_cwiczenie/t_ranking_indywidualny">Indywidualne</a></li>
@@ -62,37 +59,31 @@
             <div class="content">
                 <header>
                     <div class="contentTitle">
-                        <h3>Trening indywidualny</h3>
+                        <h3>Treningi grupowe</h3>
                     </div>
                 </header>
                 <article>
                     <div class="page">
-                        <form action="/../api/zlecone_cwiczenie/update/grupa/" id="form" method="POST">
-                            <div class="table">
-                                <table>
+                        <div class="table">
+                            <table>
+                                <tr>
+                                    <td>Ksywka</td>
+                                    <td>Ćwiczenie</td>
+                                    <td>Ilość wykonana</td>
+                                    <td>Procent ukończenia ćwiczenia</td>
+                                    <td>Wynik</td>
+                                </tr>
+                                {{#each zlecone_cwiczenie}}
                                     <tr>
-                                        <td>Ksywka</td>
-                                        <td>Ćwiczenie</td>
-                                        <td>Ilość wykonana</td>
-                                        <td>Procent ukończenia ćwiczenia</td>
-                                        <td>Wynik</td>
+                                        <td>{{this.id_osoba}}</td>
+                                        <td>{{this.nazwa}}</td>
+                                        <td>{{this.ilosc_zrobiona}}</td>
+                                        <td>{{procent this.ilosc_zrobiona this.ilosc_ogolem}}% <meter min="0" max="100" title="procent" value="{{procent this.ilosc_zrobiona this.ilosc_ogolem}}" low="30" high="70" optimum="100"></meter></td>
+                                        <td><div id="{{this.wynik}}" class="wynik">{{this.wynik}}</div></td>
                                     </tr>
-                                    {{#each zlecone_cwiczenie}}
-                                        <tr>
-                                            <td>{{this.id_osoba}}</td>
-                                            <td>{{this.nazwa}}</td>
-                                            <td>{{this.ilosc_zrobiona}}</td>
-                                            <td>{{procent this.ilosc_zrobiona this.ilosc_ogolem}}% <meter min="0" max="100" title="procent" value="{{procent this.ilosc_zrobiona this.ilosc_ogolem}}" low="30" high="70" optimum="100"></meter></td>
-                                            <td><div id="{{this.wynik}}" class="wynik">{{this.wynik}}</div></td>
-                                        </tr>
-                                    {{/each}}
-                                </table>
-                            </div>
-                            <div id ="errorSummary"></div>
-                            <div class="settings">
-                                <input type="submit" value="Zaktualizuj">
-                            </div>
-                        </form>
+                                {{/each}}
+                            </table>
+                        </div>
                     </div>
                 </article>
             </div>

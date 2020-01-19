@@ -31,17 +31,6 @@ router.get('/a_dodaj_grupe', (req, res) => res.render('../views/administrator/a_
         user: req.session.user
     }));
 
-// Get single
-router.get('/:id', (req, res) => {
-    const found = grupa.some(grupa => grupa.id_grupy === parseInt(req.params.id));
-
-    if(found){
-        res.json(grupa.filter(grupa => grupa.id_grupy === parseInt(req.params.id)));
-    } else {
-        res.status(400).json({ msg: `No member with the id of ${req.params.id}` })
-    }
-});
-
 // Create
 router.post('/', (req, res) => {
     const newGrupa = {

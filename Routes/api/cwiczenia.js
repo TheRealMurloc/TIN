@@ -9,7 +9,6 @@ function getCwiczenieById(id) {
     return cwiczenia.find(element => element.id_cwiczenia == id);
 }
 
-
 router.get('/a_lista_cwiczen', (req, res) => res.render('administrator/a_lista_cwiczen',
     {
         who: 'Administrator',
@@ -60,11 +59,6 @@ router.get('/t_dodaj_cwiczenie', (req, res) => res.render('trener/t_dodaj_cwicze
         cwiczenia: cwiczenia,
         user: req.session.user
     }));
-
-// Gets All
-router.get('/', (req, res) => {
-    res.json(cwiczenia);
-});
 
 // Get single
 router.get('/:id', (req, res) => {

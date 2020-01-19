@@ -40,7 +40,12 @@ router.post('/', (req, res) => {
     } else {
         feedback.push(newFeedback);
     }
-    res.redirect('../api/feedback/a_lista_feedback');
+    if(req.session.user.czyAdmin)
+        res.redirect('../api/feedback/a_lista_feedback');
+    if(req.session.user.czyTrener)
+        res.redirect('../api/feedback/t_feedback');
+    if(req.session.user.czyUczestnik)
+        res.redirect('../api/feedback/u_feedback');
 });
 
 // Delete
