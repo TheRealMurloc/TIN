@@ -9,7 +9,15 @@ form.addEventListener("submit", (e) =>
 {
     let dzis = "";
     let d = new Date();
-    dzis = dzis + d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
+    dzis = dzis + d.getFullYear() + "-";
+    if((d.getMonth()+1) < 10)
+        dzis = dzis + "0" + (d.getMonth()+1) + "-";
+    else
+        dzis = dzis + d.getMonth() + "-";
+    if(d.getDate() < 10)
+        dzis = dzis + "0" + d.getDate();
+    else
+        dzis = dzis + d.getDate();
     let messages = [];
 
 

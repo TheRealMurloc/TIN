@@ -4,17 +4,13 @@
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
-    <title>Lista treningów</title>
+    <title>Lista ćwiczeń</title>
     <link rel="Stylesheet" href="/css/style.css">
     <link rel="Stylesheet" href="/css/fontello/css/fontello.css">
     <style>
-        input[type=button]
-        {
-            width: 130px;
-        }
         input[type=submit]
         {
-            width: 130px;
+            width: 80px;
             background-color: #1035dd;
             font-size: 14px;
             padding: 2px;
@@ -70,10 +66,10 @@
                             <li><a href="#">Obecności</a></li>
                         </ul>
                         <ul>
-                            <li><a href="/../api/cwiczenia/a_lista_cwiczen">Ćwiczeń</a></li>
+                            <li><a href="/../api/cwiczenia/a_lista_cwiczen"><h6>Ćwiczeń</h6></a></li>
                         </ul>
                         <ul>
-                            <li><a href="/../api/trening_internetowy/a_lista_treningow_internetowych"><h6>Treningów int.</h6></a></li>
+                            <li><a href="/../api/trening_internetowy/a_lista_treningow_internetowych">Treningów int.</a></li>
                         </ul>
                         <ul>
                             <li><a href="/../api/trening_klasyczny/a_lista_treningow_klasycznych">Treningów klas.</a></li>
@@ -99,7 +95,7 @@
             <div class="content">
                 <header>
                     <div class="contentTitle">
-                        <h3>Lista treningów</h3>
+                        <h3>Lista ćwiczeń</h3>
                     </div>
                 </header>
                 <article>
@@ -107,24 +103,26 @@
                         <div class="table">
                             <table>
                                 <tr>
-                                    <td>Trening</td>
-                                    <td>Start</td>
-                                    <td>Koniec</td>
-                                    <td>Zmiana Daty</td>
-                                    <td colspan="2">Edytowanie treningu</td>
+                                    <td>Id osoby</td>
+                                    <td>Ksywka</td>
+                                    <td>Ćwiczenie</td>
+                                    <td>Id treningu</td>
+                                    <td>Do zrobienia</td>
+                                    <td>Zrobione</td>
                                     <td>Usuń</td>
                                 </tr>
-                                {{#each trening_internetowy}}
+                                {{#each zlecone_cwiczenie}}
                                     <tr>
-                                        <td>Trening {{this.id_trening}}</td>
-                                        <td>{{this.dataOd}}</td>
-                                        <td>{{this.dataDo}}</td>
-                                        <td><input type="button" value="Zmiana" onClick="location.href='a_zmiana_daty_treningu_internetowego/{{this.id_trening}}';" /></td>
-                                        <td><input type="button" value="Grupowego" onClick="location.href='/../api/zlecone_cwiczenie/a_lista_zlecen_grupowych/{{this.id_trening}}';" /></td>
-                                        <td><input type="button" value="Indywidualnego" onClick="location.href='/../api/zlecone_cwiczenie/a_lista_zlecen_indywidualnych/{{this.id_trening}}';" /></td>
-                                        <td><form action="/api/trening_internetowy/delete/{{this.id_trening}}" method="POST"><input type="submit" value="Usuń" /></form></td>
+                                        <td>{{this.id_osoba}}</td>
+                                        <td>{{this.ksywka}}</td>
+                                        <td>{{this.nazwa}}</td>
+                                        <td>{{this.id_trening}}</td>
+                                        <td>{{this.ilosc_ogolem}}</td>
+                                        <td>{{this.ilosc_zrobiona}}</td>
+                                        <td><form action="/api/zlecone_cwiczenie/deleteInd/{{this.id_osoba}}/{{this.id_cwiczenia}}/{{this.id_trening}}" method="POST"><input type="submit" value="Usuń" /></form></td>
                                     </tr>
                                 {{/each}}
+
                             </table>
                         </div>
                     </div>

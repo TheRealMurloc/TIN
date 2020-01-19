@@ -4,19 +4,10 @@
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
-    <title>Strona główna</title>
+    <title>Trening indywidualny</title>
     <link rel="Stylesheet" href="/css/style.css">
     <link rel="Stylesheet" href="/css/fontello/css/fontello.css">
-    <style>
-        .content
-        {
-            width: 748px;
-        }
-        .page
-        {
-            width: 710px;
-        }
-    </style>
+    <script defer src="../js/trening_aktualizacja.js"></script>
 
 </head>
 <body>
@@ -28,14 +19,7 @@
             <div class="nav">
                 <ol>
                     <li><a href="/../api/osoba/u_strona_glowna"><h6>Strona główna</h6></a></li>
-                    <li><a href="#">Treningi</a>
-                        <ul>
-                            <li><a href="/../api/zlecone_cwiczenie/t_ranking_grupowy">Grupowe</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="/../api/zlecone_cwiczenie/t_ranking_indywidualny">Indywidualne</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="/../api/zlecone_cwiczenie/t_ranking_grupowy">Ranking</a></li>
                     <li><a href="/../api/cwiczenia/t_dodaj_cwiczenie">Dodaj ćwiczenie</a></li>
                     <li><a href="#">Zleć ćwiczenie</a>
                         <ul>
@@ -71,30 +55,41 @@
             <div class="content">
                 <header>
                     <div class="contentTitle">
-                        <h3>Content główny</h3>
+                        <h3>Trening indywidualny</h3>
                     </div>
                 </header>
                 <article>
                     <div class="page">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porta lectus sit amet justo dapibus, quis fringilla odio posuere. Nam ligula augue, gravida ut eros a, ultricies feugiat nulla. Praesent sodales, purus nec semper finibus, leo tellus ornare nisl, sit amet pharetra lectus ante in dolor. Nunc non ultricies risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut aliquam feugiat tincidunt. Integer pulvinar dignissim enim id finibus. Cras blandit, felis ut fringilla facilisis, turpis mauris aliquet nibh, a porttitor magna purus a sapien. Pellentesque volutpat fermentum lectus, eleifend lobortis justo vestibulum id. Nullam scelerisque maximus pharetra. Morbi eu risus id turpis feugiat iaculis sit amet nec justo.</p>
-
-                        <p>Maecenas sollicitudin, justo et interdum suscipit, est nisl iaculis arcu, vel maximus eros eros vel nisi. Etiam viverra risus nec erat consequat auctor. Pellentesque vulputate erat at dolor porta convallis. Quisque ante nibh, tristique nec ante et, condimentum tincidunt nisi. Pellentesque ante purus, tincidunt sit amet luctus quis, lacinia eget magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin at nisi consequat, mollis diam finibus, convallis risus. In hac habitasse platea dictumst. Sed vel elementum eros. Sed varius rutrum est non malesuada. Sed lacinia ex fermentum, molestie odio id, luctus neque. Etiam id massa ut nisi viverra consequat id sit amet eros.</p>
+                        <form action="/../api/zlecone_cwiczenie/update/grupa/" id="form" method="POST">
+                            <div class="table">
+                                <table>
+                                    <tr>
+                                        <td>Ksywka</td>
+                                        <td>Ćwiczenie</td>
+                                        <td>Ilość wykonana</td>
+                                        <td>Procent ukończenia ćwiczenia</td>
+                                        <td>Wynik</td>
+                                    </tr>
+                                    {{#each zlecone_cwiczenie}}
+                                        <tr>
+                                            <td>{{this.id_osoba}}</td>
+                                            <td>{{this.nazwa}}</td>
+                                            <td>{{this.ilosc_zrobiona}}</td>
+                                            <td>{{procent this.ilosc_zrobiona this.ilosc_ogolem}}% <meter min="0" max="100" title="procent" value="{{procent this.ilosc_zrobiona this.ilosc_ogolem}}" low="30" high="70" optimum="100"></meter></td>
+                                            <td><div id="{{this.wynik}}" class="wynik">{{this.wynik}}</div></td>
+                                        </tr>
+                                    {{/each}}
+                                </table>
+                            </div>
+                            <div id ="errorSummary"></div>
+                            <div class="settings">
+                                <input type="submit" value="Zaktualizuj">
+                            </div>
+                        </form>
                     </div>
                 </article>
             </div>
         </main>
-        <aside>
-            <div class="info">
-                <header>
-                    <div class="infoTitle">
-                        <i class="icon-info-circled"></i>
-                    </div>
-                </header>
-                <div class="infoPage">
-                    //wiadomosci
-                </div>
-            </div>
-        </aside>
         <div style="clear: both;"></div>
 
     </div>

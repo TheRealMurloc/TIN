@@ -13,6 +13,35 @@ function getTreningById(id) {
     return trening_klasyczny.find(element => element.id_trening == id);
 }
 
+//Uczestnik lista obecnosci
+router.get('/u_lista_obecnosci', (req, res) => {
+
+    let lista = [];
+    for(let i=0; i<trening_klasyczny.length; i++)
+    {
+        let tmp = null;
+        if(trening_klasyczny[i].id_grupa === parseInt(req.session.user.id_grupy))
+        {
+            tmp = trening_klasyczny[i];
+            tmp.obecnosc = false;
+        }
+        for(let j=0; j<obecnosc.length; j++)
+        {
+            if(obecnosc[j].id_trening === trening_klasyczny[i].id_trening && obecnosc[j].id_uczestnik === parseInt(req.session.user.id_osoby))
+            {
+                tmp.obecnosc = true;
+            }
+        }
+        lista.push(tmp);
+    }
+    res.render('uczestnik/u_lista_obecnosci',
+        {
+            who: 'Uczestnik',
+            lista: lista,
+            user: req.session.user,
+        })
+});
+
 //After form Admin
 router.post('/a_lista_obecnosci', (req, res) => {
 

@@ -72,6 +72,7 @@
                                 <table>
                                     <tr>
                                         <td>Nazwa ćwiczenia</td>
+                                        <td>Nr treningu</td>
                                         <td>Ilość ogółem</td>
                                         <td>Ilość zaplanowana w serii</td>
                                         <td>Ilość wykonana</td>
@@ -82,6 +83,7 @@
                                     {{#each zlecone_cwiczenie}}
                                             <tr>
                                                 <td>{{this.nazwa}}</td>
+                                                <td>{{this.id_trening}}</td>
                                                 <td>{{this.ilosc_ogolem}}</td>
                                                 <td>{{this.ilosc_zaplanowana}}</td>
                                                 <td>{{this.ilosc_zrobiona}}</td>

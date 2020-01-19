@@ -31,6 +31,7 @@ router.get('/u_feedback', (req, res) => res.render('uczestnik/u_feedback',
 router.post('/', (req, res) => {
     const newFeedback = {
         id_feedback: nextId++,
+        id_osoby: parseInt(req.session.user.id_osoby),
         opis: req.body.feedback
     }
 
@@ -44,14 +45,14 @@ router.post('/', (req, res) => {
 
 // Delete
 router.post('/delete/:id', (req, res) => {
-    for( let i=0; i<cwiczenia.length; i++)
+    for( let i=0; i<feedback.length; i++)
     {
-        if(cwiczenia[i].id_cwiczenia === parseInt(req.params.id))
+        if(feedback[i].id_feedback === parseInt(req.params.id))
         {
-            cwiczenia.splice(i, 1);
+            feedback.splice(i, 1);
         }
     }
-    res.redirect('../../cwiczenia/a_lista_cwiczen');
+    res.redirect('../../feedback/a_lista_feedback');
 });
 
 

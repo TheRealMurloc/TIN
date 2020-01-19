@@ -40,7 +40,6 @@ router.post('/', (req, res) => {
         dataOd: req.body.startDate,
         dataDo: req.body.finishDate
     }
-
     trening_internetowy.push(newTrening);
     res.redirect('../api/trening_internetowy/a_lista_treningow_internetowych');
 });
