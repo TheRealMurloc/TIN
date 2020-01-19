@@ -152,6 +152,34 @@ router.get('/a_ranking_grupowy', (req, res) =>
         })
 });
 
+router.get('/a_ranking_indywidualny', (req, res) =>
+{
+    let user = req.session.user;
+    let lista = [];
+    for (let i = 0; i < zlecone_cwiczenie.length; i++)
+    {
+        if(!zlecone_cwiczenie[i].cwiczenie_grupowe)
+        {
+            let tmp = zlecone_cwiczenie[i];
+            for(let j=0; j<osoba.length; j++)
+            {
+                if(osoba[j].id_osoby === tmp.id_osoba)
+                {
+                    tmp.id_osoba = osoba[j].ksywka;
+                    break;
+                }
+            }
+            lista.push(tmp);
+        }
+    }
+    res.render('administrator/a_ranking_indywidualny',
+        {
+            who: 'Administrator',
+            zlecone_cwiczenie: lista,
+            user: user
+        })
+});
+
 router.get('/t_zlec_cwiczenie_indywidualne', (req, res) => {
     lista = [];
     for(let i=0; i<osoba.length; i++)

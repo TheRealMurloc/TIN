@@ -4,10 +4,11 @@
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
-    <title>Dodawanie treningu internetowego</title>
+    <title>Trening indywidualny</title>
     <link rel="Stylesheet" href="/css/style.css">
     <link rel="Stylesheet" href="/css/fontello/css/fontello.css">
-    <script defer src="/js/dodaj_trening_internetowy.js"></script>
+    <script defer src="../js/trening_aktualizacja.js"></script>
+
 </head>
 <body>
 <div class="container">
@@ -88,24 +89,35 @@
             <div class="content">
                 <header>
                     <div class="contentTitle">
-                        <h3>Dodawanie treningu</h3>
+                        <h3>Trening indywidualny</h3>
                     </div>
                 </header>
                 <article>
                     <div class="page">
-                        <form action="/api/trening_internetowy" id="form" method="POST">
-                            <div class="settings">
-                                <fieldset>
-                                    <legend> Trening internetowy</legend>
-                                    <label>Początek treningu <input type="date" id="startDate" name="startDate" class="form"></label><br />
-                                    <div id="errorMessage1" class="errorMessage"></div>
-                                    <label> Koniec treningu <input type="date" id="finishDate" name="finishDate" class="form"></label><br />
-                                    <div id="errorMessage2" class="errorMessage"></div>
-                                </fieldset>
+                        <form action="/../api/zlecone_cwiczenie/update/grupa/" id="form" method="POST">
+                            <div class="table">
+                                <table>
+                                    <tr>
+                                        <td>Ksywka</td>
+                                        <td>Ćwiczenie</td>
+                                        <td>Ilość wykonana</td>
+                                        <td>Procent ukończenia ćwiczenia</td>
+                                        <td>Wynik</td>
+                                    </tr>
+                                    {{#each zlecone_cwiczenie}}
+                                        <tr>
+                                            <td>{{this.id_osoba}}</td>
+                                            <td>{{this.nazwa}}</td>
+                                            <td>{{this.ilosc_zrobiona}}</td>
+                                            <td>{{procent this.ilosc_zrobiona this.ilosc_ogolem}}% <meter min="0" max="100" title="procent" value="{{procent this.ilosc_zrobiona this.ilosc_ogolem}}" low="30" high="70" optimum="100"></meter></td>
+                                            <td><div id="{{this.wynik}}" class="wynik">{{this.wynik}}</div></td>
+                                        </tr>
+                                    {{/each}}
+                                </table>
                             </div>
                             <div id ="errorSummary"></div>
                             <div class="settings">
-                                <input type="submit" value="Dodaj">
+                                <input type="submit" value="Zaktualizuj">
                             </div>
                         </form>
                     </div>

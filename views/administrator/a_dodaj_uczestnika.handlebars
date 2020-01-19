@@ -18,12 +18,12 @@
             <div class="nav">
                 <ol>
                     <li><a href="/../api/osoba/a_strona_glowna">Strona główna</a></li>
-                    <li><a href="#">Ranking</a>
+                    <li><a href="#">Treningi</a>
                         <ul>
-                            <li><a href="a_ranking_ogolny.html">Ogólny</a></li>
+                            <li><a href="/../api/zlecone_cwiczenie/a_ranking_grupowy">Grupowe</a></li>
                         </ul>
                         <ul>
-                            <li><a href="a_ranking_grupowy.html">Grupowy</a></li>
+                            <li><a href="/../api/zlecone_cwiczenie/a_ranking_indywidualny">Indywidualne</a></li>
                         </ul>
                     </li>
                     <li><a href="#">Dodaj trening</a>
@@ -34,9 +34,9 @@
                             <li><a href="/../api/trening_internetowy/a_trening_internetowy">Internetowy</a></li>
                         </ul>
                     </li>
-                    <li><a href="#"><h6>Dodaj inne</h6></a>
+                    <li><a href="#">Dodaj inne</a>
                         <ul>
-                            <li><a href="/../api/osoba/a_dodaj_uczestnika"><h6>Uczestnika</h6></a></li>
+                            <li><a href="/../api/osoba/a_dodaj_uczestnika">Uczestnika</a></li>
                         </ul>
                         <ul>
                             <li><a href="/../api/grupa/a_dodaj_grupe">Grupę</a></li>
@@ -53,7 +53,7 @@
                             <li><a href="/../api/grupa/a_lista_grup">Grup</a></li>
                         </ul>
                         <ul>
-                            <li><a href="#">Obecności</a></li>
+                            <li><a href="/../api/trening_klasyczny/a_lista_obecnosci_wybor">Obecności</a></li>
                         </ul>
                         <ul>
                             <li><a href="/../api/cwiczenia/a_lista_cwiczen">Ćwiczeń</a></li>
@@ -63,6 +63,9 @@
                         </ul>
                         <ul>
                             <li><a href="/../api/trening_klasyczny/a_lista_treningow_klasycznych">Treningów klas.</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="/../api/feedback/a_lista_feedback">Feedbacków</a></li>
                         </ul>
                     </li>
                 </ol>
@@ -100,11 +103,16 @@
                                     <div id="errorMessage2" class="errorMessage"></div>
                                     <input type="password" id="haslo2" class="form" placeholder="Powtórz hasło">
                                     <div id="errorMessage3" class="errorMessage"></div>
-                                    <input type="text" name="imie" class="form" placeholder="Wpisz imię uczestnika"><br />
-                                    <input type="text" name="nazwisko" class="form" placeholder="Wpisz nazwisko uczestnika"><br />
-                                    <input type="text" name="ksywka" class="form" placeholder="Wpisz ksywkę"><br />
-                                    <input type="text" name="email" class="form" placeholder="Wpisz email"><br />
-                                    <input type="text" name="telefon" class="form" placeholder="Wpisz telefon"><br />
+                                    <input type="text" id="imie" name="imie" class="form" placeholder="Wpisz imię uczestnika"><br />
+                                    <div id="errorMessage4" class="errorMessage"></div>
+                                    <input type="text" id="nazwisko" name="nazwisko" class="form" placeholder="Wpisz nazwisko uczestnika"><br />
+                                    <div id="errorMessage5" class="errorMessage"></div>
+                                    <input type="text" id="ksywka" name="ksywka" class="form" placeholder="Wpisz ksywkę"><br />
+                                    <div id="errorMessage6" class="errorMessage"></div>
+                                    <input type="text" id="email" name="email" class="form" placeholder="Wpisz email"><br />
+                                    <div id="errorMessage7" class="errorMessage"></div>
+                                    <input type="text" id="telefon" name="telefon" class="form" placeholder="Wpisz telefon"><br />
+                                    <div id="errorMessage8" class="errorMessage"></div>
                                     <br />
                                     Trener <input type="radio" name="rola" value="trener" onclick="document.getElementById('grupa').setAttribute('hidden', 'hidden')"><br /><br />
                                     Uczestnik <input type="radio" name="rola" value="uczestnik" onclick="document.getElementById('grupa').removeAttribute('hidden')"><br /><br />
