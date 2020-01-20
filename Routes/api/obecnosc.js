@@ -1,58 +1,84 @@
 const express = require('express');
 const router = express.Router();
-const obecnosc = require('../../Table/Obecnosc');
 
-
-function getTreningById(id) {
-    return trening_klasyczny.find(element => element.id_trening == id);
-}
+const Obecnosc = require('../../models/Obecnosc');
 
 // Update admin
-router.get('/administrator/:id/:trening', (req, res) => {
+router.post('/administrator/:id/:trening', async (req, res) => {
+
+    let lista;
+    try {
+        lista = await Obecnosc.find();
+    } catch (err) {
+        res.json({message: err});
+    }
+
     let nieobecny = true;
-    for(let i=0; i<obecnosc.length; i++)
+    for(let i=0; i<lista.length; i++)
     {
-        if(obecnosc[i].id_uczestnik === parseInt(req.params.id) && obecnosc[i].id_trening === parseInt(req.params.trening))
+        if(lista[i].id_uczestnik === parseInt(req.params.id) && lista[i].id_trening === parseInt(req.params.trening))
         {
-            obecnosc.splice(i, 1);
+            try{
+                const usunietaObecnosc = await Obecnosc.deleteOne({id_uczestnik: parseInt(req.params.id), id_trening: parseInt(req.params.trening)})
+            }catch(err){
+                res.json({message:err});
+            }
             nieobecny = false;
         }
     }
     if(nieobecny)
     {
-        let newObecnosc = {
+        const newObecnosc = new Obecnosc({
             id_trening: parseInt(req.params.trening),
             id_uczestnik: parseInt(req.params.id)
+        });
+        try{
+            const savedObecnosc = await newObecnosc.save();
+        } catch (err) {
+            res.json({ message: err });
         }
-        obecnosc.push(newObecnosc);
     }
-
     let page = '/api/trening_klasyczny/a_lista_obecnosci/';
     page += parseInt(req.params.trening);
 
     res.redirect(page);
 });
 
-// Update trener
-router.get('/trener/:id/:trening', (req, res) => {
+//Update trener
+router.post('/trener/:id/:trening', async (req, res) => {
+
+    let lista;
+    try {
+        lista = await Obecnosc.find();
+    } catch (err) {
+        res.json({message: err});
+    }
+
     let nieobecny = true;
-    for(let i=0; i<obecnosc.length; i++)
+    for(let i=0; i<lista.length; i++)
     {
-        if(obecnosc[i].id_uczestnik === parseInt(req.params.id) && obecnosc[i].id_trening === parseInt(req.params.trening))
+        if(lista[i].id_uczestnik === parseInt(req.params.id) && lista[i].id_trening === parseInt(req.params.trening))
         {
-            obecnosc.splice(i, 1);
+            try{
+                const usunietaObecnosc = await Obecnosc.deleteOne({id_uczestnik: parseInt(req.params.id), id_trening: parseInt(req.params.trening)})
+            }catch(err){
+                res.json({message:err});
+            }
             nieobecny = false;
         }
     }
     if(nieobecny)
     {
-        let newObecnosc = {
+        const newObecnosc = new Obecnosc({
             id_trening: parseInt(req.params.trening),
             id_uczestnik: parseInt(req.params.id)
+        });
+        try{
+            const savedObecnosc = await newObecnosc.save();
+        } catch (err) {
+            res.json({ message: err });
         }
-        obecnosc.push(newObecnosc);
     }
-
     let page = '/api/trening_klasyczny/t_lista_obecnosci/';
     page += parseInt(req.params.trening);
 

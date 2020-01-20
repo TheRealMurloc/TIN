@@ -3,6 +3,7 @@ const session = require('express-session');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const router = express.Router();
+const mongoose = require('mongoose');
 
 
 const app = express();
@@ -56,6 +57,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //index route
 router.get('/', (req, res) => res.render('index.html', {}));
+
+//Connect to DB
+mongoose.connect('mongodb+srv://murloc:redbull2033@murloccluster-hkuyn.mongodb.net/test?retryWrites=true&w=majority',
+    { useNewUrlParser: true, useUnifiedTopology: true },
+    () => console.log('Connected to Database')
+);
 
 const PORT = process.env.PORT || 5000;
 

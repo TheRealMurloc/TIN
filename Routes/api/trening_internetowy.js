@@ -1,70 +1,108 @@
 const express = require('express');
 const router = express.Router();
 
-const trening_internetowy = require('../../Table/Trening_internetowy')
+const Trening_internetowy = require('../../models/Trening_internetowy');
 
-
-
-let nextId = 3;
-
-function getTreningById(id) {
-    return trening_internetowy.find(element => element.id_trening == id);
-}
-
-router.get('/a_lista_treningow_internetowych', (req, res) => res.render('administrator/a_lista_treningow_internetowych',
+router.get('/a_lista_treningow_internetowych', async (req, res) => {
+    let trening_internetowy = [];
+    let lista;
+    try {
+        lista = await Trening_internetowy.find();
+    } catch (err) {
+        res.json({message: err});
+    }
+    for(let i=0; i<lista.length; i++)
     {
-        who: 'Administrator',
-        trening_internetowy: trening_internetowy,
-        user: req.session.user
-    }));
+        const tmp = {
+            id_trening: lista[i].id_trening,
+            dataOd: lista[i].dataOd,
+            dataDo: lista[i].dataDo
+        };
+        trening_internetowy.push(tmp);
+    }
+    res.render('administrator/a_lista_treningow_internetowych',
+        {
+            who: 'Administrator',
+            trening_internetowy: trening_internetowy,
+            user: req.session.user
+        });
+});
 
-router.get('/a_zmiana_daty_treningu_internetowego/:id', (req, res) => res.render('../views/administrator/a_zmiana_daty_treningu_internetowego',
+router.get('/a_zmiana_daty_treningu_internetowego/:id', async (req, res) =>
+{
+    let lista;
+    let tmp = null;
+    try {
+        lista = await Trening_internetowy.find();
+    } catch (err) {
+        res.json({message: err});
+    }
+    for(let i=0; i<lista.length; i++)
     {
-        who: 'Administrator',
-        trening_internetowy: trening_internetowy,
-        tmpElement: getTreningById(parseInt(req.params.id)),
-        user: req.session.user
-    }));
+        if(lista[i].id_trening === parseInt(req.params.id))
+        {
+            tmp = {
+                id_trening: lista[i].id_trening,
+                dataOd: lista[i].dataOd,
+                dataDo: lista[i].dataDo
+            };
+        }
+    }
+    res.render('../views/administrator/a_zmiana_daty_treningu_internetowego',
+        {
+            who: 'Administrator',
+            tmpElement: tmp,
+            user: req.session.user
+        })
+});
 
 router.get('/a_trening_internetowy', (req, res) => res.render('administrator/a_trening_internetowy',
     {
         who: 'Administrator',
-        trening_internetowy: trening_internetowy,
         user: req.session.user
     }));
 
 // Create
-router.post('/', (req, res) => {
-    const newTrening = {
-        id_trening: nextId++,
+router.post('/', async (req, res) => {
+    let nextId;
+    try {
+        nextId = await Trening_internetowy.find();
+    } catch (err) {
+        res.json({message: err});
+    }
+    const newTrening_internetowy = new Trening_internetowy({
+        id_trening: nextId.length+1,
         dataOd: req.body.startDate,
         dataDo: req.body.finishDate
+    });
+    try{
+        const savednewTrening_internetowy = await newTrening_internetowy.save();
+    } catch (err) {
+        res.json({ message: err });
     }
-    trening_internetowy.push(newTrening);
     res.redirect('../api/trening_internetowy/a_lista_treningow_internetowych');
 });
 
 // Update
-router.post('/update/:id', (req, res) => {
-    for( let i=0; i<trening_internetowy.length; i++)
-    {
-        if(trening_internetowy[i].id_trening === parseInt(req.params.id))
-        {
-            trening_internetowy[i].dataOd = req.body.startDate;
-            trening_internetowy[i].dataDo = req.body.finishDate;
-        }
+router.post('/update/:id', async (req, res) => {
+    try{
+        const updatedTrening_internetowy = await Trening_internetowy.updateOne(
+            {id_trening: req.params.id},
+            {$set: {dataOd: req.body.startDate,
+                    dataOd: req.body.finishDate}
+            });
+    }catch(err){
+        res.json({message:err});
     }
     res.redirect('../../trening_internetowy/a_lista_treningow_internetowych');
 });
 
 // Delete
-router.post('/delete/:id', (req, res) => {
-    for( let i=0; i<trening_internetowy.length; i++)
-    {
-        if(trening_internetowy[i].id_trening === parseInt(req.params.id))
-        {
-            trening_internetowy.splice(i, 1);
-        }
+router.post('/delete/:id', async (req, res) => {
+    try{
+        const usunieteCwiczenie = await Cwiczenia.deleteOne({id_trening: req.params.id})
+    }catch(err){
+        res.json({message:err});
     }
     res.redirect('../../trening_internetowy/a_lista_treningow_internetowych');
 });

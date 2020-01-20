@@ -1,16 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-const osoba = require('../../Table/Osoba');
-const grupa = require('../../Table/Grupa');
-const trener = require('../../Table/Trener');
-const uczestnik = require('../../Table/Uczestnik');
+const Osoba = require('../../models/Osoba');
+const Grupa = require('../../models/Grupa');
+const Trener = require('../../models/Trener');
+const Uczestnik = require('../../models/Uczestnik');
 
-let nextId = 4;
-
-function getOsobaById(id) {
-    return osoba.find(element => element.id_osoby == id);
-}
 
 router.get('/u_strona_glowna', (req, res) => res.render('uczestnik/u_strona_glowna',
     {
@@ -30,111 +25,240 @@ router.get('/a_strona_glowna', (req, res) => res.render('administrator/a_strona_
         who: 'Administrator'
     }));
 
-router.get('/a_lista_osob', (req, res) => res.render('administrator/a_lista_osob',
+router.get('/a_lista_osob', async (req, res) => {
+    let listaOsob = [];
+    let lista;
+    try {
+        lista = await Osoba.find();
+    } catch (err) {
+        res.json({message: err});
+    }
+    for(let i=0; i<lista.length; i++)
     {
-        who: 'Administrator',
-        osoba: osoba,
-        user: req.session.user
-    }));
+        const tmp = {
+            id_osoby: lista[i].id_osoby,
+            id_grupy: lista[i].id_grupy,
+            login: lista[i].login,
+            haslo: lista[i].haslo,
+            imie: lista[i].imie,
+            nazwisko: lista[i].nazwisko,
+            ksywka: lista[i].ksywka,
+            email: lista[i].email,
+            telefon: lista[i].telefon,
+            czyUczestnik: lista[i].czyUczestnik,
+            czyTrener: lista[i].czyTrener,
+            czyAdmin: lista[i].czyAdmin,
+        };
+        listaOsob.push(tmp);
+    }
 
-router.get('/a_zmiana_osoby/:id', (req, res) => res.render('administrator/a_zmiana_osoby',
-    {
-        who: 'Administrator',
-        osoba: osoba,
-        grupa: grupa,
-        tmpElement: getOsobaById(parseInt(req.params.id)),
-        user: req.session.user
-    }));
+    res.render('administrator/a_lista_osob',
+        {
+            who: 'Administrator',
+            osoba: listaOsob,
+            user: req.session.user
+        })
+});
 
-router.get('/a_szczegoly_osoby/:id', (req, res) => res.render('administrator/a_szczegoly_osoby',
+router.get('/a_zmiana_osoby/:id', async (req, res) => {
+    let listaOsob = [];
+    try {
+        listaOsob = await Osoba.find();
+    } catch (err) {
+        res.json({message: err});
+    }
+    let tmp = null;
+    for(let i=0; i<listaOsob.length; i++)
     {
-        who: 'Administrator',
-        osoba: osoba,
-        grupa: grupa,
-        tmpElement: getOsobaById(parseInt(req.params.id)),
-        user: req.session.user
-    }));
+        if(listaOsob[i].id_osoby === parseInt(req.params.id))
+        {
+            tmp = {
+                id_osoby: listaOsob[i].id_osoby,
+                id_grupy: listaOsob[i].id_grupy,
+                login: listaOsob[i].login,
+                haslo: listaOsob[i].haslo,
+                imie: listaOsob[i].imie,
+                nazwisko: listaOsob[i].nazwisko,
+                ksywka: listaOsob[i].ksywka,
+                email: listaOsob[i].email,
+                telefon: listaOsob[i].telefon,
+                czyUczestnik: listaOsob[i].czyUczestnik,
+                czyTrener: listaOsob[i].czyTrener,
+                czyAdmin: listaOsob[i].czyAdmin,
+            };
+        }
+    }
 
-router.get('/a_dodaj_uczestnika', (req, res) => res.render('administrator/a_dodaj_uczestnika',
+    let listaGrup = [];
+    let lista;
+    try {
+        lista = await Grupa.find();
+    } catch (err) {
+        res.json({message: err});
+    }
+    for(let i=0; i<lista.length; i++)
     {
-        who: 'Administrator',
-        osoba: osoba,
-        grupa: grupa,
-        user: req.session.user
-    }));
+        const tmp = {
+            id_grupy: lista[i].id_grupy,
+            nazwa: lista[i].nazwa
+        };
+        listaGrup.push(tmp);
+    }
 
-router.get('/a_zmiana_hasla', (req, res) => res.render('administrator/a_zmiana_hasla',
-    {
-        who: 'Administrator',
-        osoba: osoba,
-        user: req.session.user
-    }));
+    res.render('administrator/a_zmiana_osoby',
+        {
+            who: 'Administrator',
+            grupa: listaGrup,
+            tmpElement: tmp,
+            user: req.session.user
+        })
+});
 
-router.get('/t_zmiana_hasla', (req, res) => res.render('trener/t_zmiana_hasla',
+router.get('/a_szczegoly_osoby/:id', async (req, res) => {
+    let listaOsob = [];
+    try {
+        listaOsob = await Osoba.find();
+    } catch (err) {
+        res.json({message: err});
+    }
+    let listaGrup = [];
+    try {
+        listaGrup = await Grupa.find();
+    } catch (err) {
+        res.json({message: err});
+    }
+    let tmp = null;
+    for(let i=0; i<listaOsob.length; i++)
     {
-        who: 'Trener',
-        osoba: osoba,
-        user: req.session.user
-    }));
+        if(listaOsob[i].id_osoby === parseInt(req.params.id))
+        {
+            tmp = {
+                id_osoby: listaOsob[i].id_osoby,
+                id_grupy: listaOsob[i].id_grupy,
+                login: listaOsob[i].login,
+                haslo: listaOsob[i].haslo,
+                imie: listaOsob[i].imie,
+                nazwisko: listaOsob[i].nazwisko,
+                ksywka: listaOsob[i].ksywka,
+                email: listaOsob[i].email,
+                telefon: listaOsob[i].telefon,
+                czyUczestnik: listaOsob[i].czyUczestnik,
+                czyTrener: listaOsob[i].czyTrener,
+                czyAdmin: listaOsob[i].czyAdmin,
+            };
+        }
+    }
+    res.render('administrator/a_szczegoly_osoby',
+        {
+            who: 'Administrator',
+            tmpElement: tmp,
+            user: req.session.user
+        })
+});
+
+router.get('/a_dodaj_uczestnika', async (req, res) => {
+    let listaOsob = [];
+    try {
+        listaOsob = await Osoba.find();
+    } catch (err) {
+        res.json({message: err});
+    }
+    let listaGrup = [];
+    let lista;
+    try {
+        lista = await Grupa.find();
+    } catch (err) {
+        res.json({message: err});
+    }
+    for(let i=0; i<lista.length; i++)
+    {
+        const tmp = {
+            id_grupy: lista[i].id_grupy,
+            nazwa: lista[i].nazwa
+        };
+        listaGrup.push(tmp);
+    }
+    res.render('administrator/a_dodaj_uczestnika',
+        {
+            who: 'Administrator',
+            grupa: listaGrup,
+            user: req.session.user
+        })
+});
+
+router.get('/a_zmiana_hasla', async (req, res) => {
+    res.render('administrator/a_zmiana_hasla',
+        {
+            who: 'Administrator',
+            user: req.session.user
+        })
+});
+
+router.get('/t_zmiana_hasla', async (req, res) => {
+    res.render('trener/t_zmiana_hasla',
+        {
+            who: 'Trener',
+            user: req.session.user
+        })
+});
 
 router.get('/u_zmiana_hasla', (req, res) => res.render('uczestnik/u_zmiana_hasla',
     {
         who: 'Uczestnik',
-        osoba: osoba,
         user: req.session.user
     }));
 
 router.get('/t_zmiana_ksywki', (req, res) => res.render('trener/t_zmiana_ksywki',
     {
         who: 'Trener',
-        osoba: osoba,
         user: req.session.user
     }));
 
 router.get('/u_zmiana_ksywki', (req, res) => res.render('uczestnik/u_zmiana_ksywki',
     {
         who: 'Uczestnik',
-        osoba: osoba,
         user: req.session.user
     }));
 
 router.get('/t_zmiana_email', (req, res) => res.render('trener/t_zmiana_email',
     {
         who: 'Trener',
-        osoba: osoba,
         user: req.session.user
     }));
 
 router.get('/u_zmiana_email', (req, res) => res.render('uczestnik/u_zmiana_email',
     {
         who: 'Uczestnik',
-        osoba: osoba,
         user: req.session.user
     }));
 
 router.get('/t_zmiana_tel', (req, res) => res.render('trener/t_zmiana_tel',
     {
         who: 'Trener',
-        osoba: osoba,
         user: req.session.user
     }));
 
 router.get('/u_zmiana_tel', (req, res) => res.render('uczestnik/u_zmiana_tel',
     {
         who: 'Uczestnik',
-        osoba: osoba,
         user: req.session.user
     }));
 
 
-router.post('/login', (req, res) =>
+router.post('/login', async (req, res) =>
     {
+        let listaOsob = [];
+        try {
+            listaOsob = await Osoba.find();
+        } catch (err) {
+            res.json({message: err});
+        }
         let user = null;
-        for(let i=0; i < osoba.length; i++)
+        for(let i=0; i < listaOsob.length; i++)
         {
-            if(osoba[i].login === req.body.login)
+            if(listaOsob[i].login === req.body.login)
             {
-                user = osoba[i];
+                user = listaOsob[i];
             }
         }
         if(user)
@@ -166,18 +290,23 @@ router.get('/logout', (req, res) =>
         if(err) {
             res.negotiate(err);
         }
-
         res.redirect('/');
     })
 });
 
 // Create
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
+    let nextId;
+    try {
+        nextId = await Osoba.find();
+    } catch (err) {
+        res.json({message: err});
+    }
     let newOsoba;
     if(req.body.rola == "trener")
     {
-        newOsoba = {
-            id_osoby: nextId++,
+        newOsoba = new Osoba({
+            id_osoby: nextId.length+1,
             id_grupy: null,
             login: req.body.login,
             haslo: req.body.haslo,
@@ -189,12 +318,12 @@ router.post('/', (req, res) => {
             czyUczestnik: false,
             czyTrener: true,
             czyAdmin: false
-        }
+        });
     }
     if(req.body.rola == "uczestnik")
     {
-        newOsoba = {
-            id_osoby: nextId++,
+        newOsoba = new Osoba({
+            id_osoby: nextId.length+1,
             id_grupy: parseInt(req.body.grupa),
             login: req.body.login,
             haslo: req.body.haslo,
@@ -206,67 +335,79 @@ router.post('/', (req, res) => {
             czyUczestnik: true,
             czyTrener: false,
             czyAdmin: false
-        }
+        });
     }
 
     if(!newOsoba.login) {
         res.status(400).json({ msg: 'Wpisz login'});
         nextId--;
     } else {
-        osoba.push(newOsoba);
+        try{
+            const savedOsoba = await newOsoba.save();
+        } catch (err) {
+            res.json({ message: err });
+        }
     }
-    if(trener)
+    if(newOsoba.czyTrener)
     {
-        const newTrener = {
+        const newTrener = new Trener({
             id_trener: newOsoba.id_osoby
+        });
+        try{
+            const savedTrener = await newTrener.save();
+        } catch (err) {
+            res.json({ message: err });
         }
-        trener.push(newTrener);
     }
-    if(uczestnik)
-    {
-        const newUczestnik = {
-            id_uczestnik: newOsoba.id_osoby
+    if(newOsoba.czyUczestnik) {
+        try {
+            const newUczestnik = new Uczestnik({
+                id_uczestnik: newOsoba.id_osoby
+            });
+            const savedUczestnik = await newUczestnik.save();
+        } catch (err) {
+            res.json({message: err});
         }
-        uczestnik.push(newUczestnik);
     }
     res.redirect('/api/osoba/a_lista_osob');
 });
 
 // Update
-router.post('/update/:id', (req, res) => {
-    for( let i=0; i<osoba.length; i++)
+router.post('/update/:id', async (req, res) => {
+    let trener;
+    let uczestnik;
+    if(req.body.rola === "trener")
     {
-        if(osoba[i].id_osoby === parseInt(req.params.id))
-        {
-            let trener;
-            let uczestnik;
-            if(req.body.rola === "trener")
-            {
-                trener = true;
-            }
-            else
-            {
-                trener = false;
-            }
-            if(req.body.rola === "uczestnik")
-            {
-                uczestnik = true;
-            }
-            else
-            {
-                uczestnik = false;
-            }
-            osoba[i].login = req.body.login ? req.body.login : osoba[i].login;
-            osoba[i].haslo = req.body.haslo ? req.body.haslo : osoba[i].haslo;
-            osoba[i].imie = req.body.imie ? req.body.imie : osoba[i].imie;
-            osoba[i].nazwisko = req.body.nazwisko ? req.body.nazwisko : osoba[i].nazwisko;
-            osoba[i].ksywka = req.body.ksywka ? req.body.ksywka : osoba[i].ksywka;
-            osoba[i].email = req.body.email ? req.body.email :  osoba[i].email;
-            osoba[i].telefon = req.body.telefon ? req.body.telefon : osoba[i].telefon;
-            osoba[i].id_grupy = parseInt(req.body.grupa) ? parseInt(req.body.grupa) : osoba[i].id_grupy;
-            osoba[i].czyTrener = trener;
-            osoba[i].czyUczestnik = uczestnik;
-        }
+        trener = true;
+    }
+    else
+    {
+        trener = false;
+    }
+    if(req.body.rola === "uczestnik")
+    {
+        uczestnik = true;
+    }
+    else
+    {
+        uczestnik = false;
+    }
+    try{
+        const updatedOsoba = await Osoba.updateOne(
+            {id_cwiczenia: parseInt(req.params.id)},
+            {$set: {login: req.body.login,
+                    haslo: req.body.haslo,
+                    imie: req.body.imie,
+                    nazwisko: req.body.nazwisko,
+                    ksywka: req.body.ksywka,
+                    email: req.body.email,
+                    telefon: req.body.telefon,
+                    id_grupy: parseInt(req.body.grupa),
+                    czyTrener:trener,
+                    czyUczestnik: uczestnik}
+            });
+    }catch(err){
+        res.json({message:err});
     }
     if(req.session.user.czyUczestnik)
         res.redirect('/api/osoba/u_strona_glowna');
@@ -277,15 +418,22 @@ router.post('/update/:id', (req, res) => {
 });
 
 // Delete
-router.post('/delete/:id', (req, res) => {
-    for( let i=0; i<osoba.length; i++)
-    {
-        if(osoba[i].id_osoby === parseInt(req.params.id))
-        {
-            osoba.splice(i, 1);
-        }
+router.post('/delete/:id', async (req, res) => {
+    try{
+        const usunietaOsoba= await Osoba.deleteOne({id_osoby: parseInt(req.params.id)})
+    }catch(err){
+        res.json({message:err});
     }
-    nextId--;
+    try{
+        const usunietyTrener= await Trener.deleteOne({id_trener: parseInt(req.params.id)})
+    }catch(err){
+        res.json({message:err});
+    }
+    try{
+        const usunietyUczestnik= await Uczestnik.deleteOne({id_uczestnik: parseInt(req.params.id)})
+    }catch(err){
+        res.json({message:err});
+    }
     res.redirect('../../osoba/a_lista_osob');
 });
 
