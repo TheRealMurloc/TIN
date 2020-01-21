@@ -418,7 +418,7 @@ router.get('/a_ranking_grupowy', async (req, res) =>
     }
     res.render('administrator/a_ranking_grupowy',
         {
-            who: 'Trener',
+            who: 'Administrator',
             zlecone_cwiczenie: lista_wynik,
             user: user
         })
@@ -493,7 +493,7 @@ router.get('/a_ranking_indywidualny', async (req, res) =>
     }
     res.render('administrator/a_ranking_indywidualny',
         {
-            who: 'Trener',
+            who: 'Administrator',
             zlecone_cwiczenie: lista_wynik,
             user: user
         })
@@ -676,24 +676,26 @@ router.get('/u_trening_indywidualny', async (req, res) =>
             lista_zlecen.push(tmp);
         }
     }
+    let wynik = [];
+    let wynikTrening = [];
     for(let i=0; i<listaTreningow.length; i++)
     {
         if(dzis >= listaTreningow[i].dataOd && dzis <= listaTreningow[i].dataDo)
         {
-            listaTreningow.push(listaTreningow[i]);
+            wynikTrening.push(listaTreningow[i]);
         }
     }
-    for(let i=0; i<listaTreningow.length; i++) {
+    for(let i=0; i<wynikTrening.length; i++) {
         for (let j = 0; j < lista_zlecen.length; j++) {
-            if (lista_zlecen[j].id_osoba === user.id_osoby && !lista_zlecen[j].cwiczenie_grupowe && lista_zlecen[j].id_trening === listaTreningow[i].id_trening) {
-                lista.push(lista_zlecen[j]);
+            if (lista_zlecen[j].id_osoba === user.id_osoby && !lista_zlecen[j].cwiczenie_grupowe && lista_zlecen[j].id_trening === wynikTrening[i].id_trening) {
+                wynik.push(lista_zlecen[j]);
             }
         }
     }
     res.render('uczestnik/u_trening_indywidualny',
     {
         who: 'Uczestnik',
-        zlecone_cwiczenie: lista_zlecen,
+        zlecone_cwiczenie: wynik,
         user: user
     })
 });
@@ -753,24 +755,26 @@ router.get('/u_trening_grupowy', async (req, res) =>
             lista_zlecen.push(tmp);
         }
     }
+    let wynik = [];
+    let wynikTrening = [];
     for(let i=0; i<listaTreningow.length; i++)
     {
         if(dzis >= listaTreningow[i].dataOd && dzis <= listaTreningow[i].dataDo)
         {
-            listaTreningow.push(listaTreningow[i]);
+            wynikTrening.push(listaTreningow[i]);
         }
     }
-    for(let i=0; i<listaTreningow.length; i++) {
+    for(let i=0; i<wynikTrening.length; i++) {
         for (let j = 0; j < lista_zlecen.length; j++) {
-            if (lista_zlecen[j].id_osoba === user.id_osoby && lista_zlecen[j].cwiczenie_grupowe && lista_zlecen[j].id_trening === listaTreningow[i].id_trening) {
-                lista.push(lista_zlecen[j]);
+            if (lista_zlecen[j].id_osoba === user.id_osoby && lista_zlecen[j].cwiczenie_grupowe && lista_zlecen[j].id_trening === wynikTrening[i].id_trening) {
+                wynik.push(lista_zlecen[j]);
             }
         }
     }
     res.render('uczestnik/u_trening_grupowy',
         {
             who: 'Uczestnik',
-            zlecone_cwiczenie: lista_zlecen,
+            zlecone_cwiczenie: wynik,
             user: user
         })
 });

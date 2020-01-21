@@ -4,7 +4,7 @@ const router = express.Router();
 const Obecnosc = require('../../models/Obecnosc');
 
 // Update admin
-router.post('/administrator/:id/:trening', async (req, res) => {
+router.get('/administrator/:id/:trening', async (req, res) => {
 
     let lista;
     try {
@@ -45,7 +45,7 @@ router.post('/administrator/:id/:trening', async (req, res) => {
 });
 
 //Update trener
-router.post('/trener/:id/:trening', async (req, res) => {
+router.get('/trener/:id/:trening', async (req, res) => {
 
     let lista;
     try {

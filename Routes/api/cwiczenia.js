@@ -164,7 +164,12 @@ router.post('/', async (req, res) => {
     } catch (err) {
         res.json({ message: err });
     }
-    res.redirect('../api/cwiczenia/a_lista_cwiczen');
+    if(req.session.user.czyAdmin) {
+        res.redirect('../api/cwiczenia/a_lista_cwiczen');
+    }
+    if(req.session.user.czyTrener) {
+        res.redirect('../api/cwiczenia/t_lista_cwiczen');
+    }
 });
 
 // Update
@@ -178,7 +183,12 @@ router.post('/update/:id', async (req, res) => {
     }catch(err){
         res.json({message:err});
     }
-    res.redirect('../../cwiczenia/a_lista_cwiczen');
+    if(req.session.user.czyAdmin) {
+        res.redirect('../../cwiczenia/a_lista_cwiczen');
+    }
+    if(req.session.user.czyTrener) {
+        res.redirect('../../cwiczenia/t_lista_cwiczen');
+    }
 });
 
 // Delete
@@ -188,7 +198,12 @@ router.post('/delete/:id', async (req, res) => {
     }catch(err){
         res.json({message:err});
     }
-    res.redirect('../../cwiczenia/a_lista_cwiczen');
+    if(req.session.user.czyAdmin) {
+        res.redirect('../../cwiczenia/a_lista_cwiczen');
+    }
+    if(req.session.user.czyTrener) {
+        res.redirect('../../cwiczenia/t_lista_cwiczen');
+    }
 });
 
 

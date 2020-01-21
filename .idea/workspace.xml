@@ -2,38 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6169ae36-a867-49e2-a7d1-580232f46233" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/models/Cwiczenia.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Feedback.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Grupa.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Obecnosc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Osoba.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Trener.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Trening_internetowy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Trening_klasyczny.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Uczestnik.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Zlecone_cwiczenie.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Routes/api/cwiczenia.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/api/cwiczenia.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Routes/api/feedback.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/api/feedback.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Routes/api/grupa.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/api/grupa.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Routes/api/obecnosc.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/api/obecnosc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Routes/api/osoba.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/api/osoba.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Routes/api/trening_internetowy.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/api/trening_internetowy.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Routes/api/trening_klasyczny.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/api/trening_klasyczny.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Routes/api/zlecone_cwiczenie.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/api/zlecone_cwiczenie.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Table/Cwiczenia.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Table/Feedback.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Table/Grupa.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Table/Obecnosc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Table/Osoba.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Table/Trener.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Table/Trening_internetowy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Table/Trening_klasyczny.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Table/Uczestnik.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Table/Zlecone_cwiczenie.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/administrator/a_lista_obecnosci.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_lista_obecnosci.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/administrator/a_ranking_grupowy.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_ranking_grupowy.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/administrator/a_ranking_indywidualny.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_ranking_indywidualny.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/trener/t_lista_obecnosci.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/trener/t_lista_obecnosci.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/trener/t_zmiana_cwiczenia.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/trener/t_zmiana_cwiczenia.handlebars" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,6 +119,10 @@
       <workItem from="1579450883259" duration="3993000" />
       <workItem from="1579458074080" duration="4484000" />
       <workItem from="1579475046750" duration="33400000" />
+      <workItem from="1579512938148" duration="209000" />
+      <workItem from="1579513605531" duration="14000" />
+      <workItem from="1579513705812" duration="196000" />
+      <workItem from="1579596874067" duration="6641000" />
     </task>
     <servers />
   </component>
@@ -179,18 +162,19 @@
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
     <state x="341" y="147" key="SettingsEditor/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1578518432521" />
-    <state x="536" y="328" key="com.intellij.ide.util.TipDialog" timestamp="1579475046872">
+    <state x="536" y="328" key="com.intellij.ide.util.TipDialog" timestamp="1579596874717">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state x="536" y="328" key="com.intellij.ide.util.TipDialog/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1579475046872" />
-    <state x="1672" y="247" width="1386" height="662" maximized="true" key="dock-window-1" timestamp="1579493966780">
+    <state x="-872" y="335" key="com.intellij.ide.util.TipDialog/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@-1280.15.1280.984" timestamp="1579513605829" />
+    <state x="536" y="328" key="com.intellij.ide.util.TipDialog/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1579596874717" />
+    <state x="1689" y="239" width="1386" height="681" maximized="true" key="dock-window-1" timestamp="1579598128449">
       <screen x="1680" y="255" width="1440" height="860" />
     </state>
-    <state x="1672" y="247" width="1386" height="662" maximized="true" key="dock-window-1/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1579493966780" />
-    <state x="-1305" y="1" width="1296" height="662" maximized="true" key="dock-window-2" timestamp="1579493966780">
+    <state x="1689" y="239" width="1386" height="681" maximized="true" key="dock-window-1/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1579598128449" />
+    <state x="-1297" y="-1" width="1296" height="681" maximized="true" key="dock-window-2" timestamp="1579598128449">
       <screen x="-1280" y="15" width="1280" height="984" />
     </state>
-    <state x="-1305" y="1" width="1296" height="662" maximized="true" key="dock-window-2/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1579493966780" />
+    <state x="-1297" y="-1" width="1296" height="681" maximized="true" key="dock-window-2/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1579598128449" />
     <state x="-1311" y="1" width="1296" height="662" maximized="true" key="dock-window-3" timestamp="1579494126077">
       <screen x="-1280" y="15" width="1280" height="984" />
     </state>

@@ -11,40 +11,61 @@ const Obecnosc = require('../../models/Obecnosc');
 //Uczestnik lista obecnosci
 router.get('/u_lista_obecnosci', async (req, res) => {
 
+    let lista;
     let listaTrening_klasyczny = [];
     try {
-        listaTrening_klasyczny = await Trening_klasyczny.find();
+        lista = await Trening_klasyczny.find();
     } catch (err) {
         res.json({message: err});
+    }
+    for(let i=0; i<lista.length; i++)
+    {
+        const tmp = {
+            id_trening: lista[i].id_trening,
+            id_trener: lista[i].id_trener,
+            id_grupa: lista[i].id_grupa,
+            data: lista[i].data,
+            godzina_rozpoczecia: lista[i].godzina_rozpoczecia,
+            godzina_zakonczenia: lista[i].godzina_zakonczenia,
+        };
+        listaTrening_klasyczny.push(tmp);
     }
     let listaObecnosc = [];
     try {
-        listaObecnosc = await Obecnosc.find();
+        lista = await Obecnosc.find();
     } catch (err) {
         res.json({message: err});
     }
-    let lista = [];
+    for(let i=0; i<lista.length; i++)
+    {
+        const tmp = {
+            id_trening: lista[i].id_trening,
+            id_uczestnik: lista[i].id_uczestnik,
+        };
+        listaObecnosc.push(tmp);
+    }
+    let wynik = [];
     for(let i=0; i<listaTrening_klasyczny.length; i++)
     {
-        let tmp = null;
         if(listaTrening_klasyczny[i].id_grupa === parseInt(req.session.user.id_grupy))
         {
+            let tmp;
             tmp = listaTrening_klasyczny[i];
             tmp.obecnosc = false;
-        }
-        for(let j=0; j<listaObecnosc.length; j++)
-        {
-            if(listaObecnosc[j].id_trening === listaTrening_klasyczny[i].id_trening && listaObecnosc[j].id_uczestnik === parseInt(req.session.user.id_osoby))
+            for(let j=0; j<listaObecnosc.length; j++)
             {
-                tmp.obecnosc = true;
+                if(listaObecnosc[j].id_trening === listaTrening_klasyczny[i].id_trening && listaObecnosc[j].id_uczestnik === parseInt(req.session.user.id_osoby))
+                {
+                    tmp.obecnosc = true;
+                }
             }
+            wynik.push(tmp);
         }
-        lista.push(tmp);
     }
     res.render('uczestnik/u_lista_obecnosci',
         {
             who: 'Uczestnik',
-            lista: lista,
+            lista: wynik,
             user: req.session.user,
         })
 });
@@ -52,27 +73,66 @@ router.get('/u_lista_obecnosci', async (req, res) => {
 //After form Admin
 router.post('/a_lista_obecnosci', async (req, res) => {
 
-    let lista = [];
+    let lista;
     let listaTrening_klasyczny = [];
     try {
-        listaTrening_klasyczny = await Trening_klasyczny.find();
+        lista = await Trening_klasyczny.find();
     } catch (err) {
         res.json({message: err});
     }
+    for(let i=0; i<lista.length; i++)
+    {
+        const tmp = {
+            id_trening: lista[i].id_trening,
+            id_trener: lista[i].id_trener,
+            id_grupa: lista[i].id_grupa,
+            data: lista[i].data,
+            godzina_rozpoczecia: lista[i].godzina_rozpoczecia,
+            godzina_zakonczenia: lista[i].godzina_zakonczenia,
+        };
+        listaTrening_klasyczny.push(tmp);
+    }
+
     let listaOsoba = [];
     try {
-        listaOsoba = await Osoba.find();
+        lista = await Osoba.find();
     } catch (err) {
         res.json({message: err});
+    }
+    for(let i=0; i<lista.length; i++)
+    {
+        const tmp = {
+            id_osoby: lista[i].id_osoby,
+            id_grupy: lista[i].id_grupy,
+            login: lista[i].login,
+            haslo: lista[i].haslo,
+            imie: lista[i].imie,
+            nazwisko: lista[i].nazwisko,
+            ksywka: lista[i].ksywka,
+            email: lista[i].email,
+            telefon: lista[i].telefon,
+            czyUczestnik: lista[i].czyUczestnik,
+            czyTrener: lista[i].czyTrener,
+            czyAdmin: lista[i].czyAdmin
+        };
+        listaOsoba.push(tmp);
     }
     let listaObecnosc = [];
     try {
-        listaObecnosc = await Obecnosc.find();
+        lista = await Obecnosc.find();
     } catch (err) {
         res.json({message: err});
     }
-    let idTrening = parseInt(req.body.trening);
+    for(let i=0; i<lista.length; i++)
+    {
+        const tmp = {
+            id_trening: lista[i].id_trening,
+            id_uczestnik: lista[i].id_uczestnik,
+        };
+        listaObecnosc.push(tmp);
+    }
     let idGrupa;
+    let idTrening = parseInt(req.body.trening);
     for(let i=0; i<listaTrening_klasyczny.length; i++)
     {
         if(listaTrening_klasyczny[i].id_trening === idTrening)
@@ -80,6 +140,7 @@ router.post('/a_lista_obecnosci', async (req, res) => {
             idGrupa = listaTrening_klasyczny[i].id_grupa;
         }
     }
+    let wynik = [];
     for(let i=0; i<listaOsoba.length; i++)
     {
         if(idGrupa === listaOsoba[i].id_grupy)
@@ -94,13 +155,13 @@ router.post('/a_lista_obecnosci', async (req, res) => {
                     tmpOsoba.obecnosc = true;
                 }
             }
-            lista.push(tmpOsoba);
+            wynik.push(tmpOsoba);
         }
     }
     res.render('administrator/a_lista_obecnosci',
         {
             who: 'Administrator',
-            osoba: lista,
+            osoba: wynik,
             user: req.session.user,
             trening: idTrening
         })
@@ -109,27 +170,66 @@ router.post('/a_lista_obecnosci', async (req, res) => {
 //After form trener
 router.post('/t_lista_obecnosci', async (req, res) => {
 
-    let lista = [];
+    let lista;
     let listaTrening_klasyczny = [];
     try {
-        listaTrening_klasyczny = await Trening_klasyczny.find();
+        lista = await Trening_klasyczny.find();
     } catch (err) {
         res.json({message: err});
     }
+    for(let i=0; i<lista.length; i++)
+    {
+        const tmp = {
+            id_trening: lista[i].id_trening,
+            id_trener: lista[i].id_trener,
+            id_grupa: lista[i].id_grupa,
+            data: lista[i].data,
+            godzina_rozpoczecia: lista[i].godzina_rozpoczecia,
+            godzina_zakonczenia: lista[i].godzina_zakonczenia,
+        };
+        listaTrening_klasyczny.push(tmp);
+    }
+
     let listaOsoba = [];
     try {
-        listaOsoba = await Osoba.find();
+        lista = await Osoba.find();
     } catch (err) {
         res.json({message: err});
+    }
+    for(let i=0; i<lista.length; i++)
+    {
+        const tmp = {
+            id_osoby: lista[i].id_osoby,
+            id_grupy: lista[i].id_grupy,
+            login: lista[i].login,
+            haslo: lista[i].haslo,
+            imie: lista[i].imie,
+            nazwisko: lista[i].nazwisko,
+            ksywka: lista[i].ksywka,
+            email: lista[i].email,
+            telefon: lista[i].telefon,
+            czyUczestnik: lista[i].czyUczestnik,
+            czyTrener: lista[i].czyTrener,
+            czyAdmin: lista[i].czyAdmin
+        };
+        listaOsoba.push(tmp);
     }
     let listaObecnosc = [];
     try {
-        listaObecnosc = await Obecnosc.find();
+        lista = await Obecnosc.find();
     } catch (err) {
         res.json({message: err});
     }
-    let idTrening = parseInt(req.body.trening);
+    for(let i=0; i<lista.length; i++)
+    {
+        const tmp = {
+            id_trening: lista[i].id_trening,
+            id_uczestnik: lista[i].id_uczestnik,
+        };
+        listaObecnosc.push(tmp);
+    }
     let idGrupa;
+    let idTrening = parseInt(req.body.trening);
     for(let i=0; i<listaTrening_klasyczny.length; i++)
     {
         if(listaTrening_klasyczny[i].id_trening === idTrening)
@@ -137,6 +237,7 @@ router.post('/t_lista_obecnosci', async (req, res) => {
             idGrupa = listaTrening_klasyczny[i].id_grupa;
         }
     }
+    let wynik = [];
     for(let i=0; i<listaOsoba.length; i++)
     {
         if(idGrupa === listaOsoba[i].id_grupy)
@@ -151,13 +252,13 @@ router.post('/t_lista_obecnosci', async (req, res) => {
                     tmpOsoba.obecnosc = true;
                 }
             }
-            lista.push(tmpOsoba);
+            wynik.push(tmpOsoba);
         }
     }
     res.render('trener/t_lista_obecnosci',
         {
             who: 'Trener',
-            osoba: lista,
+            osoba: wynik,
             user: req.session.user,
             trening: idTrening
         })
@@ -166,27 +267,66 @@ router.post('/t_lista_obecnosci', async (req, res) => {
 //After update Admin
 router.get('/a_lista_obecnosci/:id', async (req, res) => {
 
-    let lista = [];
+    let lista;
     let listaTrening_klasyczny = [];
     try {
-        listaTrening_klasyczny = await Trening_klasyczny.find();
+        lista = await Trening_klasyczny.find();
     } catch (err) {
         res.json({message: err});
     }
+    for(let i=0; i<lista.length; i++)
+    {
+        const tmp = {
+            id_trening: lista[i].id_trening,
+            id_trener: lista[i].id_trener,
+            id_grupa: lista[i].id_grupa,
+            data: lista[i].data,
+            godzina_rozpoczecia: lista[i].godzina_rozpoczecia,
+            godzina_zakonczenia: lista[i].godzina_zakonczenia,
+        };
+        listaTrening_klasyczny.push(tmp);
+    }
+
     let listaOsoba = [];
     try {
-        listaOsoba = await Osoba.find();
+        lista = await Osoba.find();
     } catch (err) {
         res.json({message: err});
+    }
+    for(let i=0; i<lista.length; i++)
+    {
+        const tmp = {
+            id_osoby: lista[i].id_osoby,
+            id_grupy: lista[i].id_grupy,
+            login: lista[i].login,
+            haslo: lista[i].haslo,
+            imie: lista[i].imie,
+            nazwisko: lista[i].nazwisko,
+            ksywka: lista[i].ksywka,
+            email: lista[i].email,
+            telefon: lista[i].telefon,
+            czyUczestnik: lista[i].czyUczestnik,
+            czyTrener: lista[i].czyTrener,
+            czyAdmin: lista[i].czyAdmin
+        };
+        listaOsoba.push(tmp);
     }
     let listaObecnosc = [];
     try {
-        listaObecnosc = await Obecnosc.find();
+        lista = await Obecnosc.find();
     } catch (err) {
         res.json({message: err});
     }
-    let idTrening = parseInt(req.params.id);
+    for(let i=0; i<lista.length; i++)
+    {
+        const tmp = {
+            id_trening: lista[i].id_trening,
+            id_uczestnik: lista[i].id_uczestnik,
+        };
+        listaObecnosc.push(tmp);
+    }
     let idGrupa;
+    let idTrening = parseInt(req.params.id);
     for(let i=0; i<listaTrening_klasyczny.length; i++)
     {
         if(listaTrening_klasyczny[i].id_trening === idTrening)
@@ -194,12 +334,14 @@ router.get('/a_lista_obecnosci/:id', async (req, res) => {
             idGrupa = listaTrening_klasyczny[i].id_grupa;
         }
     }
+    let wynik = [];
     for(let i=0; i<listaOsoba.length; i++)
     {
         if(idGrupa === listaOsoba[i].id_grupy)
         {
             let tmpOsoba = listaOsoba[i];
             tmpOsoba.obecnosc = false;
+            tmpOsoba.id_treningu = idTrening;
             for(let j=0; j<listaObecnosc.length; j++)
             {
                 if(listaObecnosc[j].id_trening === idTrening && listaObecnosc[j].id_uczestnik === tmpOsoba.id_osoby)
@@ -207,13 +349,13 @@ router.get('/a_lista_obecnosci/:id', async (req, res) => {
                     tmpOsoba.obecnosc = true;
                 }
             }
-            lista.push(tmpOsoba);
+            wynik.push(tmpOsoba);
         }
     }
     res.render('administrator/a_lista_obecnosci',
         {
             who: 'Administrator',
-            osoba: lista,
+            osoba: wynik,
             user: req.session.user,
             trening: idTrening
         })
@@ -222,27 +364,66 @@ router.get('/a_lista_obecnosci/:id', async (req, res) => {
 //After update trener
 router.get('/t_lista_obecnosci/:id', async (req, res) => {
 
-    let lista = [];
+    let lista;
     let listaTrening_klasyczny = [];
     try {
-        listaTrening_klasyczny = await Trening_klasyczny.find();
+        lista = await Trening_klasyczny.find();
     } catch (err) {
         res.json({message: err});
     }
+    for(let i=0; i<lista.length; i++)
+    {
+        const tmp = {
+            id_trening: lista[i].id_trening,
+            id_trener: lista[i].id_trener,
+            id_grupa: lista[i].id_grupa,
+            data: lista[i].data,
+            godzina_rozpoczecia: lista[i].godzina_rozpoczecia,
+            godzina_zakonczenia: lista[i].godzina_zakonczenia,
+        };
+        listaTrening_klasyczny.push(tmp);
+    }
+
     let listaOsoba = [];
     try {
-        listaOsoba = await Osoba.find();
+        lista = await Osoba.find();
     } catch (err) {
         res.json({message: err});
+    }
+    for(let i=0; i<lista.length; i++)
+    {
+        const tmp = {
+            id_osoby: lista[i].id_osoby,
+            id_grupy: lista[i].id_grupy,
+            login: lista[i].login,
+            haslo: lista[i].haslo,
+            imie: lista[i].imie,
+            nazwisko: lista[i].nazwisko,
+            ksywka: lista[i].ksywka,
+            email: lista[i].email,
+            telefon: lista[i].telefon,
+            czyUczestnik: lista[i].czyUczestnik,
+            czyTrener: lista[i].czyTrener,
+            czyAdmin: lista[i].czyAdmin
+        };
+        listaOsoba.push(tmp);
     }
     let listaObecnosc = [];
     try {
-        listaObecnosc = await Obecnosc.find();
+        lista = await Obecnosc.find();
     } catch (err) {
         res.json({message: err});
     }
-    let idTrening = parseInt(req.params.id);
+    for(let i=0; i<lista.length; i++)
+    {
+        const tmp = {
+            id_trening: lista[i].id_trening,
+            id_uczestnik: lista[i].id_uczestnik,
+        };
+        listaObecnosc.push(tmp);
+    }
     let idGrupa;
+    let idTrening = parseInt(req.params.id);
     for(let i=0; i<listaTrening_klasyczny.length; i++)
     {
         if(listaTrening_klasyczny[i].id_trening === idTrening)
@@ -250,12 +431,14 @@ router.get('/t_lista_obecnosci/:id', async (req, res) => {
             idGrupa = listaTrening_klasyczny[i].id_grupa;
         }
     }
+    let wynik = [];
     for(let i=0; i<listaOsoba.length; i++)
     {
         if(idGrupa === listaOsoba[i].id_grupy)
         {
             let tmpOsoba = listaOsoba[i];
             tmpOsoba.obecnosc = false;
+            tmpOsoba.id_treningu = idTrening;
             for(let j=0; j<listaObecnosc.length; j++)
             {
                 if(listaObecnosc[j].id_trening === idTrening && listaObecnosc[j].id_uczestnik === tmpOsoba.id_osoby)
@@ -263,37 +446,51 @@ router.get('/t_lista_obecnosci/:id', async (req, res) => {
                     tmpOsoba.obecnosc = true;
                 }
             }
-            lista.push(tmpOsoba);
+            wynik.push(tmpOsoba);
         }
     }
     res.render('trener/t_lista_obecnosci',
         {
             who: 'Trener',
-            osoba: lista,
+            osoba: wynik,
             user: req.session.user,
             trening: idTrening
         })
 });
 
 router.get('/a_lista_obecnosci_wybor', async (req, res) => {
-    let listaTrening_klasyczny = [];
+    let lista = [];
+    let listaTrening_klasyczny;
     try {
         listaTrening_klasyczny = await Trening_klasyczny.find();
     } catch (err) {
         res.json({message: err});
     }
+    for(let i=0; i<listaTrening_klasyczny.length; i++)
+    {
+        const tmp = {
+            id_trening: listaTrening_klasyczny[i].id_trening,
+            id_trener: listaTrening_klasyczny[i].id_trener,
+            id_grupa: listaTrening_klasyczny[i].id_grupa,
+            data: listaTrening_klasyczny[i].data,
+            godzina_rozpoczecia: listaTrening_klasyczny[i].godzina_rozpoczecia,
+            godzina_zakonczenia: listaTrening_klasyczny[i].godzina_zakonczenia,
+        };
+        lista.push(tmp);
+    }
     res.render('administrator/a_lista_obecnosci_wybor',
         {
             who: 'Administrator',
-            trening_klasyczny: listaTrening_klasyczny,
+            trening_klasyczny: lista,
             user: req.session.user
         })
 });
 
 router.get('/t_lista_obecnosci_wybor', async (req, res) => {
 
-    lista = [];
-    let listaTrening_klasyczny = [];
+
+    let lista = [];
+    let listaTrening_klasyczny;
     try {
         listaTrening_klasyczny = await Trening_klasyczny.find();
     } catch (err) {
@@ -303,7 +500,15 @@ router.get('/t_lista_obecnosci_wybor', async (req, res) => {
     {
         if(listaTrening_klasyczny[i].id_trener === parseInt(req.session.user.id_osoby))
         {
-            lista.push(listaTrening_klasyczny[i]);
+            const tmp = {
+                id_trening: listaTrening_klasyczny[i].id_trening,
+                id_trener: listaTrening_klasyczny[i].id_trener,
+                id_grupa: listaTrening_klasyczny[i].id_grupa,
+                data: listaTrening_klasyczny[i].data,
+                godzina_rozpoczecia: listaTrening_klasyczny[i].godzina_rozpoczecia,
+                godzina_zakonczenia: listaTrening_klasyczny[i].godzina_zakonczenia,
+            };
+            lista.push(tmp);
         }
     }
     res.render('trener/t_lista_obecnosci_wybor',
@@ -316,24 +521,32 @@ router.get('/t_lista_obecnosci_wybor', async (req, res) => {
 
 router.get('/u_kalendarz_zajec', async (req, res) => {
 
-    lista = [];
+    let lista;
     let listaTrening_klasyczny = [];
     try {
-        listaTrening_klasyczny = await Trening_klasyczny.find();
+        lista = await Trening_klasyczny.find();
     } catch (err) {
         res.json({message: err});
     }
-    for(let i=0; i<listaTrening_klasyczny.length; i++)
+    for(let i=0; i<lista.length; i++)
     {
-        if(listaTrening_klasyczny[i].id_grupa === parseInt(req.session.user.id_grupy))
+        if(lista[i].id_grupa === parseInt(req.session.user.id_grupy))
         {
-            lista.push(listaTrening_klasyczny[i]);
+            const tmp = {
+                id_trening: lista[i].id_trening,
+                id_trener: lista[i].id_trener,
+                id_grupa: lista[i].id_grupa,
+                data: lista[i].data,
+                godzina_rozpoczecia: lista[i].godzina_rozpoczecia,
+                godzina_zakonczenia: lista[i].godzina_zakonczenia,
+            };
+            listaTrening_klasyczny.push(tmp);
         }
     }
     res.render('uczestnik/u_kalendarz_zajec',
     {
         who: 'Uczestnik',
-        trening_klasyczny: lista,
+        trening_klasyczny: listaTrening_klasyczny,
         user: req.session.user
     })
 });

@@ -89,7 +89,7 @@ router.post('/update/:id', async (req, res) => {
         const updatedTrening_internetowy = await Trening_internetowy.updateOne(
             {id_trening: req.params.id},
             {$set: {dataOd: req.body.startDate,
-                    dataOd: req.body.finishDate}
+                    dataDo: req.body.finishDate}
             });
     }catch(err){
         res.json({message:err});
