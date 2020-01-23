@@ -905,6 +905,7 @@ router.post('/grupa/', async (req, res) => {
 
 // Update
 router.post('/update/ind/', async (req, res) => {
+    let user = req.session.user;
     let lista_zlecen = [];
     let lista;
     try {
@@ -914,7 +915,7 @@ router.post('/update/ind/', async (req, res) => {
     }
     for(let i=0; i<lista.length; i++)
     {
-        if(!lista[i].cwiczenie_grupowe) {
+        if(!lista[i].cwiczenie_grupowe && lista[i].id_osoba === user.id_osoby) {
             const tmp = {
                 id_osoba: lista[i].id_osoba,
                 id_cwiczenia: lista[i].id_cwiczenia,
@@ -930,7 +931,6 @@ router.post('/update/ind/', async (req, res) => {
             lista_zlecen.push(tmp);
         }
     }
-    let user = req.session.user;
     let iloscCwiczen = lista_zlecen.length;
 
     if(iloscCwiczen > 1)
@@ -950,7 +950,7 @@ router.post('/update/ind/', async (req, res) => {
                 {
                     try{
                         const updatedZlecenie = await Zlecone_cwiczenie.updateOne(
-                            {id_osoba: user.id_osoby, cwiczenie_grupowe: false},
+                            {id_osoba: user.id_osoby, cwiczenie_grupowe: false, id_trening: lista_zlecen[i].id_trening, id_cwiczenia: lista_zlecen[i].id_cwiczenia},
                             {$set: {ilosc_zrobiona: ilosc_zrobiona+ilosc,
                                     wynik: "Niski"}
                             });
@@ -962,7 +962,7 @@ router.post('/update/ind/', async (req, res) => {
                 {
                     try{
                         const updatedZlecenie = await Zlecone_cwiczenie.updateOne(
-                            {id_osoba: user.id_osoby, cwiczenie_grupowe: false},
+                            {id_osoba: user.id_osoby, cwiczenie_grupowe: false, id_trening: lista_zlecen[i].id_trening, id_cwiczenia: lista_zlecen[i].id_cwiczenia},
                             {$set: {ilosc_zrobiona: ilosc_zrobiona+ilosc,
                                     wynik: "Sredni"}
                             });
@@ -974,7 +974,7 @@ router.post('/update/ind/', async (req, res) => {
                 {
                     try{
                         const updatedZlecenie = await Zlecone_cwiczenie.updateOne(
-                            {id_osoba: user.id_osoby, cwiczenie_grupowe: false},
+                            {id_osoba: user.id_osoby, cwiczenie_grupowe: false, id_trening: lista_zlecen[i].id_trening, id_cwiczenia: lista_zlecen[i].id_cwiczenia},
                             {$set: {ilosc_zrobiona: ilosc_zrobiona+ilosc,
                                     wynik: "Wysoki"}
                             });
@@ -1000,7 +1000,7 @@ router.post('/update/ind/', async (req, res) => {
                 {
                     try{
                         const updatedZlecenie = await Zlecone_cwiczenie.updateOne(
-                            {id_osoba: user.id_osoby, cwiczenie_grupowe: false},
+                            {id_osoba: user.id_osoby, cwiczenie_grupowe: false, id_trening: lista_zlecen[i].id_trening, id_cwiczenia: lista_zlecen[i].id_cwiczenia},
                             {$set: {ilosc_zrobiona: wynik,
                                     wynik: "Niski"}
                             });
@@ -1012,7 +1012,7 @@ router.post('/update/ind/', async (req, res) => {
                 {
                     try{
                         const updatedZlecenie = await Zlecone_cwiczenie.updateOne(
-                            {id_osoba: user.id_osoby, cwiczenie_grupowe: false},
+                            {id_osoba: user.id_osoby, cwiczenie_grupowe: false, id_trening: lista_zlecen[i].id_trening, id_cwiczenia: lista_zlecen[i].id_cwiczenia},
                             {$set: {ilosc_zrobiona: wynik,
                                     wynik: "Sredni"}
                             });
@@ -1024,7 +1024,7 @@ router.post('/update/ind/', async (req, res) => {
                 {
                     try{
                         const updatedZlecenie = await Zlecone_cwiczenie.updateOne(
-                            {id_osoba: user.id_osoby, cwiczenie_grupowe: false},
+                            {id_osoba: user.id_osoby, cwiczenie_grupowe: false, id_trening: lista_zlecen[i].id_trening, id_cwiczenia: lista_zlecen[i].id_cwiczenia},
                             {$set: {ilosc_zrobiona: wynik,
                                     wynik: "Wysoki"}
                             });
@@ -1040,6 +1040,7 @@ router.post('/update/ind/', async (req, res) => {
 
 // Update
 router.post('/update/grupa/', async (req, res) => {
+    let user = req.session.user;
     let lista_zlecen = [];
     let lista;
     try {
@@ -1049,7 +1050,7 @@ router.post('/update/grupa/', async (req, res) => {
     }
     for(let i=0; i<lista.length; i++)
     {
-        if(lista[i].cwiczenie_grupowe) {
+        if(lista[i].cwiczenie_grupowe && lista[i].id_osoba === user.id_osoby) {
             const tmp = {
                 id_osoba: lista[i].id_osoba,
                 id_cwiczenia: lista[i].id_cwiczenia,
@@ -1065,14 +1066,13 @@ router.post('/update/grupa/', async (req, res) => {
             lista_zlecen.push(tmp);
         }
     }
-    let user = req.session.user;
     let iloscCwiczen = lista_zlecen.length;
 
     if(iloscCwiczen > 1)
     {
         for( let i=0, j=0; i<lista_zlecen.length; i++)
         {
-            if(lista_zlecen[i].id_osoba === user.id_osoby && !lista_zlecen[i].cwiczenie_grupowe)
+            if(lista_zlecen[i].id_osoba === user.id_osoby && lista_zlecen[i].cwiczenie_grupowe)
             {
                 let ilosc = 0;
                 if(req.body.ilosc[j] !== ''){
@@ -1081,12 +1081,13 @@ router.post('/update/grupa/', async (req, res) => {
                 else{
                     j++;
                 }
+                let wynik = lista_zlecen[i].ilosc_zrobiona += ilosc;
                 if((lista_zlecen[i].ilosc_zrobiona/lista_zlecen[i].ilosc_ogolem*100) < 30)
                 {
                     try{
                         const updatedZlecenie = await Zlecone_cwiczenie.updateOne(
-                            {id_osoba: user.id_osoby, cwiczenie_grupowe: false},
-                            {$set: {ilosc_zrobiona: ilosc_zrobiona+ilosc,
+                            {id_osoba: user.id_osoby, cwiczenie_grupowe: true, id_trening: lista_zlecen[i].id_trening, id_cwiczenia: lista_zlecen[i].id_cwiczenia},
+                            {$set: {ilosc_zrobiona: wynik,
                                     wynik: "Niski"}
                             });
                     }catch(err){
@@ -1097,8 +1098,8 @@ router.post('/update/grupa/', async (req, res) => {
                 {
                     try{
                         const updatedZlecenie = await Zlecone_cwiczenie.updateOne(
-                            {id_osoba: user.id_osoby, cwiczenie_grupowe: false},
-                            {$set: {ilosc_zrobiona: ilosc_zrobiona+ilosc,
+                            {id_osoba: user.id_osoby, cwiczenie_grupowe: true, id_trening: lista_zlecen[i].id_trening, id_cwiczenia: lista_zlecen[i].id_cwiczenia},
+                            {$set: {ilosc_zrobiona: wynik,
                                     wynik: "Sredni"}
                             });
                     }catch(err){
@@ -1109,8 +1110,8 @@ router.post('/update/grupa/', async (req, res) => {
                 {
                     try{
                         const updatedZlecenie = await Zlecone_cwiczenie.updateOne(
-                            {id_osoba: user.id_osoby, cwiczenie_grupowe: false},
-                            {$set: {ilosc_zrobiona: ilosc_zrobiona+ilosc,
+                            {id_osoba: user.id_osoby, cwiczenie_grupowe: true, id_trening: lista_zlecen[i].id_trening, id_cwiczenia: lista_zlecen[i].id_cwiczenia},
+                            {$set: {ilosc_zrobiona: wynik,
                                     wynik: "Wysoki"}
                             });
                     }catch(err){
@@ -1135,7 +1136,7 @@ router.post('/update/grupa/', async (req, res) => {
                 {
                     try{
                         const updatedZlecenie = await Zlecone_cwiczenie.updateOne(
-                            {id_osoba: user.id_osoby, cwiczenie_grupowe: true},
+                            {id_osoba: user.id_osoby, cwiczenie_grupowe: true, id_trening: lista_zlecen[i].id_trening, id_cwiczenia: lista_zlecen[i].id_cwiczenia},
                             {$set: {ilosc_zrobiona: wynik,
                                     wynik: "Niski"}
                             });
@@ -1147,7 +1148,7 @@ router.post('/update/grupa/', async (req, res) => {
                 {
                     try{
                         const updatedZlecenie = await Zlecone_cwiczenie.updateOne(
-                            {id_osoba: user.id_osoby, cwiczenie_grupowe: true},
+                            {id_osoba: user.id_osoby, cwiczenie_grupowe: true, id_trening: lista_zlecen[i].id_trening, id_cwiczenia: lista_zlecen[i].id_cwiczenia},
                             {$set: {ilosc_zrobiona: wynik,
                                     wynik: "Sredni"}
                             });
@@ -1159,7 +1160,7 @@ router.post('/update/grupa/', async (req, res) => {
                 {
                     try{
                         const updatedZlecenie = await Zlecone_cwiczenie.updateOne(
-                            {id_osoba: user.id_osoby, cwiczenie_grupowe: true},
+                            {id_osoba: user.id_osoby, cwiczenie_grupowe: true, id_trening: lista_zlecen[i].id_trening, id_cwiczenia: lista_zlecen[i].id_cwiczenia},
                             {$set: {ilosc_zrobiona: wynik,
                                     wynik: "Wysoki"}
                             });

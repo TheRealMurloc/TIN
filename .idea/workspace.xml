@@ -3,16 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6169ae36-a867-49e2-a7d1-580232f46233" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Routes/api/cwiczenia.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/api/cwiczenia.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Routes/api/obecnosc.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/api/obecnosc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Routes/api/trening_internetowy.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/api/trening_internetowy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Routes/api/trening_klasyczny.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/api/trening_klasyczny.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Routes/api/zlecone_cwiczenie.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/api/zlecone_cwiczenie.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/administrator/a_lista_obecnosci.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_lista_obecnosci.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/administrator/a_ranking_grupowy.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_ranking_grupowy.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/administrator/a_ranking_indywidualny.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_ranking_indywidualny.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/trener/t_lista_obecnosci.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/trener/t_lista_obecnosci.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/trener/t_zmiana_cwiczenia.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/trener/t_zmiana_cwiczenia.handlebars" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +38,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.13.1" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tin-examples-students/02.2 - Templates — auth" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
@@ -123,6 +114,7 @@
       <workItem from="1579513605531" duration="14000" />
       <workItem from="1579513705812" duration="196000" />
       <workItem from="1579596874067" duration="6641000" />
+      <workItem from="1579796308876" duration="4292000" />
     </task>
     <servers />
   </component>
