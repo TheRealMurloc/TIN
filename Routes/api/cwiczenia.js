@@ -148,46 +148,125 @@ router.get('/t_dodaj_cwiczenie', (req, res) => res.render('trener/t_dodaj_cwicze
 
 // Create
 router.post('/', async (req, res) => {
-    let nextId;
+    let listaCwiczen;
     try {
-        nextId = await Cwiczenia.find();
+        listaCwiczen = await Cwiczenia.find();
     } catch (err) {
         res.json({message: err});
     }
     const newCwiczenie = new Cwiczenia({
-        id_cwiczenia: nextId.length+1,
+        id_cwiczenia: listaCwiczen.length+1,
         nazwa: req.body.nazwa,
         opis: req.body.opis
     });
-    try{
-        const savedCwiczenie = await newCwiczenie.save();
-    } catch (err) {
-        res.json({ message: err });
+
+    let exists = false;
+    for(let i=0; i<listaCwiczen.length; i++)
+    {
+        if(newCwiczenie.nazwa === listaCwiczen[i].nazwa)
+        {
+            exists = true;
+        }
     }
-    if(req.session.user.czyAdmin) {
-        res.redirect('../api/cwiczenia/a_lista_cwiczen');
+    if(exists)
+    {
+        if(req.session.user.czyTrener)
+            res.render('trener/t_dodanie',
+                {
+                    who: 'Trener',
+                    user: req.session.user,
+                    info: 'Ćwiczenie o takiej nazwie już istnieje!'
+                });
+        if(req.session.user.czyAdmin)
+            res.render('administrator/a_dodanie',
+                {
+                    who: 'Administrator',
+                    user: req.session.user,
+                    info: 'Ćwiczenie o takiej nazwie już istnieje!'
+                });
     }
-    if(req.session.user.czyTrener) {
-        res.redirect('../api/cwiczenia/t_lista_cwiczen');
+    else
+    {
+        try{
+            const savedCwiczenie = await newCwiczenie.save();
+        } catch (err) {
+            res.json({ message: err });
+        }
+        if(req.session.user.czyTrener)
+            res.render('trener/t_dodanie',
+                {
+                    who: 'Trener',
+                    user: req.session.user,
+                    info: 'Ćwiczenie zostało dodane!'
+                });
+        if(req.session.user.czyAdmin)
+            res.render('administrator/a_dodanie',
+                {
+                    who: 'Administrator',
+                    user: req.session.user,
+                    info: 'Ćwiczenie zostało dodane!'
+                });
     }
 });
 
 // Update
 router.post('/update/:id', async (req, res) => {
-    try{
-        const updatedCwiczenie = await Cwiczenia.updateOne(
-            {id_cwiczenia: parseInt(req.params.id)},
-            {$set: {nazwa: req.body.nazwa,
-                    opis: req.body.opis}
-            });
-    }catch(err){
-        res.json({message:err});
+    let listaCwiczen;
+    try {
+        listaCwiczen = await Cwiczenia.find();
+    } catch (err) {
+        res.json({message: err});
     }
-    if(req.session.user.czyAdmin) {
-        res.redirect('../../cwiczenia/a_lista_cwiczen');
+    let exists = false;
+    for(let i=0; i<listaCwiczen.length; i++)
+    {
+        if(listaCwiczen[i].nazwa === req.body.nazwa)
+        {
+            exists = true;
+        }
     }
-    if(req.session.user.czyTrener) {
-        res.redirect('../../cwiczenia/t_lista_cwiczen');
+    if(exists)
+    {
+        if(req.session.user.czyTrener)
+            res.render('trener/t_dodanie',
+                {
+                    who: 'Trener',
+                    user: req.session.user,
+                    info: 'Ćwiczenie o takiej nazwie już istnieje!'
+                });
+        if(req.session.user.czyAdmin)
+            res.render('administrator/a_dodanie',
+                {
+                    who: 'Administrator',
+                    user: req.session.user,
+                    info: 'Ćwiczenie o takiej nazwie już istnieje!'
+                });
+    }
+    else
+    {
+        try{
+            const updatedCwiczenie = await Cwiczenia.updateOne(
+                {id_cwiczenia: parseInt(req.params.id)},
+                {$set: {nazwa: req.body.nazwa,
+                        opis: req.body.opis}
+                });
+        }catch(err){
+            res.json({message:err});
+        }
+        if(req.session.user.czyTrener)
+            res.render('trener/t_dodanie',
+                {
+                    who: 'Trener',
+                    user: req.session.user,
+                    info: 'Ćwiczenie zostało zmienione!'
+                });
+        if(req.session.user.czyAdmin)
+            res.render('administrator/a_dodanie',
+                {
+                    who: 'Administrator',
+                    user: req.session.user,
+                    info: 'Ćwiczenie zostało zmienione!'
+                });
     }
 });
 

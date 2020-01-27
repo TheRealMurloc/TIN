@@ -177,19 +177,21 @@ router.get('/u_ranking_grupowy', async (req, res) =>
     }
     for(let i=0; i<lista.length; i++)
     {
-        const tmp = {
-            id_osoba: lista[i].id_osoba,
-            id_cwiczenia: lista[i].id_cwiczenia,
-            nazwa: lista[i].nazwa,
-            id_trening: lista[i].id_trening,
-            ilosc_serii: lista[i].ilosc_serii,
-            ilosc_zaplanowana: lista[i].ilosc_zaplanowana,
-            ilosc_ogolem: lista[i].ilosc_ogolem,
-            ilosc_zrobiona: lista[i].ilosc_zrobiona,
-            wynik: lista[i].wynik,
-            cwiczenie_grupowe: lista[i].cwiczenie_grupowe
-        };
-        lista_zlecen.push(tmp);
+        if(lista[i].cwiczenie_grupowe) {
+            const tmp = {
+                id_osoba: lista[i].id_osoba,
+                id_cwiczenia: lista[i].id_cwiczenia,
+                nazwa: lista[i].nazwa,
+                id_trening: lista[i].id_trening,
+                ilosc_serii: lista[i].ilosc_serii,
+                ilosc_zaplanowana: lista[i].ilosc_zaplanowana,
+                ilosc_ogolem: lista[i].ilosc_ogolem,
+                ilosc_zrobiona: lista[i].ilosc_zrobiona,
+                wynik: lista[i].wynik,
+                cwiczenie_grupowe: lista[i].cwiczenie_grupowe
+            };
+            lista_zlecen.push(tmp);
+        }
     }
     res.render('uczestnik/u_ranking_grupowy',
         {

@@ -62,35 +62,95 @@ router.get('/a_dodaj_grupe', (req, res) => res.render('../views/administrator/a_
 
 // Create
 router.post('/', async (req, res) => {
-    let nextId;
+    let listaGrup;
     try {
-        nextId = await Grupa.find();
+        listaGrup = await Grupa.find();
     } catch (err) {
         res.json({message: err});
     }
     const newGrupa = new Grupa({
-        id_grupy: nextId.length+1,
+        id_grupy: listaGrup.length+1,
         nazwa: req.body.nazwa
     });
-    try{
-        const savedGrupa = await newGrupa.save();
-    } catch (err) {
-        res.json({ message: err });
+    let exists = false;
+    for(let i=0; i<listaGrup.length; i++)
+    {
+        if(listaGrup[i].nazwa === newGrupa.nazwa)
+        {
+            exists = true;
+        }
     }
-    res.redirect('../api/grupa/a_lista_grup');
+    if(exists)
+    {
+        if(req.session.user.czyAdmin)
+            res.render('administrator/a_dodanie',
+                {
+                    who: 'Administrator',
+                    user: req.session.user,
+                    info: 'Grupa o takiej nazwie już istnieje!'
+                });
+    }
+    else
+    {
+        try{
+            const savedGrupa = await newGrupa.save();
+        } catch (err) {
+            res.json({ message: err });
+        }
+        if(req.session.user.czyAdmin)
+            res.render('administrator/a_dodanie',
+                {
+                    who: 'Administrator',
+                    user: req.session.user,
+                    info: 'Grupa została dodana!'
+                });
+    }
 });
 
 // Update
 router.post('/update/:id', async (req, res) => {
-    try{
-        const updatedGrupa = await Grupa.updateOne(
-            {id_grupy: req.params.id},
-            {$set: {nazwa: req.body.nazwa}
-            });
-    }catch(err){
-        res.json({message:err});
+    let listaGrup;
+    try {
+        listaGrup = await Grupa.find();
+    } catch (err) {
+        res.json({message: err});
     }
-    res.redirect('../../grupa/a_lista_grup');
+    let exists = false;
+    for(let i=0; i<listaGrup.length; i++)
+    {
+        if(listaGrup[i].nazwa === req.body.nazwa)
+        {
+            exists = true;
+        }
+    }
+    if(exists)
+    {
+        if(req.session.user.czyAdmin)
+            res.render('administrator/a_dodanie',
+                {
+                    who: 'Administrator',
+                    user: req.session.user,
+                    info: 'Grupa o takiej nazwie już istnieje!'
+                });
+    }
+    else
+    {
+        try{
+            const updatedGrupa = await Grupa.updateOne(
+                {id_grupy: req.params.id},
+                {$set: {nazwa: req.body.nazwa}
+                });
+        }catch(err){
+            res.json({message:err});
+        }
+        if(req.session.user.czyAdmin)
+            res.render('administrator/a_dodanie',
+                {
+                    who: 'Administrator',
+                    user: req.session.user,
+                    info: 'Grupa została zmieniona!'
+                });
+    }
 });
 
 // Delete

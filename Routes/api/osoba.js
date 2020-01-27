@@ -296,143 +296,258 @@ router.get('/logout', (req, res) =>
 
 // Create
 router.post('/', async (req, res) => {
-    let nextId;
+    let listaOsob;
     try {
-        nextId = await Osoba.find();
+        listaOsob = await Osoba.find();
     } catch (err) {
         res.json({message: err});
     }
-    let newOsoba;
-    if(req.body.rola == "trener")
+    let existsLogin = false;
+    let existsKsywka = false;
+    for(let i=0; i<listaOsob.length; i++)
     {
-        newOsoba = new Osoba({
-            id_osoby: nextId.length+1,
-            id_grupy: null,
-            login: req.body.login,
-            haslo: req.body.haslo,
-            imie: req.body.imie,
-            nazwisko: req.body.nazwisko,
-            ksywka: req.body.ksywka,
-            email: req.body.email,
-            telefon: req.body.telefon,
-            czyUczestnik: false,
-            czyTrener: true,
-            czyAdmin: false
-        });
-    }
-    if(req.body.rola == "uczestnik")
-    {
-        newOsoba = new Osoba({
-            id_osoby: nextId.length+1,
-            id_grupy: parseInt(req.body.grupa),
-            login: req.body.login,
-            haslo: req.body.haslo,
-            imie: req.body.imie,
-            nazwisko: req.body.nazwisko,
-            ksywka: req.body.ksywka,
-            email: req.body.email,
-            telefon: req.body.telefon,
-            czyUczestnik: true,
-            czyTrener: false,
-            czyAdmin: false
-        });
-    }
-
-    if(!newOsoba.login) {
-        res.status(400).json({ msg: 'Wpisz login'});
-        nextId--;
-    } else {
-        try{
-            const savedOsoba = await newOsoba.save();
-        } catch (err) {
-            res.json({ message: err });
+        if(listaOsob[i].login === req.body.login)
+        {
+            existsLogin = true;
         }
     }
-    if(newOsoba.czyTrener)
+    for(let i=0; i<listaOsob.length; i++)
     {
-        const newTrener = new Trener({
-            id_trener: newOsoba.id_osoby
-        });
-        try{
-            const savedTrener = await newTrener.save();
-        } catch (err) {
-            res.json({ message: err });
+        if(listaOsob[i].ksywka === req.body.ksywka)
+        {
+            existsKsywka = true;
         }
     }
-    if(newOsoba.czyUczestnik) {
-        try {
-            const newUczestnik = new Uczestnik({
-                id_uczestnik: newOsoba.id_osoby
+    if(existsLogin || existsKsywka)
+    {
+        if(existsLogin)
+        {
+            if(req.session.user.czyAdmin)
+                res.render('administrator/a_dodanie',
+                    {
+                        who: 'Administrator',
+                        user: req.session.user,
+                        info: 'Osoba o takim loginie już istnieje!'
+                    });
+        }
+        if(existsKsywka)
+        {
+            if(req.session.user.czyAdmin)
+                res.render('administrator/a_dodanie',
+                    {
+                        who: 'Administrator',
+                        user: req.session.user,
+                        info: 'Osoba o takiej ksywce już istnieje!'
+                    });
+        }
+    }
+    else
+    {
+        let newOsoba;
+        if(req.body.rola == "trener")
+        {
+            newOsoba = new Osoba({
+                id_osoby: listaOsob.length+1,
+                id_grupy: null,
+                login: req.body.login,
+                haslo: req.body.haslo,
+                imie: req.body.imie,
+                nazwisko: req.body.nazwisko,
+                ksywka: req.body.ksywka,
+                email: req.body.email,
+                telefon: req.body.telefon,
+                czyUczestnik: false,
+                czyTrener: true,
+                czyAdmin: false
             });
-            const savedUczestnik = await newUczestnik.save();
-        } catch (err) {
-            res.json({message: err});
         }
+        if(req.body.rola == "uczestnik")
+        {
+            newOsoba = new Osoba({
+                id_osoby: listaOsob.length+1,
+                id_grupy: parseInt(req.body.grupa),
+                login: req.body.login,
+                haslo: req.body.haslo,
+                imie: req.body.imie,
+                nazwisko: req.body.nazwisko,
+                ksywka: req.body.ksywka,
+                email: req.body.email,
+                telefon: req.body.telefon,
+                czyUczestnik: true,
+                czyTrener: false,
+                czyAdmin: false
+            });
+        }
+
+        if(!newOsoba.login) {
+            res.status(400).json({ msg: 'Wpisz login'});
+        } else {
+            try{
+                const savedOsoba = await newOsoba.save();
+            } catch (err) {
+                res.json({ message: err });
+            }
+        }
+        if(newOsoba.czyTrener)
+        {
+            const newTrener = new Trener({
+                id_trener: newOsoba.id_osoby
+            });
+            try{
+                const savedTrener = await newTrener.save();
+            } catch (err) {
+                res.json({ message: err });
+            }
+        }
+        if(newOsoba.czyUczestnik) {
+            try {
+                const newUczestnik = new Uczestnik({
+                    id_uczestnik: newOsoba.id_osoby
+                });
+                const savedUczestnik = await newUczestnik.save();
+            } catch (err) {
+                res.json({message: err});
+            }
+        }
+        if(req.session.user.czyAdmin)
+            res.render('administrator/a_dodanie',
+                {
+                    who: 'Administrator',
+                    user: req.session.user,
+                    info: 'Osoba została dodana!'
+                });
     }
-    res.redirect('/api/osoba/a_lista_osob');
 });
 
 // Update
 router.post('/update/:id', async (req, res) => {
-    let trener;
-    let uczestnik;
-    if(req.body.rola === "trener")
+    let listaOsob;
+    try {
+        listaOsob = await Osoba.find();
+    } catch (err) {
+        res.json({message: err});
+    }
+    let existsLogin = false;
+    let existsKsywka = false;
+    if(req.body.login)
     {
-        trener = true;
+        for(let i=0; i<listaOsob.length; i++)
+        {
+            if(listaOsob[i].login === req.body.login)
+            {
+                existsLogin = true;
+            }
+        }
+    }
+    if(req.body.ksywka)
+    {
+        for(let i=0; i<listaOsob.length; i++)
+        {
+            if(listaOsob[i].ksywka === req.body.ksywka)
+            {
+                existsKsywka = true;
+            }
+        }
+    }
+    if(existsLogin || existsKsywka)
+    {
+        if(existsLogin)
+        {
+            if(req.session.user.czyAdmin)
+                res.render('administrator/a_dodanie',
+                    {
+                        who: 'Administrator',
+                        user: req.session.user,
+                        info: 'Osoba o takim loginie już istnieje!'
+                    });
+        }
+        if(existsKsywka)
+        {
+            if(req.session.user.czyTrener)
+                res.render('trener/t_dodanie',
+                    {
+                        who: 'Trener',
+                        user: req.session.user,
+                        info: 'Osoba o takiej ksywce już istnieje!'
+                    });
+            if(req.session.user.czyAdmin)
+                res.render('administrator/a_dodanie',
+                    {
+                        who: 'Administrator',
+                        user: req.session.user,
+                        info: 'Osoba o takiej ksywce już istnieje!'
+                    });
+            if(req.session.user.czyUczestnik)
+                res.render('uczestnik/u_dodanie',
+                    {
+                        who: 'Uczestnik',
+                        user: req.session.user,
+                        info: 'Osoba o takiej ksywce już istnieje!'
+                    });
+        }
     }
     else
     {
-        trener = false;
+        const updatedUser = await Osoba.findOne({id_osoby: parseInt(req.params.id)});
+        try{
+            const updatedOsoba = await Osoba.updateOne(
+                {id_osoby: parseInt(req.params.id)},
+                {$set: {login: req.body.login ? req.body.login : updatedUser.login,
+                        haslo: req.body.haslo ? req.body.haslo : updatedUser.haslo,
+                        imie: req.body.imie ? req.body.imie : updatedUser.imie,
+                        nazwisko: req.body.nazwisko ? req.body.nazwisko : updatedUser.nazwisko,
+                        ksywka: req.body.ksywka ? req.body.ksywka : updatedUser.ksywka,
+                        email: req.body.email ? req.body.email : updatedUser.email,
+                        telefon: req.body.telefon ? req.body.telefon : updatedUser.telefon,
+                        id_grupy: parseInt(req.body.grupa) ? parseInt(req.body.grupa) : updatedUser.id_grupy,
+                       }
+                });
+        }catch(err){
+            res.json({message:err});
+        }
+        if(req.session.user.czyTrener)
+            res.render('trener/t_dodanie',
+                {
+                    who: 'Trener',
+                    user: req.session.user,
+                    info: 'Profil został zaktualizowany!'
+                });
+        if(req.session.user.czyAdmin)
+            res.render('administrator/a_dodanie',
+                {
+                    who: 'Administrator',
+                    user: req.session.user,
+                    info: 'Profil został zaktualizowany!'
+                });
+        if(req.session.user.czyUczestnik)
+            res.render('uczestnik/u_dodanie',
+                {
+                    who: 'Uczestnik',
+                    user: req.session.user,
+                    info: 'Profil został zaktualizowany!'
+                });
     }
-    if(req.body.rola === "uczestnik")
-    {
-        uczestnik = true;
-    }
-    else
-    {
-        uczestnik = false;
-    }
-    try{
-        const updatedOsoba = await Osoba.updateOne(
-            {id_cwiczenia: parseInt(req.params.id)},
-            {$set: {login: req.body.login,
-                    haslo: req.body.haslo,
-                    imie: req.body.imie,
-                    nazwisko: req.body.nazwisko,
-                    ksywka: req.body.ksywka,
-                    email: req.body.email,
-                    telefon: req.body.telefon,
-                    id_grupy: parseInt(req.body.grupa),
-                    czyTrener:trener,
-                    czyUczestnik: uczestnik}
-            });
-    }catch(err){
-        res.json({message:err});
-    }
-    if(req.session.user.czyUczestnik)
-        res.redirect('/api/osoba/u_strona_glowna');
-    if(req.session.user.czyTrener)
-        res.redirect('/api/osoba/t_strona_glowna');
-    if(req.session.user.czyAdmin)
-        res.redirect('/api/osoba/a_lista_osob');
 });
 
 // Delete
 router.post('/delete/:id', async (req, res) => {
-    try{
-        const usunietaOsoba= await Osoba.deleteOne({id_osoby: parseInt(req.params.id)})
-    }catch(err){
-        res.json({message:err});
-    }
-    try{
-        const usunietyTrener= await Trener.deleteOne({id_trener: parseInt(req.params.id)})
-    }catch(err){
-        res.json({message:err});
-    }
-    try{
-        const usunietyUczestnik= await Uczestnik.deleteOne({id_uczestnik: parseInt(req.params.id)})
-    }catch(err){
-        res.json({message:err});
+    if(parseInt(req.params.id) !== 1)
+    {
+        try{
+            const usunietaOsoba= await Osoba.deleteOne({id_osoby: parseInt(req.params.id)})
+        }catch(err){
+            res.json({message:err});
+        }
+        try{
+            const usunietyTrener= await Trener.deleteOne({id_trener: parseInt(req.params.id)})
+        }catch(err){
+            res.json({message:err});
+        }
+        try{
+            const usunietyUczestnik= await Uczestnik.deleteOne({id_uczestnik: parseInt(req.params.id)})
+        }catch(err){
+            res.json({message:err});
+        }
     }
     res.redirect('../../osoba/a_lista_osob');
 });

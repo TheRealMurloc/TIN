@@ -60,15 +60,21 @@ router.post('/', async (req, res) => {
     }
     if(!newFeedback.opis) {
         res.status(400).json({ msg: 'Wpisz opis'});
-    } else {
-        feedback.push(newFeedback);
     }
-    if(req.session.user.czyAdmin)
-        res.redirect('../api/feedback/a_lista_feedback');
     if(req.session.user.czyTrener)
-        res.redirect('../api/feedback/t_feedback');
+        res.render('trener/t_dodanie',
+        {
+            who: 'Trener',
+            user: req.session.user,
+            info: 'Feedback został dodany!'
+        });
     if(req.session.user.czyUczestnik)
-        res.redirect('../api/feedback/u_feedback');
+        res.render('uczestnik/u_dodanie',
+            {
+                who: 'Uczestnik',
+                user: req.session.user,
+                info: 'Feedback został dodany!'
+            });
 });
 
 // Delete
