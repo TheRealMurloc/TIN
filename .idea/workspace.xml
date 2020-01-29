@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6169ae36-a867-49e2-a7d1-580232f46233" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Routes/api/cwiczenia.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/api/cwiczenia.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Routes/api/osoba.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/api/osoba.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Routes/api/zlecone_cwiczenie.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/api/zlecone_cwiczenie.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Zlecone_cwiczenie.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Zlecone_cwiczenie.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/administrator/a_zmiana_osoby.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_zmiana_osoby.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/administrator/a_zmiana_cwiczenia.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_zmiana_cwiczenia.handlebars" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,6 +119,7 @@
       <workItem from="1580139818972" duration="9126000" />
       <workItem from="1580159029845" duration="687000" />
       <workItem from="1580289305255" duration="4829000" />
+      <workItem from="1580304616988" duration="186000" />
     </task>
     <servers />
   </component>
@@ -162,10 +159,10 @@
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
     <state x="341" y="147" key="SettingsEditor/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1578518432521" />
-    <state x="536" y="328" key="com.intellij.ide.util.TipDialog" timestamp="1580289306216">
+    <state x="536" y="328" key="com.intellij.ide.util.TipDialog" timestamp="1580304619667">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state x="536" y="328" key="com.intellij.ide.util.TipDialog/0.0.1680.1010/-1280.26.1280.984@0.0.1680.1010" timestamp="1580289306216" />
+    <state x="536" y="328" key="com.intellij.ide.util.TipDialog/0.0.1680.1010/-1280.26.1280.984@0.0.1680.1010" timestamp="1580304619667" />
     <state x="-872" y="335" key="com.intellij.ide.util.TipDialog/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@-1280.15.1280.984" timestamp="1579513605829" />
     <state x="536" y="328" key="com.intellij.ide.util.TipDialog/1680.255.1440.860/0.0.1680.1010/-1280.15.1280.984@0.0.1680.1010" timestamp="1579596874717" />
     <state x="1689" y="239" width="1386" height="681" maximized="true" key="dock-window-1" timestamp="1579598128449">
