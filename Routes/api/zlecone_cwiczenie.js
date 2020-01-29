@@ -19,13 +19,29 @@ router.get('/a_lista_zlecen_indywidualnych/:id', async (req, res) =>
     } catch (err) {
         res.json({message: err});
     }
+
+
+    let nazwaCwiczenia = "";
+    let listaCwiczen;
+    try {
+        listaCwiczen = await Cwiczenia.find();
+    } catch (err) {
+        res.json({message: err});
+    }
     for(let i=0; i<lista.length; i++)
     {
+        for(let j=0; j<listaCwiczen.length; j++)
+        {
+            if(lista[i].id_cwiczenia === listaCwiczen[j].id_cwiczenia)
+            {
+                nazwaCwiczenia = listaCwiczen[j].nazwa;
+            }
+        }
         if(!lista[i].cwiczenie_grupowe) {
             const tmp = {
                 id_osoba: lista[i].id_osoba,
                 id_cwiczenia: lista[i].id_cwiczenia,
-                nazwa: lista[i].nazwa,
+                nazwa: nazwaCwiczenia,
                 id_trening: lista[i].id_trening,
                 ilosc_serii: lista[i].ilosc_serii,
                 ilosc_zaplanowana: lista[i].ilosc_zaplanowana,
@@ -34,6 +50,7 @@ router.get('/a_lista_zlecen_indywidualnych/:id', async (req, res) =>
                 wynik: lista[i].wynik,
                 cwiczenie_grupowe: lista[i].cwiczenie_grupowe
             };
+
             lista_zlecen.push(tmp);
         }
     }
@@ -98,13 +115,27 @@ router.get('/a_lista_zlecen_grupowych/:id', async (req, res) =>
     } catch (err) {
         res.json({message: err});
     }
+    let nazwaCwiczenia = "";
+    let listaCwiczen;
+    try {
+        listaCwiczen = await Cwiczenia.find();
+    } catch (err) {
+        res.json({message: err});
+    }
     for(let i=0; i<lista.length; i++)
     {
+        for(let j=0; j<listaCwiczen.length; j++)
+        {
+            if(lista[i].id_cwiczenia === listaCwiczen[j].id_cwiczenia)
+            {
+                nazwaCwiczenia = listaCwiczen[j].nazwa;
+            }
+        }
         if(lista[i].cwiczenie_grupowe) {
             const tmp = {
                 id_osoba: lista[i].id_osoba,
                 id_cwiczenia: lista[i].id_cwiczenia,
-                nazwa: lista[i].nazwa,
+                nazwa: nazwaCwiczenia,
                 id_trening: lista[i].id_trening,
                 ilosc_serii: lista[i].ilosc_serii,
                 ilosc_zaplanowana: lista[i].ilosc_zaplanowana,
@@ -175,13 +206,27 @@ router.get('/u_ranking_grupowy', async (req, res) =>
     } catch (err) {
         res.json({message: err});
     }
+    let nazwaCwiczenia = "";
+    let listaCwiczen;
+    try {
+        listaCwiczen = await Cwiczenia.find();
+    } catch (err) {
+        res.json({message: err});
+    }
     for(let i=0; i<lista.length; i++)
     {
+        for(let j=0; j<listaCwiczen.length; j++)
+        {
+            if(lista[i].id_cwiczenia === listaCwiczen[j].id_cwiczenia)
+            {
+                nazwaCwiczenia = listaCwiczen[j].nazwa;
+            }
+        }
         if(lista[i].cwiczenie_grupowe) {
             const tmp = {
                 id_osoba: lista[i].id_osoba,
                 id_cwiczenia: lista[i].id_cwiczenia,
-                nazwa: lista[i].nazwa,
+                nazwa: nazwaCwiczenia,
                 id_trening: lista[i].id_trening,
                 ilosc_serii: lista[i].ilosc_serii,
                 ilosc_zaplanowana: lista[i].ilosc_zaplanowana,
@@ -211,12 +256,27 @@ router.get('/t_ranking_grupowy', async (req, res) =>
     } catch (err) {
         res.json({message: err});
     }
+    let nazwaCwiczenia = "";
+    let listaCwiczen;
+    try {
+        listaCwiczen = await Cwiczenia.find();
+    } catch (err) {
+        res.json({message: err});
+    }
+
     for(let i=0; i<lista.length; i++)
     {
+        for(let j=0; j<listaCwiczen.length; j++)
+        {
+            if(lista[i].id_cwiczenia === listaCwiczen[j].id_cwiczenia)
+            {
+                nazwaCwiczenia = listaCwiczen[j].nazwa;
+            }
+        }
         const tmp = {
             id_osoba: lista[i].id_osoba,
             id_cwiczenia: lista[i].id_cwiczenia,
-            nazwa: lista[i].nazwa,
+            nazwa: nazwaCwiczenia,
             id_trening: lista[i].id_trening,
             ilosc_serii: lista[i].ilosc_serii,
             ilosc_zaplanowana: lista[i].ilosc_zaplanowana,
@@ -286,12 +346,27 @@ router.get('/t_ranking_indywidualny', async (req, res) =>
     } catch (err) {
         res.json({message: err});
     }
+    let nazwaCwiczenia = "";
+    let listaCwiczen;
+    try {
+        listaCwiczen = await Cwiczenia.find();
+    } catch (err) {
+        res.json({message: err});
+    }
+
     for(let i=0; i<lista.length; i++)
     {
+        for(let j=0; j<listaCwiczen.length; j++)
+        {
+            if(lista[i].id_cwiczenia === listaCwiczen[j].id_cwiczenia)
+            {
+                nazwaCwiczenia = listaCwiczen[j].nazwa;
+            }
+        }
         const tmp = {
             id_osoba: lista[i].id_osoba,
             id_cwiczenia: lista[i].id_cwiczenia,
-            nazwa: lista[i].nazwa,
+            nazwa: nazwaCwiczenia,
             id_trening: lista[i].id_trening,
             ilosc_serii: lista[i].ilosc_serii,
             ilosc_zaplanowana: lista[i].ilosc_zaplanowana,
@@ -361,12 +436,28 @@ router.get('/a_ranking_grupowy', async (req, res) =>
     } catch (err) {
         res.json({message: err});
     }
+    let nazwaCwiczenia = "";
+    let listaCwiczen;
+    try {
+        listaCwiczen = await Cwiczenia.find();
+    } catch (err) {
+        res.json({message: err});
+    }
+
     for(let i=0; i<lista.length; i++)
     {
+        for(let j=0; j<listaCwiczen.length; j++)
+        {
+            if(lista[i].id_cwiczenia === listaCwiczen[j].id_cwiczenia)
+            {
+                nazwaCwiczenia = listaCwiczen[j].nazwa;
+            }
+        }
+
         const tmp = {
             id_osoba: lista[i].id_osoba,
             id_cwiczenia: lista[i].id_cwiczenia,
-            nazwa: lista[i].nazwa,
+            nazwa: nazwaCwiczenia,
             id_trening: lista[i].id_trening,
             ilosc_serii: lista[i].ilosc_serii,
             ilosc_zaplanowana: lista[i].ilosc_zaplanowana,
@@ -436,12 +527,28 @@ router.get('/a_ranking_indywidualny', async (req, res) =>
     } catch (err) {
         res.json({message: err});
     }
+    let nazwaCwiczenia = "";
+    let listaCwiczen;
+    try {
+        listaCwiczen = await Cwiczenia.find();
+    } catch (err) {
+        res.json({message: err});
+    }
+
     for(let i=0; i<lista.length; i++)
     {
+        for(let j=0; j<listaCwiczen.length; j++)
+        {
+            if(lista[i].id_cwiczenia === listaCwiczen[j].id_cwiczenia)
+            {
+                nazwaCwiczenia = listaCwiczen[j].nazwa;
+            }
+        }
+
         const tmp = {
             id_osoba: lista[i].id_osoba,
             id_cwiczenia: lista[i].id_cwiczenia,
-            nazwa: lista[i].nazwa,
+            nazwa: nazwaCwiczenia,
             id_trening: lista[i].id_trening,
             ilosc_serii: lista[i].ilosc_serii,
             ilosc_zaplanowana: lista[i].ilosc_zaplanowana,
@@ -660,13 +767,28 @@ router.get('/u_trening_indywidualny', async (req, res) =>
     } catch (err) {
         res.json({message: err});
     }
+    let nazwaCwiczenia = "";
+    let listaCwiczen;
+    try {
+        listaCwiczen = await Cwiczenia.find();
+    } catch (err) {
+        res.json({message: err});
+    }
     for(let i=0; i<lista.length; i++)
     {
+        for(let j=0; j<listaCwiczen.length; j++)
+        {
+            if(lista[i].id_cwiczenia === listaCwiczen[j].id_cwiczenia)
+            {
+                nazwaCwiczenia = listaCwiczen[j].nazwa;
+            }
+        }
+
         if(!lista[i].cwiczenie_grupowe) {
             const tmp = {
                 id_osoba: lista[i].id_osoba,
                 id_cwiczenia: lista[i].id_cwiczenia,
-                nazwa: lista[i].nazwa,
+                nazwa: nazwaCwiczenia,
                 id_trening: lista[i].id_trening,
                 ilosc_serii: lista[i].ilosc_serii,
                 ilosc_zaplanowana: lista[i].ilosc_zaplanowana,
@@ -723,6 +845,7 @@ router.get('/u_trening_grupowy', async (req, res) =>
     } catch (err) {
         res.json({message: err});
     }
+
     for(let i=0; i<lista.length; i++)
     {
         const tmp = {
@@ -739,13 +862,29 @@ router.get('/u_trening_grupowy', async (req, res) =>
     } catch (err) {
         res.json({message: err});
     }
+    let nazwaCwiczenia = "";
+    let listaCwiczen;
+    try {
+        listaCwiczen = await Cwiczenia.find();
+    } catch (err) {
+        res.json({message: err});
+    }
+
     for(let i=0; i<lista.length; i++)
     {
+        for(let j=0; j<listaCwiczen.length; j++)
+        {
+            if(lista[i].id_cwiczenia === listaCwiczen[j].id_cwiczenia)
+            {
+                nazwaCwiczenia = listaCwiczen[j].nazwa;
+            }
+        }
+
         if(lista[i].cwiczenie_grupowe) {
             const tmp = {
                 id_osoba: lista[i].id_osoba,
                 id_cwiczenia: lista[i].id_cwiczenia,
-                nazwa: lista[i].nazwa,
+                nazwa: nazwaCwiczenia,
                 id_trening: lista[i].id_trening,
                 ilosc_serii: lista[i].ilosc_serii,
                 ilosc_zaplanowana: lista[i].ilosc_zaplanowana,
@@ -799,19 +938,9 @@ router.post('/indywidualne/', async (req, res) => {
         };
         cwiczenia.push(tmp);
     }
-    let tmpNazwa = "";
-
-    for(let i=0; i < cwiczenia.length; i++)
-    {
-        if(cwiczenia[i].id_cwiczenia === parseInt(req.body.cwiczenie))
-        {
-            tmpNazwa = cwiczenia[i].nazwa;
-        }
-    }
     const newZlecenie = new Zlecone_cwiczenie({
         id_osoba: parseInt(req.body.osoba),
         id_cwiczenia: parseInt(req.body.cwiczenie),
-        nazwa: tmpNazwa,
         id_trening: parseInt(req.body.trening),
         ilosc_serii: parseInt(req.body.serie),
         ilosc_zaplanowana: parseInt(req.body.ilosc),
@@ -870,14 +999,6 @@ router.post('/grupa/', async (req, res) => {
         };
         osoba.push(tmp);
     }
-    let tmpNazwa = "";
-    for(let i=0; i < cwiczenia.length; i++)
-    {
-        if(cwiczenia[i].id_cwiczenia === parseInt(req.body.cwiczenie))
-        {
-            tmpNazwa = cwiczenia[i].nazwa;
-        }
-    }
     for(let i=0; i<osoba.length; i++)
     {
         if(osoba[i].czyUczestnik) {
@@ -885,7 +1006,6 @@ router.post('/grupa/', async (req, res) => {
                 const newZlecenie = new Zlecone_cwiczenie({
                     id_osoba: osoba[i].id_osoby,
                     id_cwiczenia: parseInt(req.body.cwiczenie),
-                    nazwa: tmpNazwa,
                     id_trening: parseInt(req.body.trening),
                     ilosc_serii: parseInt(req.body.serie),
                     ilosc_zaplanowana: parseInt(req.body.ilosc),
@@ -921,7 +1041,6 @@ router.post('/update/ind/', async (req, res) => {
             const tmp = {
                 id_osoba: lista[i].id_osoba,
                 id_cwiczenia: lista[i].id_cwiczenia,
-                nazwa: lista[i].nazwa,
                 id_trening: lista[i].id_trening,
                 ilosc_serii: lista[i].ilosc_serii,
                 ilosc_zaplanowana: lista[i].ilosc_zaplanowana,
@@ -1056,7 +1175,6 @@ router.post('/update/grupa/', async (req, res) => {
             const tmp = {
                 id_osoba: lista[i].id_osoba,
                 id_cwiczenia: lista[i].id_cwiczenia,
-                nazwa: lista[i].nazwa,
                 id_trening: lista[i].id_trening,
                 ilosc_serii: lista[i].ilosc_serii,
                 ilosc_zaplanowana: lista[i].ilosc_zaplanowana,

@@ -220,7 +220,7 @@ router.post('/update/:id', async (req, res) => {
     let exists = false;
     for(let i=0; i<listaCwiczen.length; i++)
     {
-        if(listaCwiczen[i].nazwa === req.body.nazwa)
+        if(listaCwiczen[i].nazwa === req.body.nazwa && listaCwiczen[i].id_cwiczenia !== parseInt(req.params.id))
         {
             exists = true;
         }

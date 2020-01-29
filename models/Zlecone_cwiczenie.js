@@ -9,10 +9,6 @@ const zlecone_cwiczenieSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    nazwa: {
-        type: String,
-        required: true
-    },
     id_trening: {
         type: Number,
         required: true

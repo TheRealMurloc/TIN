@@ -433,7 +433,7 @@ router.post('/update/:id', async (req, res) => {
     {
         for(let i=0; i<listaOsob.length; i++)
         {
-            if(listaOsob[i].login === req.body.login)
+            if(listaOsob[i].login === req.body.login && listaOsob[i].id_osoby !== parseInt(req.params.id))
             {
                 existsLogin = true;
             }
@@ -443,7 +443,7 @@ router.post('/update/:id', async (req, res) => {
     {
         for(let i=0; i<listaOsob.length; i++)
         {
-            if(listaOsob[i].ksywka === req.body.ksywka)
+            if(listaOsob[i].ksywka === req.body.ksywka && listaOsob[i].id_osoby !== parseInt(req.params.id))
             {
                 existsKsywka = true;
             }

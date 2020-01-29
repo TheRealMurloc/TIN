@@ -96,17 +96,31 @@
                             <div class="settings">
                                 <fieldset>
                                     <legend> Zmień osobę </legend>
+                                    <label for="nazwa">Login</label>
                                     <input type="text" id="nazwa" name="login" class="form" placeholder="Wpisz login" value="{{tmpElement.login}}"><br />
                                     <div id="errorMessage1" class="errorMessage"></div>
-                                    <input type="password" id="haslo" name="haslo" class="form" placeholder="Wpisz hasło uczestnika"><br />
+                                    <label for="haslo">Hasło</label>
+                                    <input type="password" id="haslo" name="haslo" class="form" placeholder="Wpisz hasło uczestnika" value="{{tmpElement.haslo}}"><br />
                                     <div id="errorMessage2" class="errorMessage"></div>
-                                    <input type="password" id="haslo2" class="form" placeholder="Powtórz hasło">
+                                    <label for="haslo2">Powtórz hasło</label>
+                                    <input type="password" id="haslo2" class="form" placeholder="Powtórz hasło" value="{{tmpElement.haslo}}">
                                     <div id="errorMessage3" class="errorMessage"></div>
-                                    <input type="text" name="imie" class="form" placeholder="Wpisz imię uczestnika" value="{{tmpElement.imie}}"><br />
-                                    <input type="text" name="nazwisko" class="form" placeholder="Wpisz nazwisko uczestnika" value="{{tmpElement.nazwisko}}"><br />
-                                    <input type="text" name="ksywka" class="form" placeholder="Wpisz ksywkę" value="{{tmpElement.ksywka}}"><br />
-                                    <input type="text" name="email" class="form" placeholder="Wpisz adres email" value="{{tmpElement.email}}"><br />
-                                    <input type="text" name="telefon" class="form" placeholder="Wpisz numer telefonu" value="{{tmpElement.telefon}}"><br />
+                                    <label for="imie">Imie</label>
+                                    <input type="text" id="imie" name="imie" class="form" placeholder="Wpisz imię uczestnika" value="{{tmpElement.imie}}"><br />
+                                    <div id="errorMessage4" class="errorMessage"></div>
+                                    <label for="nazwisko">Nazwisko</label>
+                                    <input type="text" id="nazwisko" name="nazwisko" class="form" placeholder="Wpisz nazwisko uczestnika" value="{{tmpElement.nazwisko}}"><br />
+                                    <div id="errorMessage5" class="errorMessage"></div>
+                                    <label for="ksywka">Ksywka</label>
+                                    <input type="text" id="ksywka" name="ksywka" class="form" placeholder="Wpisz ksywkę" value="{{tmpElement.ksywka}}"><br />
+                                    <div id="errorMessage6" class="errorMessage"></div>
+                                    <label for="email">Email</label>
+                                    <input type="text" id="email" name="email" class="form" placeholder="Wpisz adres email" value="{{tmpElement.email}}"><br />
+                                    <div id="errorMessage7" class="errorMessage"></div>
+                                    <label for="telefon">Telefon</label>
+                                    <input type="text" id="telefon" name="telefon" class="form" placeholder="Wpisz numer telefonu" value="{{tmpElement.telefon}}"><br />
+                                    <div id="errorMessage8" class="errorMessage"></div>
+                                    <label for="grupa">Grupa</label>
                                     <select id="grupa" name="grupa">
                                         {{#each grupa}}
                                             <option name="grupa" value="{{this.id_grupy}}">Grupa {{this.id_grupy}}</option>
