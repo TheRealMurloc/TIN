@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const Trening_internetowy = require('../../models/Trening_internetowy');
+const Zlecone_cwiczenie = require('../../models/Zlecone_cwiczenie');
 
 router.get('/a_lista_treningow_internetowych', async (req, res) => {
     let trening_internetowy = [];
@@ -100,7 +101,12 @@ router.post('/update/:id', async (req, res) => {
 // Delete
 router.post('/delete/:id', async (req, res) => {
     try{
-        const usunieteCwiczenie = await Cwiczenia.deleteOne({id_trening: req.params.id})
+        const usunietyTrening = await Trening_internetowy.deleteOne({id_trening: req.params.id})
+    }catch(err){
+        res.json({message:err});
+    }
+    try{
+        const usunieteZlecenia= await Zlecone_cwiczenie.deleteMany({id_trening: parseInt(req.params.id)})
     }catch(err){
         res.json({message:err});
     }

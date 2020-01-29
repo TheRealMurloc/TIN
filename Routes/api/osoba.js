@@ -5,6 +5,9 @@ const Osoba = require('../../models/Osoba');
 const Grupa = require('../../models/Grupa');
 const Trener = require('../../models/Trener');
 const Uczestnik = require('../../models/Uczestnik');
+const Zlecone_cwiczenie = require('../../models/Zlecone_cwiczenie');
+const Obecnosc = require('../../models/Obecnosc');
+
 
 
 router.get('/u_strona_glowna', (req, res) => res.render('uczestnik/u_strona_glowna',
@@ -545,6 +548,16 @@ router.post('/delete/:id', async (req, res) => {
         }
         try{
             const usunietyUczestnik= await Uczestnik.deleteOne({id_uczestnik: parseInt(req.params.id)})
+        }catch(err){
+            res.json({message:err});
+        }
+        try{
+            const usunieteZlecenia= await Zlecone_cwiczenie.deleteMany({id_osoba: parseInt(req.params.id)})
+        }catch(err){
+            res.json({message:err});
+        }
+        try{
+            const usunieteObecnosci= await Obecnosc.deleteMany({id_uczestnik: parseInt(req.params.id)})
         }catch(err){
             res.json({message:err});
         }

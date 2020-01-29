@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="6169ae36-a867-49e2-a7d1-580232f46233" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/administrator/a_zmiana_cwiczenia.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/administrator/a_zmiana_cwiczenia.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Routes/api/osoba.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/api/osoba.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Routes/api/trening_internetowy.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/api/trening_internetowy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Routes/api/trening_klasyczny.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/api/trening_klasyczny.js" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,7 +40,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="javascript.nodejs.core.library.configured.version" value="12.13.1" />
+    <property name="javascript.nodejs.core.library.configured.version" value="12.14.1" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
@@ -58,15 +61,15 @@
       <recent name="C:\Users\Ppatryk27\Documents\GitHub\TIN\administrator" />
     </key>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
+  <component name="RunDashboard">
+    <option name="ruleStates">
       <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
       </list>
     </option>
   </component>
@@ -120,6 +123,8 @@
       <workItem from="1580159029845" duration="687000" />
       <workItem from="1580289305255" duration="4829000" />
       <workItem from="1580304616988" duration="186000" />
+      <workItem from="1580317273268" duration="2774000" />
+      <workItem from="1580323685329" duration="1000000" />
     </task>
     <servers />
   </component>

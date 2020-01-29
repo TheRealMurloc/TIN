@@ -762,6 +762,11 @@ router.post('/delete/:id', async (req, res) => {
     }catch(err){
         res.json({message:err});
     }
+    try{
+        const usunieteObecnosci= await Obecnosc.deleteMany({id_trening: parseInt(req.params.id)})
+    }catch(err){
+        res.json({message:err});
+    }
     res.redirect('../../trening_klasyczny/a_lista_treningow_klasycznych');
 });
 
